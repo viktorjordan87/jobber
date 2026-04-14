@@ -6,6 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
+      "dependsOn": ["prisma-generate"],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
@@ -59,6 +60,27 @@
         "production": {
           "buildTarget": "jobber-auth:build:production"
         }
+      }
+    },
+    "prisma-generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma generate",
+        "cwd": "apps/jobber-auth"
+      }
+    },
+    "prisma-migrate-dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma migrate dev",
+        "cwd": "apps/jobber-auth"
+      }
+    },
+    "prisma-studio": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma studio",
+        "cwd": "apps/jobber-auth"
       }
     },
     "test": {
