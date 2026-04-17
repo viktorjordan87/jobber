@@ -1,0 +1,14 @@
+{
+  "name": "jobber-auth-scripts",
+  "private": true,
+  "scripts": {
+    "build": "npx nx build jobber-auth",
+    "start:dev": "npx nx serve jobber-auth",
+    "test": "npx nx test jobber-auth",
+    "prisma:generate": "npx nx run jobber-auth:prisma-generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio",
+    "prisma:format": "npx nx run jobber-auth:prisma-format"
+  }
+}
+
