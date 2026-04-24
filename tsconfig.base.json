@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@jobber/nestjs": ["libs/nestjs/src/index.ts"],
+      "@prisma-clients/jobber-auth": ["apps/jobber-auth/src/prisma/generated/client.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

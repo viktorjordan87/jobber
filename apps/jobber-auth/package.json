@@ -8,7 +8,8 @@
     "prisma:generate": "npx nx run jobber-auth:prisma-generate",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
-    "prisma:format": "npx nx run jobber-auth:prisma-format"
+    "prisma:format": "npx nx run jobber-auth:prisma-format",
+    "graphql:playground": "open http://localhost:3000/graphql || start http://localhost:3000/graphql"
   }
 }
 
