@@ -4,7 +4,7 @@
   "scripts": {
     "build": "npx nx build jobber-auth",
     "start:dev": "npx nx serve jobber-auth",
-    "test": "npx nx test jobber-auth",
+    "test": "npx jest --config jest.config.cts",
     "prisma:generate": "npx nx run jobber-auth:prisma-generate",
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
@@ -12,4 +12,3 @@
     "graphql:playground": "open http://localhost:3000/graphql || start http://localhost:3000/graphql"
   }
 }
-

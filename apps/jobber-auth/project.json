@@ -51,7 +51,7 @@
       "dependsOn": ["build"],
       "options": {
         "buildTarget": "jobber-auth:build",
-        "runBuildTargetDependencies": false
+        "runBuildTargetDependencies": true
       },
       "configurations": {
         "development": {
@@ -84,7 +84,11 @@
       }
     },
     "test": {
+      "dependsOn": ["prisma-generate"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
+        "jestConfig": "apps/jobber-auth/jest.config.cts",
         "passWithNoTests": true
       }
     }

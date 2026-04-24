@@ -8,7 +8,8 @@
     "docker:restart": "docker compose -f docker/docker.compose.yml down && docker compose -f docker/docker.compose.yml up -d",
     "docker:logs": "docker compose -f docker/docker.compose.yml logs -f",
     "docker:ps": "docker compose -f docker/docker.compose.yml ps",
-    "docker:pgadmin": "open http://localhost:5433 || start http://localhost:5433"
+    "docker:pgadmin": "open http://localhost:5433 || start http://localhost:5433",
+    "prepare": "husky"
   },
   "private": true,
   "dependencies": {
@@ -53,9 +54,11 @@
     "@types/node": "20.19.9",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
+    "husky": "^9.1.7",
     "jest": "^30.0.2",
     "jest-environment-node": "^30.0.2",
     "jest-util": "^30.0.2",
+    "lint-staged": "^16.4.0",
     "nx": "22.6.5",
     "open": "^11.0.0",
     "prettier": "~3.6.2",
