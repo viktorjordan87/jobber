@@ -9,6 +9,6 @@
     "prisma:migrate": "npx prisma migrate dev",
     "prisma:studio": "npx prisma studio",
     "prisma:format": "npx nx run jobber-auth:prisma-format",
-    "graphql:playground": "open http://localhost:3000/graphql || start http://localhost:3000/graphql"
+    "graphql:playground": "open http://localhost:3000/graphiql || start http://localhost:3000/graphiql"
   }
 }
