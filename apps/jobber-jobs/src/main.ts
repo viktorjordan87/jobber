@@ -27,7 +27,7 @@ async function bootstrap() {
   });
   await app.listen(port);
   Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,
+    `Application is running on: http://localhost:${port}/${globalPrefix}`,
   );
 }
 
