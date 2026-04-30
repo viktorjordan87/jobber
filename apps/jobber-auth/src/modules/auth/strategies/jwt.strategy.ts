@@ -2,16 +2,15 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
-import { FastifyRequest } from 'fastify';
-import { TokenPayload } from '../types';
+import { JwtExtractorRequest, TokenPayload } from '../types';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(configService: ConfigService) {
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
-        (request: FastifyRequest): string | null =>
-          request?.cookies?.access_token ?? null,
+        (request: JwtExtractorRequest): string | null =>
+          request.cookies?.access_token ?? request.token ?? null,
       ]),
       secretOrKey: configService.getOrThrow<string>('JWT_SECRET'),
       ignoreExpiration: false, //ignoreExpiration: false = check the expiry date.

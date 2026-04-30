@@ -6,7 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
-      "dependsOn": ["prisma-generate"],
+      "dependsOn": ["prisma-generate", "proto:generate-ts"],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
@@ -64,23 +64,29 @@
     },
     "prisma-generate": {
       "executor": "nx:run-commands",
+      "inputs": [
+        "{projectRoot}/src/prisma/schema.prisma",
+        "{projectRoot}/prisma.config.ts"
+      ],
+      "outputs": ["{projectRoot}/src/prisma/generated"],
       "options": {
         "command": "prisma generate",
-        "cwd": "apps/jobber-auth"
-      }
+        "cwd": "{projectRoot}"
+      },
+      "cache": true
     },
     "prisma-studio": {
       "executor": "nx:run-commands",
       "options": {
         "command": "prisma studio",
-        "cwd": "apps/jobber-auth"
+        "cwd": "{projectRoot}"
       }
     },
     "prisma-format": {
       "executor": "nx:run-commands",
       "options": {
         "command": "prisma format",
-        "cwd": "apps/jobber-auth"
+        "cwd": "{projectRoot}"
       }
     },
     "test": {
@@ -88,8 +94,14 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/jobber-auth/jest.config.cts",
+        "jestConfig": "{projectRoot}/jest.config.cts",
         "passWithNoTests": true
+      }
+    },
+    "proto:generate-ts": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx nx proto:generate-ts"
       }
     }
   }

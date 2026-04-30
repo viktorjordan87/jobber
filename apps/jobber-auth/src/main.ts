@@ -12,6 +12,9 @@ import {
 } from '@nestjs/platform-fastify';
 import { ConfigService } from '@nestjs/config';
 import fastifyCookie from '@fastify/cookie';
+import { GrpcOptions, Transport } from '@nestjs/microservices';
+import { join } from 'node:path';
+import { AUTH_PACKAGE_NAME } from '@jobber/proto';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -25,6 +28,14 @@ async function bootstrap() {
   app.register(fastifyCookie, {
     secret: app.get(ConfigService).getOrThrow<string>('COOKIE_SECRET'),
   });
+  app.connectMicroservice<GrpcOptions>({
+    transport: Transport.GRPC,
+    options: {
+      package: AUTH_PACKAGE_NAME, // name of the package in the proto file
+      protoPath: join(__dirname, 'proto/auth.proto'),
+    },
+  });
+  await app.startAllMicroservices();
   await app.listen(port);
   Logger.log(
     `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,

@@ -9,7 +9,18 @@
     "docker:logs": "docker compose -f docker/docker.compose.yml logs -f",
     "docker:ps": "docker compose -f docker/docker.compose.yml ps",
     "docker:pgadmin": "open http://localhost:5433 || start http://localhost:5433",
-    "prepare": "husky"
+    "prepare": "husky",
+    "proto:generate-ts": "node -e \"require('fs').mkdirSync('libs/proto/src/generated',{recursive:true})\" && (npx protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./libs/proto/src/generated ./proto/*.proto --ts_proto_opt=nestJs=true || npx protoc --plugin=protoc-gen-ts_proto=.\\\\node_modules\\\\.bin\\\\protoc-gen-ts_proto.cmd --ts_proto_out=.\\\\libs\\\\proto\\\\src\\\\generated .\\\\proto\\\\*.proto --ts_proto_opt=nestJs=true) && node ./scripts/update-proto-index.mjs"
+  },
+  "nx": {
+    "targets": {
+      "proto:generate-ts": {
+        "cache": true,
+        "inputs": [
+          "{workspaceRoot}/proto/**/*.proto"
+        ]
+      }
+    }
   },
   "private": true,
   "dependencies": {
@@ -17,6 +28,8 @@
     "@as-integrations/fastify": "^3.1.0",
     "@fastify/cookie": "^11.0.2",
     "@golevelup/nestjs-discovery": "^7.0.0",
+    "@grpc/grpc-js": "^1.14.3",
+    "@grpc/proto-loader": "^0.8.0",
     "@nestjs/apollo": "^13.3.0",
     "@nestjs/common": "^11.0.0",
     "@nestjs/config": "^4.0.4",
@@ -24,6 +37,7 @@
     "@nestjs/graphql": "^13.3.0",
     "@nestjs/jwt": "^11.0.2",
     "@nestjs/mercurius": "^13.3.0",
+    "@nestjs/microservices": "^11.1.19",
     "@nestjs/passport": "^11.0.5",
     "@nestjs/platform-express": "^11.0.0",
     "@nestjs/platform-fastify": "^11.1.19",
@@ -40,7 +54,8 @@
     "passport-jwt": "^4.0.1",
     "pg": "^8.20.0",
     "reflect-metadata": "^0.1.13",
-    "rxjs": "^7.8.0"
+    "rxjs": "^7.8.0",
+    "ts-proto": "^2.11.6"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -73,6 +88,7 @@
     "open": "^11.0.0",
     "prettier": "~3.6.2",
     "prisma": "^7.7.0",
+    "protoc": "^25.9.0",
     "ts-jest": "^29.4.0",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",

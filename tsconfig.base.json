@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@jobber/nestjs": ["libs/nestjs/src/index.ts"],
+      "@jobber/proto": ["libs/proto/src/index.ts"],
       "@prisma-clients/jobber-auth": [
         "apps/jobber-auth/src/prisma/generated/client.ts"
       ]
