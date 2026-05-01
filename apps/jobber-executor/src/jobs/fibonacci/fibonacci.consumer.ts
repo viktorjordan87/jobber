@@ -18,7 +18,18 @@ export class FibonacciConsumer
   }
 
   protected async onMessage(data: FibonacciData): Promise<void> {
-    const result = iterate(data.iterations);
-    this.logger.log(result);
+    const iterations = Number(data.iterations);
+    if (!Number.isFinite(iterations) || iterations < 1) {
+      this.logger.warn(
+        `Skipping message: need iterations >= 1, got ${JSON.stringify(data)}`,
+      );
+      return;
+    }
+
+    const started = Date.now();
+    const result = iterate(iterations);
+    this.logger.log(
+      `Fibonacci done: iterations=${iterations}, digits=${result.length}, computeMs=${result.ms}, totalMs=${Date.now() - started}`,
+    );
   }
 }

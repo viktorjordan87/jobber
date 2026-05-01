@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "npx nx build jobber-jobs",
-    "start:dev": "npx nx serve jobber-jobs",
+    "start:dev": "concurrently -k -n serve,watch -c blue,magenta \"npx nx serve jobber-jobs\" \"npx nx watch --projects=jobber-jobs --includeDependentProjects -- npx nx serve jobber-jobs\"",
     "test": "npx jest --config jest.config.cts",
     "graphql:playground": "open http://localhost:3001/graphiql || start http://localhost:3001/graphiql"
   }
