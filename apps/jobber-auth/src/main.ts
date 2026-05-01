@@ -3,31 +3,23 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import {
   NestFastifyApplication,
   FastifyAdapter,
 } from '@nestjs/platform-fastify';
-import { ConfigService } from '@nestjs/config';
-import fastifyCookie from '@fastify/cookie';
 import { GrpcOptions, Transport } from '@nestjs/microservices';
 import { join } from 'node:path';
 import { AUTH_PACKAGE_NAME } from '@jobber/proto';
+import { bootstrapInit } from '@jobber/nestjs';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
   );
-  const globalPrefix = 'api';
-  app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
-  app.setGlobalPrefix(globalPrefix);
-  const port = app.get(ConfigService).getOrThrow<number>('PORT');
-  app.register(fastifyCookie, {
-    secret: app.get(ConfigService).getOrThrow<string>('COOKIE_SECRET'),
-  });
+  await bootstrapInit(app);
   app.connectMicroservice<GrpcOptions>({
     transport: Transport.GRPC,
     options: {
@@ -36,10 +28,6 @@ async function bootstrap() {
     },
   });
   await app.startAllMicroservices();
-  await app.listen(port);
-  Logger.log(
-    `🚀 Application is running on: http://localhost:${port}/${globalPrefix}`,
-  );
 }
 
 bootstrap();

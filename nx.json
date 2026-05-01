@@ -39,7 +39,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": []
+      "exclude": ["apps/jobber-executor-e2e/**/*"]
     }
   ],
   "targetDefaults": {

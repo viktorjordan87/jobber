@@ -19,7 +19,8 @@
       "@jobber/proto": ["libs/proto/src/index.ts"],
       "@prisma-clients/jobber-auth": [
         "apps/jobber-auth/src/prisma/generated/client.ts"
-      ]
+      ],
+      "@jobber/pulsar": ["libs/pulsar/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

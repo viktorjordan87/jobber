@@ -10,7 +10,8 @@
     "docker:ps": "docker compose -f docker/docker.compose.yml ps",
     "docker:pgadmin": "open http://localhost:5433 || start http://localhost:5433",
     "prepare": "husky",
-    "proto:generate-ts": "node -e \"require('fs').mkdirSync('libs/proto/src/generated',{recursive:true})\" && (npx protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./libs/proto/src/generated ./proto/*.proto --ts_proto_opt=nestJs=true || npx protoc --plugin=protoc-gen-ts_proto=.\\\\node_modules\\\\.bin\\\\protoc-gen-ts_proto.cmd --ts_proto_out=.\\\\libs\\\\proto\\\\src\\\\generated .\\\\proto\\\\*.proto --ts_proto_opt=nestJs=true) && node ./scripts/update-proto-index.mjs"
+    "proto:generate-ts": "node -e \"require('fs').mkdirSync('libs/proto/src/generated',{recursive:true})\" && (npx protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./libs/proto/src/generated ./proto/*.proto --ts_proto_opt=nestJs=true || npx protoc --plugin=protoc-gen-ts_proto=.\\\\node_modules\\\\.bin\\\\protoc-gen-ts_proto.cmd --ts_proto_out=.\\\\libs\\\\proto\\\\src\\\\generated .\\\\proto\\\\*.proto --ts_proto_opt=nestJs=true) && node ./scripts/update-proto-index.mjs",
+    "start:dev": "npx nx run-many --target=serve --all"
   },
   "nx": {
     "targets": {
@@ -48,11 +49,14 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.15.1",
     "dayjs": "^1.11.20",
+    "fibonacci": "^1.6.12",
     "graphql": "^16.13.2",
+    "graphql-type-json": "^0.3.2",
     "mercurius": "^16.9.0",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.20.0",
+    "pulsar-client": "^1.17.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
     "ts-proto": "^2.11.6"

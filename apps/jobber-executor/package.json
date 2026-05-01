@@ -1,0 +1,9 @@
+{
+  "name": "jobber-executor-scripts",
+  "private": true,
+  "scripts": {
+    "build": "npx nx build jobber-executor",
+    "start:dev": "npx nx serve jobber-executor",
+    "test": "npx jest --config jest.config.cts"
+  }
+}
