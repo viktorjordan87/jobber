@@ -1,0 +1,102 @@
+{
+  "name": "auth",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/auth/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "dependsOn": ["prisma-generate", "^build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "webpack-cli build",
+        "args": ["--node-env=production"],
+        "cwd": "apps/auth"
+      },
+      "configurations": {
+        "development": {
+          "args": ["--node-env=development"]
+        }
+      }
+    },
+    "prune-lockfile": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "executor": "@nx/js:prune-lockfile",
+      "outputs": [
+        "{workspaceRoot}/dist/apps/auth/package.json",
+        "{workspaceRoot}/dist/apps/auth/package-lock.json"
+      ],
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "copy-workspace-modules": {
+      "dependsOn": ["build"],
+      "cache": true,
+      "outputs": ["{workspaceRoot}/dist/apps/auth/workspace_modules"],
+      "executor": "@nx/js:copy-workspace-modules",
+      "options": {
+        "buildTarget": "build"
+      }
+    },
+    "prune": {
+      "dependsOn": ["prune-lockfile", "copy-workspace-modules"],
+      "executor": "nx:noop"
+    },
+    "serve": {
+      "continuous": true,
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "auth:build",
+        "runBuildTargetDependencies": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "auth:build:development"
+        },
+        "production": {
+          "buildTarget": "auth:build:production"
+        }
+      }
+    },
+    "prisma-generate": {
+      "executor": "nx:run-commands",
+      "inputs": [
+        "{projectRoot}/src/prisma/schema.prisma",
+        "{projectRoot}/prisma.config.ts"
+      ],
+      "outputs": ["{projectRoot}/src/prisma/generated"],
+      "options": {
+        "command": "prisma generate",
+        "cwd": "{projectRoot}"
+      },
+      "cache": true
+    },
+    "prisma-studio": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma studio",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "prisma-format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma format",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "test": {
+      "dependsOn": ["prisma-generate"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "{projectRoot}/jest.config.cts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "name": "@jobber/auth",
+  "private": true,
+  "dependencies": {
+    "@jobber/graphql": "*",
+    "@jobber/grpc": "*",
+    "@jobber/nestjs": "*",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/graphql": "^13.3.0",
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/mercurius": "^13.3.0",
+    "@nestjs/microservices": "^11.1.19",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-fastify": "^11.1.19",
+    "@prisma/adapter-pg": "^7.7.0",
+    "bcryptjs": "^3.0.3",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "dayjs": "^1.11.20",
+    "graphql": "^16.13.2",
+    "mercurius": "^16.9.0",
+    "module-alias": "^2.3.4",
+    "passport": "^0.7.0",
+    "passport-jwt": "^4.0.1",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/passport-jwt": "^4.0.1",
+    "concurrently": "^9.2.1",
+    "open": "^11.0.0",
+    "prisma": "^7.7.0"
+  },
+  "scripts": {
+    "build": "npx nx build auth",
+    "start:dev": "concurrently -k -n serve,watch -c blue,magenta \"npx nx serve auth\" \"npx nx watch --projects=auth --includeDependentProjects -- npx nx serve auth\"",
+    "test": "npx jest --config jest.config.cts",
+    "prisma:generate": "npx nx run auth:prisma-generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio",
+    "prisma:format": "npx nx run auth:prisma-format",
+    "graphql:playground": "open http://localhost:3000/graphiql || start http://localhost:3000/graphiql"
+  }
+}

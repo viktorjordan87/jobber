@@ -1,0 +1,13 @@
+{
+  "name": "@jobber/graphql",
+  "private": true,
+  "dependencies": {
+    "@jobber/grpc": "*",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/graphql": "^13.3.0",
+    "@nestjs/microservices": "^11.1.19",
+    "fastify": "^5.3.0",
+    "graphql": "^16.13.2",
+    "rxjs": "^7.8.0"
+  }
+}

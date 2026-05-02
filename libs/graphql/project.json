@@ -1,0 +1,28 @@
+{
+  "name": "graphql",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/graphql/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project graphql --web",
+  "targets": {
+    "build": {
+      "dependsOn": [{ "target": "build", "projects": ["grpc"] }],
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": ["{workspaceRoot}/dist/libs/graphql"],
+      "options": {
+        "command": "npx tsc -p libs/graphql/tsconfig.lib.json",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/graphql/jest.config.cts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Docker Setup (Postgres + pgAdmin)
 
-This folder contains local database services for `jobber-auth`.
+This folder contains local database services for `auth`.
 
 ## Start and stop
 
@@ -48,7 +48,7 @@ Use Docker service DNS name `postgres`.
 
 ## Prisma connection string
 
-For this docker setup, use a direct Postgres URL in `apps/jobber-auth/.env`:
+For this docker setup, use a direct Postgres URL in `apps/auth/.env`:
 
 `DATABASE_URL="postgresql://postgres_user:postgres_password@localhost:5432/jobber_auth?schema=public"`
 

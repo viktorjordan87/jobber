@@ -1,0 +1,36 @@
+{
+  "name": "@jobber/jobs",
+  "private": true,
+  "dependencies": {
+    "@golevelup/nestjs-discovery": "^7.0.0",
+    "@grpc/grpc-js": "^1.14.3",
+    "@grpc/proto-loader": "^0.8.0",
+    "@jobber/graphql": "*",
+    "@jobber/grpc": "*",
+    "@jobber/nestjs": "*",
+    "@jobber/pulsar": "*",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/graphql": "^13.3.0",
+    "@nestjs/mercurius": "^13.3.0",
+    "@nestjs/microservices": "^11.1.19",
+    "@nestjs/platform-fastify": "^11.1.19",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.15.1",
+    "graphql": "^16.13.2",
+    "graphql-type-json": "^0.3.2",
+    "mercurius": "^16.9.0",
+    "module-alias": "^2.3.4"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "open": "^11.0.0"
+  },
+  "scripts": {
+    "build": "npx nx build jobs",
+    "start:dev": "concurrently -k -n serve,watch -c blue,magenta \"npx nx serve jobs\" \"npx nx watch --projects=jobs --includeDependentProjects -- npx nx serve jobs\"",
+    "test": "npx jest --config jest.config.cts",
+    "graphql:playground": "open http://localhost:3001/graphiql || start http://localhost:3001/graphiql"
+  }
+}

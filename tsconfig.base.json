@@ -15,12 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@jobber/graphql": ["libs/graphql/src/index.ts"],
+      "@prisma-clients/auth": ["apps/auth/src/prisma/generated/client.ts"],
+      "@jobber/pulsar": ["libs/pulsar/src/index.ts"],
       "@jobber/nestjs": ["libs/nestjs/src/index.ts"],
-      "@jobber/proto": ["libs/proto/src/index.ts"],
-      "@prisma-clients/jobber-auth": [
-        "apps/jobber-auth/src/prisma/generated/client.ts"
-      ],
-      "@jobber/pulsar": ["libs/pulsar/src/index.ts"]
+      "@jobber/grpc": ["libs/grpc/src/index.ts"],
+      "@jobber/prisma": ["libs/prisma/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

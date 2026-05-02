@@ -1,0 +1,12 @@
+{
+  "name": "@jobber/prisma",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.7.0",
+    "@prisma/client": "^7.7.0"
+  },
+  "devDependencies": {
+    "prisma": "^7.7.0"
+  }
+}

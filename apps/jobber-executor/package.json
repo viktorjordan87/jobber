@@ -1,9 +1,0 @@
-{
-  "name": "jobber-executor-scripts",
-  "private": true,
-  "scripts": {
-    "build": "npx nx build jobber-executor",
-    "start:dev": "concurrently -k -n serve,watch -c blue,magenta \"npx nx serve jobber-executor\" \"npx nx watch --projects=jobber-executor --includeDependentProjects -- npx nx serve jobber-executor\"",
-    "test": "npx jest --config jest.config.cts"
-  }
-}

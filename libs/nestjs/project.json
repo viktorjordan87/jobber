@@ -6,12 +6,13 @@
   "tags": [],
   "// targets": "to see all targets run: nx show project nestjs --web",
   "targets": {
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+    "build": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": ["{workspaceRoot}/dist/libs/nestjs"],
       "options": {
-        "jestConfig": "libs/nestjs/jest.config.cts",
-        "passWithNoTests": true
+        "command": "npx tsc -p libs/nestjs/tsconfig.lib.json",
+        "cwd": "{workspaceRoot}"
       }
     }
   }

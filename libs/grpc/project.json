@@ -1,0 +1,32 @@
+{
+  "name": "grpc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/grpc/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "dependsOn": ["proto:generate-ts"],
+      "executor": "nx:run-commands",
+      "cache": true,
+      "outputs": ["{workspaceRoot}/dist/libs/grpc"],
+      "options": {
+        "command": "npx tsc -p libs/grpc/tsconfig.lib.json",
+        "cwd": "{workspaceRoot}"
+      }
+    },
+    "proto:generate-ts": {
+      "executor": "nx:run-commands",
+      "cache": true,
+      "inputs": [
+        "{projectRoot}/src/lib/proto/**/*.proto",
+        "{workspaceRoot}/scripts/proto-generate-ts.mjs"
+      ],
+      "outputs": ["{projectRoot}/src/generated", "{projectRoot}/src/index.ts"],
+      "options": {
+        "command": "node scripts/proto-generate-ts.mjs",
+        "cwd": "{workspaceRoot}"
+      }
+    }
+  }
+}

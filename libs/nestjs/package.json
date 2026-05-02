@@ -1,0 +1,11 @@
+{
+  "name": "@jobber/nestjs",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "@fastify/cookie": "^11.0.2",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.4",
+    "@nestjs/platform-fastify": "^11.1.19"
+  }
+}

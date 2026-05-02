@@ -10,56 +10,17 @@
     "docker:ps": "docker compose -f docker/docker.compose.yml ps",
     "docker:pgadmin": "open http://localhost:5433 || start http://localhost:5433",
     "prepare": "husky",
-    "proto:generate-ts": "node -e \"require('fs').mkdirSync('libs/proto/src/generated',{recursive:true})\" && (npx protoc --plugin=protoc-gen-ts_proto=./node_modules/.bin/protoc-gen-ts_proto --ts_proto_out=./libs/proto/src/generated ./proto/*.proto --ts_proto_opt=nestJs=true || npx protoc --plugin=protoc-gen-ts_proto=.\\\\node_modules\\\\.bin\\\\protoc-gen-ts_proto.cmd --ts_proto_out=.\\\\libs\\\\proto\\\\src\\\\generated .\\\\proto\\\\*.proto --ts_proto_opt=nestJs=true) && node ./scripts/update-proto-index.mjs",
-    "start:dev": "npx nx run-many --target=serve --all"
+    "start:dev": "npx nx run-many --target=serve --projects=auth,jobs,executor"
   },
-  "nx": {
-    "targets": {
-      "proto:generate-ts": {
-        "cache": true,
-        "inputs": [
-          "{workspaceRoot}/proto/**/*.proto"
-        ]
-      }
-    }
-  },
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
   "private": true,
   "dependencies": {
-    "@apollo/server": "^5.5.0",
-    "@as-integrations/fastify": "^3.1.0",
-    "@fastify/cookie": "^11.0.2",
-    "@golevelup/nestjs-discovery": "^7.0.0",
-    "@grpc/grpc-js": "^1.14.3",
-    "@grpc/proto-loader": "^0.8.0",
-    "@nestjs/apollo": "^13.3.0",
-    "@nestjs/common": "^11.0.0",
-    "@nestjs/config": "^4.0.4",
-    "@nestjs/core": "^11.0.0",
-    "@nestjs/graphql": "^13.3.0",
-    "@nestjs/jwt": "^11.0.2",
-    "@nestjs/mercurius": "^13.3.0",
-    "@nestjs/microservices": "^11.1.19",
-    "@nestjs/passport": "^11.0.5",
-    "@nestjs/platform-express": "^11.0.0",
-    "@nestjs/platform-fastify": "^11.1.19",
-    "@prisma/adapter-pg": "^7.7.0",
-    "@prisma/client": "^7.7.0",
-    "axios": "^1.6.0",
-    "bcryptjs": "^3.0.3",
-    "class-transformer": "^0.5.1",
-    "class-validator": "^0.15.1",
-    "dayjs": "^1.11.20",
-    "fibonacci": "^1.6.12",
-    "graphql": "^16.13.2",
-    "graphql-type-json": "^0.3.2",
-    "mercurius": "^16.9.0",
-    "passport": "^0.7.0",
-    "passport-jwt": "^4.0.1",
-    "pg": "^8.20.0",
-    "pulsar-client": "^1.17.0",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0",
-    "ts-proto": "^2.11.6"
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
@@ -77,11 +38,8 @@
     "@swc-node/register": "~1.11.1",
     "@swc/core": "~1.15.5",
     "@swc/helpers": "~0.5.18",
-    "@types/bcryptjs": "^2.4.6",
     "@types/jest": "^30.0.0",
     "@types/node": "20.19.9",
-    "@types/passport-jwt": "^4.0.1",
-    "concurrently": "^9.2.1",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "husky": "^9.1.7",
@@ -90,15 +48,19 @@
     "jest-util": "^30.0.2",
     "lint-staged": "^16.4.0",
     "nx": "22.6.5",
-    "open": "^11.0.0",
     "prettier": "~3.6.2",
-    "prisma": "^7.7.0",
     "protoc": "^25.9.0",
     "ts-jest": "^29.4.0",
     "ts-node": "10.9.1",
-    "tslib": "^2.3.0",
     "typescript": "~5.9.2",
     "typescript-eslint": "^8.40.0",
     "webpack-cli": "^5.1.4"
+  },
+  "_moduleAliases": {
+    "@jobber/grpc": "dist/libs/grpc/index.js",
+    "@jobber/graphql": "dist/libs/graphql/index.js",
+    "@jobber/nestjs": "dist/libs/nestjs/index.js",
+    "@jobber/prisma": "dist/libs/prisma/index.js",
+    "@jobber/pulsar": "dist/libs/pulsar/index.js"
   }
 }

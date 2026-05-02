@@ -39,25 +39,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/jobber-executor-e2e/**/*"]
+      "exclude": ["apps/executor-e2e/**/*"]
     }
-  ],
-  "targetDefaults": {
-    "build": {
-      "inputs": [
-        "{projectRoot}/src/**/*",
-        "{workspaceRoot}/libs/**/*",
-        "{workspaceRoot}/proto/*"
-      ],
-      "options": {
-        "assets": [
-          {
-            "glob": "*.proto",
-            "input": "{workspaceRoot}/proto",
-            "output": "{workspaceRoot}/proto"
-          }
-        ]
-      }
-    }
-  }
+  ]
 }
