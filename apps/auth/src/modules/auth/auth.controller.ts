@@ -4,13 +4,15 @@ import {
   AuthServiceControllerMethods,
   User,
 } from '@jobber/grpc';
-import { Controller, UseGuards } from '@nestjs/common';
+import { Controller, UseGuards, UseInterceptors } from '@nestjs/common';
 import { JwtAuthGuard } from './guards';
 import { UsersService } from '../users/users.service';
 import { TokenPayload } from './types';
+import { GraphqlLoggingInterceptor } from '@jobber/graphql';
 
 @Controller()
 @AuthServiceControllerMethods()
+@UseInterceptors(GraphqlLoggingInterceptor)
 export class AuthController implements AuthServiceController {
   constructor(private readonly userService: UsersService) {}
 

@@ -18,6 +18,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
+    { bufferLogs: true },
   );
   await bootstrapInit(app);
   app.connectMicroservice<GrpcOptions>({
