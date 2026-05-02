@@ -1,0 +1,70 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 25
+          cache: 'npm'
+
+      - name: Setup protoc
+        uses: arduino/setup-protoc@v3
+
+      - name: Derive SHAs for nx affected
+        uses: nrwl/nx-set-shas@v4
+
+      - run: npm ci --legacy-peer-deps
+
+      - run: npx nx affected -t lint test build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-north-1
+
+      - name: Log in to AWS ECR
+        run: |
+          aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 677673473760.dkr.ecr.eu-north-1.amazonaws.com
+
+      - name: Deploy to AWS ECR
+        run: |
+          set -euo pipefail
+          IMAGES=(
+            "auth apps/auth/Dockerfile"
+            "jobs apps/jobs/Dockerfile"
+            "executor apps/executor/Dockerfile"
+          )
+
+          pids=()
+          for image in "${IMAGES[@]}"; do
+            NAME=$(echo "$image" | cut -d' ' -f1)
+            DOCKERFILE=$(echo "$image" | cut -d' ' -f2)
+            (
+              docker build \
+                --tag 677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/"$NAME":latest \
+                -f "$DOCKERFILE" \
+                . && docker push 677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/"$NAME":latest
+            ) &
+            pids+=($!)
+          done
+
+          failed=0
+          for pid in "${pids[@]}"; do
+            wait "$pid" || failed=1
+          done
+          exit "$failed"
