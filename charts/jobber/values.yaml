@@ -1,0 +1,92 @@
+global:
+  imagePullPolicy: Always
+
+pulsar:
+  namespace: jobber
+  # Creates BookKeeper + Pulsar metadata in ZooKeeper on first deploy (required).
+  # If bookies hang in Init with "BookKeeper metadata doesn't exist", set true and upgrade.
+  # After a healthy cluster, you may set back to false; init jobs are idempotent when already initialized.
+  initialize: true
+  # Let `helm install ... -n jobber --create-namespace` own the namespace. Pulsar's own
+  # Namespace manifest can lack Helm labels and break upgrades on strict Helm versions.
+  namespaceCreate: false
+  zookeeper:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+  broker:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+    # Chart default ensemble is 2; broker init waits for that many bookie DNS records.
+    # With bookkeeper.replicaCount: 1 (Minikube), set all three to 1 or init never finishes.
+    configData:
+      managedLedgerDefaultEnsembleSize: "1"
+      managedLedgerDefaultWriteQuorum: "1"
+      managedLedgerDefaultAckQuorum: "1"
+  bookkeeper:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+  proxy:
+    replicaCount: 1
+    podMonitor:
+      enabled: false
+  autorecovery:
+    podMonitor:
+      enabled: false
+  kube-prometheus-stack:
+    enabled: false
+    prometheusOperator:
+      enabled: false
+    grafana:
+      enabled: false
+    alertmanager:
+      enabled: false
+    prometheus:
+      enabled: false
+  # Pulsar 4.x defaults this to true; it needs VictoriaMetrics operator CRDs cluster-wide.
+  # Turn off for local/minikube unless you install those CRDs separately.
+  victoria-metrics-k8s-stack:
+    enabled: false
+
+postgresql:
+  # Omit namespaceOverride to install PostgreSQL in the Helm release namespace (`-n jobber`).
+  # To use another namespace: create it first, then set namespaceOverride (Bitnami key; not nameSpaceOverride).
+  auth:
+    username: postgres
+    password: postgres
+    database: jobber
+
+
+jobs:
+  enabled: true
+  replicas: 1
+  image: '677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/jobs:latest'
+  port: 3001
+  # Required by libs/nestjs bootstrap-init (fastify cookie). Matches apps/jobs/.env.example for local dev.
+  # Override in prod (Helm --set, Sealed Secrets, External Secrets, etc.); do not commit real secrets.
+  cookieSecret: secret
+
+auth:
+  enabled: true
+  replicas: 1
+  image: '677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/auth:latest'
+  port:
+    http: 3000
+    grpc: 5000
+  jwt:
+    secret: hUIzvRHj10xXWoUTXEWCzpvwpTrAXMTyyzzN+4SliTQ=
+    expiresMs: 28800000
+  # Required by libs/nestjs bootstrap-init (fastify cookie). Matches apps/jobs/.env.example for local dev.
+  # Override in prod (Helm --set, Sealed Secrets, External Secrets, etc.); do not commit real secrets.
+  cookieSecret: secret
+
+executor:
+  enabled: true
+  replicas: 1
+  image: '677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/executor:latest'
+  port: 3002
+  # Required by libs/nestjs bootstrap-init (fastify cookie). Matches apps/jobs/.env.example for local dev.
+  # Override in prod (Helm --set, Sealed Secrets, External Secrets, etc.); do not commit real secrets.
+  cookieSecret: secret

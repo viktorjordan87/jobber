@@ -2,6 +2,8 @@ FROM node:25-slim AS builder
 
 WORKDIR /workspace
 
+RUN apt-get update && apt-get install -y openssl
+
 COPY package*.json ./
 COPY nx.json ./
 COPY tsconfig*.json ./
@@ -25,6 +27,8 @@ RUN npx nx build auth
 
 FROM node:25-slim AS runner
 
+RUN apt-get update && apt-get install -y openssl
+
 WORKDIR /app
 
 COPY --from=builder /workspace/package.json ./
@@ -34,6 +38,9 @@ COPY --from=builder /workspace/libs/grpc/package.json ./libs/grpc/package.json
 COPY --from=builder /workspace/libs/nestjs/package.json ./libs/nestjs/package.json
 COPY --from=builder /workspace/libs/prisma/package.json ./libs/prisma/package.json
 COPY --from=builder /workspace/package-lock.json ./
+
+COPY --from=builder /workspace/apps/auth/src/prisma ./apps/auth/src/prisma
+COPY --from=builder /workspace/apps/auth/prisma.config.ts ./apps/auth/prisma.config.ts
 
 ENV NODE_ENV=production
 

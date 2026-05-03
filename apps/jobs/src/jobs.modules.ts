@@ -7,19 +7,24 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
 import { AUTH_PACKAGE_NAME } from '@jobber/grpc';
 import { join } from 'node:path';
 import { PulsarModule } from '@jobber/pulsar';
+import { ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
     PulsarModule,
     DiscoveryModule,
-    ClientsModule.register([
+    ClientsModule.registerAsync([
       {
         name: AUTH_PACKAGE_NAME,
-        transport: Transport.GRPC,
-        options: {
-          package: AUTH_PACKAGE_NAME,
-          protoPath: join(__dirname, 'libs/grpc/src/lib/proto/auth.proto'),
-        },
+        useFactory: (configService: ConfigService) => ({
+          transport: Transport.GRPC,
+          options: {
+            url: configService.getOrThrow<string>('AUTH_GRPC_SERVICE_URL'),
+            package: AUTH_PACKAGE_NAME,
+            protoPath: join(__dirname, 'libs/grpc/src/lib/proto/auth.proto'),
+          },
+        }),
+        inject: [ConfigService],
       },
     ]),
   ],

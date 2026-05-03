@@ -52,6 +52,112 @@ You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx 
 
 [Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
+## Kubernetes (Helm cheat sheet)
+
+Run these from the **repository root**. The chart lives at `charts/jobber/`.
+
+### Before you deploy
+
+- **Cluster running:** If you use Minikube, start it first: `minikube start`. Then confirm: `kubectl get nodes`.
+- **Context:** You should be on the cluster you mean (often `minikube`): `kubectl config current-context`.
+
+### Install
+
+Creates the `jobber` namespace if it does not exist and installs the release named `jobber`:
+
+```bash
+helm install jobber ./charts/jobber -n jobber --create-namespace
+```
+
+Idempotent install or upgrade from the repo root:
+
+```bash
+helm upgrade --install jobber ./charts/jobber -n jobber --create-namespace
+```
+
+### After install — quick checks
+
+```bash
+kubectl get pods -n jobber
+kubectl get deployments -n jobber
+kubectl logs -n jobber -l app=jobs --tail=50
+```
+
+### Local testing (`kubectl port-forward`)
+
+Workloads use **ClusterIP** Services, so nothing listens on your machine until you forward a port. Run each command in its **own terminal** and leave it open while you test.
+
+| App          | Command                                                        | Then open (examples)                                                                                     |
+| --------------| ----------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------|
+| **jobs**     | `kubectl port-forward -n jobber svc/jobs 3001:3001`            | GraphiQL: `http://127.0.0.1:3001/graphiql` · GraphQL HTTP: `POST http://127.0.0.1:3001/graphql`          |
+| **auth**     | `kubectl port-forward -n jobber svc/auth-http 3000:3000`       | Same paths on port **3000** (`/graphiql`, `/graphql`). The Service is named **`auth-http`**, not `auth`. |
+| **executor** | `kubectl port-forward -n jobber deployment/executor 3002:3002` | HTTP on **3002** (this chart has no `Service` for executor; forward the **Deployment** instead).         |
+
+**Notes:** Ports match `charts/jobber/values.yaml` (`jobs.port`, `auth.port.http`, `executor.port`). Mercurius GraphiQL is at **`/graphiql`**, not under `/api`. Alternatively you can use `minikube service <svc-name> -n jobber` (Docker driver on Windows often needs the tunnel process to stay running).
+
+### Change config and redeploy
+
+Edit `charts/jobber/values.yaml`, then upgrade the same release:
+
+```bash
+helm upgrade jobber ./charts/jobber -n jobber
+```
+
+See what would change without applying:
+
+```bash
+helm diff upgrade jobber ./charts/jobber -n jobber   # needs helm-diff plugin
+# or
+helm upgrade jobber ./charts/jobber -n jobber --dry-run
+```
+
+### Remove the release
+
+```bash
+helm uninstall jobber -n jobber
+```
+
+### If Helm says the cluster is unreachable
+
+The API server is not listening (cluster stopped or wrong kubeconfig). Start Minikube again (`minikube start`) or fix `kubectl config use-context`.
+
+### Images (Minikube + private registries)
+
+If pods show **ImagePullBackOff**, the cluster cannot pull the container image (for example ECR). You need registry credentials, `imagePullSecrets`, or a local image loaded into Minikube (`minikube image load ...`).
+
+### Chart dependencies (Pulsar / PostgreSQL)
+
+After changing `charts/jobber/Chart.yaml` dependencies, refresh the downloaded charts:
+
+```bash
+cd charts/jobber
+helm repo add apachepulsar https://pulsar.apache.org/charts   # once per machine
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm dependency update .
+```
+
+Notes:
+
+- The Apache Pulsar Helm index lives at **`https://pulsar.apache.org/charts`** (a `.../helm/charts` URL returns 404).
+- Bitnami’s chart is named **`postgresql`** in `Chart.yaml`; overrides in `values.yaml` sit under the **`postgresql:`** key.
+
+### Where are Pulsar and PostgreSQL?
+
+With `helm install ... -n jobber`, **subcharts deploy into that release namespace** (`jobber`) by default. You will not see separate top-level namespaces named `pulsar` or `postgresql` unless you configure overrides and create those namespaces yourself. List workloads with:
+
+```bash
+kubectl get pods -n jobber
+kubectl get statefulsets,deployments,services -n jobber
+```
+
+### Troubleshooting Helm (local / Minikube)
+
+- **`VMAgent`, `VMRule`, `VMNodeScrape`, … / “ensure CRDs are installed first”** — Newer Pulsar chart versions enable **`victoria-metrics-k8s-stack`** by default. That stack needs VictoriaMetrics **operator CRDs** on the cluster. This workspace turns that stack **off** in `charts/jobber/values.yaml` for clusters that do not have those CRDs. Enable it only if you install the operator and CRDs first.
+- **Namespace “exists and cannot be imported” / missing `app.kubernetes.io/managed-by: Helm`** — Prefer **`helm ... -n jobber --create-namespace`** and keep **`pulsar.namespaceCreate: false`** in `values.yaml` so Helm owns namespace labels; letting the Pulsar subchart create the namespace can break strict Helm upgrades.
+- **PowerShell** — Use **`helm`** (the Helm CLI), not **`help`** (that is `Get-Help`, not Helm).
+- **Broker `Init:Error` / `wait-bookkeeper-ready` looping** — The broker init waits until DNS returns at least **`managedLedgerDefaultEnsembleSize`** bookies (chart default **2**). With **`bookkeeper.replicaCount: 1`** (typical on Minikube), set **`pulsar.broker.configData`** `managedLedgerDefaultEnsembleSize`, `managedLedgerDefaultWriteQuorum`, and `managedLedgerDefaultAckQuorum` to **`"1"`** (see `charts/jobber/values.yaml`). After changing that, **`kubectl delete pod jobber-pulsar-broker-0 -n jobber`** so the StatefulSet recreates the pod with the new init script.
+
 ## Set up CI!
 
 ### Step 1
