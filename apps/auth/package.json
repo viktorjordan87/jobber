@@ -19,7 +19,6 @@
     "dayjs": "^1.11.20",
     "graphql": "^16.13.2",
     "mercurius": "^16.9.0",
-    "module-alias": "^2.3.4",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.20.0"

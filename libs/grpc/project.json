@@ -22,7 +22,11 @@
         "{projectRoot}/src/lib/proto/**/*.proto",
         "{workspaceRoot}/scripts/proto-generate-ts.mjs"
       ],
-      "outputs": ["{projectRoot}/src/generated", "{projectRoot}/src/index.ts"],
+      "outputs": [
+        "{projectRoot}/src/generated",
+        "{projectRoot}/src/index.ts",
+        "{projectRoot}/src/grpc-package-names.ts"
+      ],
       "options": {
         "command": "node scripts/proto-generate-ts.mjs",
         "cwd": "{workspaceRoot}"

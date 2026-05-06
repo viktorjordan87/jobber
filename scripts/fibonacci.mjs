@@ -85,3 +85,9 @@ async function executeJob(jobData, cookies) {
     console.error('Login failed');
   }
 })();
+
+/* 
+Before log in in localhost:3000, you need to create a user with the email "jordan2@jordan.com" and the password "titkos@3WEw".
+Run the script:
+node scripts/fibonacci.mjs http://localhost:3000/graphql http://localhost:3001/graphql 1500
+*/

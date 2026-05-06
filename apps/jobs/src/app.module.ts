@@ -6,10 +6,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 import { mercuriusGqlLoggerForRoot } from '@jobber/graphql';
 import { LoggerModule } from '@jobber/nestjs';
+import { UploadsModule } from './uploads/uploads.module';
 
 @Module({
   imports: [
     LoggerModule,
+    UploadsModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: nxAppEnvFilePaths('jobs'),

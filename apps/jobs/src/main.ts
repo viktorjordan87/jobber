@@ -10,6 +10,7 @@ import {
   FastifyAdapter,
 } from '@nestjs/platform-fastify';
 import { bootstrapInit } from '@jobber/nestjs';
+import fastifyMultipart from '@fastify/multipart';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -17,6 +18,7 @@ async function bootstrap() {
     new FastifyAdapter(),
     { bufferLogs: true },
   );
+  await app.register(fastifyMultipart);
   await bootstrapInit(app);
 }
 

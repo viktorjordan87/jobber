@@ -10,7 +10,7 @@
     "docker:ps": "docker compose -f docker/docker.compose.yml ps",
     "docker:pgadmin": "open http://localhost:5433 || start http://localhost:5433",
     "prepare": "husky",
-    "start:dev": "npx nx run-many --target=serve --projects=auth,jobs,executor"
+    "start:dev": "npx nx run-many --target=serve --projects=auth,jobs,executor,products"
   },
   "workspaces": [
     "apps/*",
@@ -18,7 +18,12 @@
   ],
   "private": true,
   "dependencies": {
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "axios": "^1.6.0",
     "dotenv": "^16.4.7",
+    "module-alias": "^2.3.4",
     "nestjs-pino": "^4.6.1",
     "pino-http": "^11.0.0",
     "reflect-metadata": "^0.1.13",

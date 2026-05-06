@@ -1,0 +1,21 @@
+{
+    "name": "@jobber/products",
+    "private": true,
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "drizzle-orm": "^0.45.2",
+        "pg": "^8.20.0"
+    },
+    "scripts": {
+        "build": "npx nx build products",
+        "start:dev": "concurrently -k -n serve,watch -c blue,magenta \"npx nx serve products\" \"npx nx watch --projects=products --includeDependentProjects -- npx nx serve products\"",
+        "test": "npx jest --config jest.config.cts",
+        "drizzle:generate": "npx drizzle-kit generate",
+        "drizzle:migrate": "npx drizzle-kit migrate"
+    },
+    "devDependencies": {
+        "@types/pg": "^8.20.0",
+        "drizzle-kit": "^0.31.10",
+        "tsx": "^4.21.0"
+    }
+}

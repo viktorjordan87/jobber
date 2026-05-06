@@ -39,7 +39,7 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/executor-e2e/**/*"]
+      "exclude": []
     }
   ]
 }

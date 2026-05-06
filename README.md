@@ -56,6 +56,44 @@ You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx 
 
 Run these from the **repository root**. The chart lives at `charts/jobber/`.
 
+### After a Windows restart (resume where you left off)
+
+A reboot stops Minikube and closes any **port-forward** terminals. Your Helm release and workloads usually stay on the Minikube disk (unless you removed the cluster or profile).
+
+1. **Start the cluster**
+
+   ```bash
+   minikube start
+   ```
+
+   If you use another profile: `minikube start -p <your-profile>`.
+
+2. **Point `kubectl` at Minikube and sanity-check**
+
+   ```bash
+   kubectl config use-context minikube
+   kubectl get nodes
+   kubectl get pods -n jobber
+   ```
+
+   If `use-context` errors because the context name differs, run `kubectl config get-contexts` and pick the row for your Minikube cluster.
+
+3. **Confirm the Helm release is still there**
+
+   ```bash
+   helm list -n jobber
+   ```
+
+   You should see release **`jobber`**. If the list is empty, reinstall from the repo root:
+
+   ```bash
+   helm upgrade --install jobber ./charts/jobber -n jobber --create-namespace
+   ```
+
+4. **Open tunnels again** — `kubectl port-forward` does not survive a restart. Start the forwards you need again (same commands as in **Local testing** below); each command in its **own** terminal.
+
+   On Windows with the Docker driver, if you use **`minikube service`** or LoadBalancer URLs, you may need **`minikube tunnel`** in a separate terminal while you work.
+
 ### Before you deploy
 
 - **Cluster running:** If you use Minikube, start it first: `minikube start`. Then confirm: `kubectl get nodes`.
@@ -206,3 +244,18 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+- Enter Pulsar shell: `c`
+- enter bin folder: `cd bin`
+- enter sh pulsar: `kubectl exec --stdin --tty jobber-pulsar-broker-0 -n jobber -- sh`
+- get statistics: `./pulsar-admin topics stats persistent://public/default/fibonacci`
+- get kubernetes pods: `kubectl get pods -n jobber`
+- check pod logs: `kubectl logs executor-7fb6466965-2cfzn -n jobber --tail=100`
+- describe: `kubectl describe pod executor-7fb6466965-2cfzn -n jobber`
+- delete and repull iamge from aws ecr: `kubectl delete pod -l app=executor -n jobber`
+
+1. And subscriptionType: "Shared" to the ts file in the pulsar client
+2. Scale down executor service to 0 replicas: `kubectl scale deployment executor --replicas 0 -n jobber`
+3. Clear backlog: `./pulsar-admin namespaces clear-backlog public/default`
+4. Remove jobber subscription name from pulsar: `kubectl scale deployment executor --replicas=5 -n jobber`
+5. Set executor replicas 5: 
