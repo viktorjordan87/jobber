@@ -10,7 +10,7 @@
     "docker:ps": "docker compose -f docker/docker.compose.yml ps",
     "docker:pgadmin": "open http://localhost:5433 || start http://localhost:5433",
     "prepare": "husky",
-    "start:dev": "npx nx run-many --target=serve --projects=auth,jobs,executor,products"
+    "start:dev": "npx nx run-many --target=serve --projects=auth,jobs,executor,products --parallel=4"
   },
   "workspaces": [
     "apps/*",

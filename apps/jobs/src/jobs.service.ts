@@ -11,6 +11,8 @@ import {
 } from '@nestjs/common';
 import { JobMetadata } from './types/job-metadata.type';
 import { AbstractJob } from './jobs/abstract-job';
+import { readFileSync } from 'node:fs';
+import { UPLOAD_FILE_PATH } from './uploads/upload.const';
 
 @Injectable()
 export class JobsService implements OnModuleInit {
@@ -29,7 +31,7 @@ export class JobsService implements OnModuleInit {
     return this.jobs.map((job) => job.meta);
   }
 
-  async executeJob(jobName: string, data: object) {
+  async executeJob(jobName: string, data: object | any) {
     const job = this.jobs.find((job) => job.meta.name === jobName);
     if (!job) {
       throw new NotFoundException(`Job name: ${jobName} not found`);
@@ -39,7 +41,22 @@ export class JobsService implements OnModuleInit {
         'Job is not an instance of AbstractJob',
       );
     }
-    await job.discoveredClass.instance.execute(data, job.meta.name);
+    await job.discoveredClass.instance.execute(
+      data.fileName ? this.getFile(data.fileName) : data, job.meta.name);
     return job.meta;
+  }
+
+  private getFile(fileName?: string) {
+    if (!fileName) {
+      return
+    }
+
+    try {
+      return JSON.parse(
+        readFileSync(`${UPLOAD_FILE_PATH}/${fileName}`, 'utf-8')
+      )
+    } catch (error) {
+       throw new InternalServerErrorException(`Error reading file ${fileName}: ${error.message}`);
+    }
   }
 }

@@ -18,7 +18,11 @@ async function bootstrap() {
     new FastifyAdapter(),
     { bufferLogs: true },
   );
-  await app.register(fastifyMultipart);
+  await app.register(fastifyMultipart, {
+    limits: {
+      fileSize: 1024 * 1024 * 20, // 20MB
+    },
+  });
   await bootstrapInit(app);
 }
 
