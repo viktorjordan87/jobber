@@ -108,6 +108,9 @@ products:
   port:
     http: 3003
     grpc: 5001
+  jwt:
+    secret: hUIzvRHj10xXWoUTXEWCzpvwpTrAXMTyyzzN+4SliTQ=
+    expiresMs: 28800000
   # Required by libs/nestjs bootstrap-init (fastify cookie). Matches apps/jobs/.env.example for local dev.
   # Override in prod (Helm --set, Sealed Secrets, External Secrets, etc.); do not commit real secrets.
   cookieSecret: secret
