@@ -48,6 +48,7 @@ jobs:
             "auth apps/auth/Dockerfile"
             "jobs apps/jobs/Dockerfile"
             "executor apps/executor/Dockerfile"
+            "products apps/products/Dockerfile"
           )
 
           pids=()

@@ -5,12 +5,13 @@ import { DATABASE_CONNECTION } from './database-connection';
 import { Pool } from 'pg';
 import { drizzle } from 'drizzle-orm/node-postgres';
 import * as productsSchema from '../products/schema';
+import * as categoriesSchema from '../categories/schema';
 
 @Global()
 @Module({
     imports: [
         ConfigModule.forRoot({
-            isGlobal: true,
+                isGlobal: true,
             envFilePath: nxAppEnvFilePaths('products'),
         }),
     ],
@@ -24,6 +25,7 @@ import * as productsSchema from '../products/schema';
             return drizzle(pool, {
                 schema: {
                     ...productsSchema,
+                    ...categoriesSchema,
                 }
             });
         },

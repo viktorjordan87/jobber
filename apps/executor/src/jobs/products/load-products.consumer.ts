@@ -1,7 +1,7 @@
 import { PRODUCTS_PACKAGE_NAME, PRODUCTS_SERVICE_NAME, ProductsServiceClient } from "@jobber/grpc";
 import { LoadProductMessage, PulsarClient, PulsarConsumer } from "@jobber/pulsar";
 import { Inject, Injectable, OnModuleInit } from "@nestjs/common";
-import { Jobs } from "libs/nestjs/src/lib/jobs";
+import { Jobs } from '@jobber/nestjs';
 import { ClientGrpc } from "@nestjs/microservices";
 import { firstValueFrom } from "rxjs";
 
@@ -15,8 +15,9 @@ export class LoadProductsConsumer extends PulsarConsumer<LoadProductMessage> imp
     }
     async onModuleInit() {
         this.productsService = this.client.getService<ProductsServiceClient>(PRODUCTS_SERVICE_NAME);
+        await super.onModuleInit();
     }
-    
+
     protected async onMessage(data: LoadProductMessage): Promise<void> {
         await firstValueFrom(this.productsService.createProduct(data));
     }

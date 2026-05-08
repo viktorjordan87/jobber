@@ -1,0 +1,2628 @@
+eploy to AWS ECR
+3m 18s
+Run set -euo pipefail
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.46kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:25-slim
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.17kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:25-slim
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.39kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/node:25-slim
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.29kB done
+#1 DONE 0.0s
+
+#2 [auth] library/node:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/node:25-slim
+#2 DONE 0.3s
+#2 DONE 0.3s
+#3 DONE 0.3s
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 57B done
+#3 DONE 0.0s
+
+#4 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#4 resolve docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 done
+
+#4 [internal] load .dockerignore
+#4 transferring context: 57B done
+#4 DONE 0.0s
+
+#5 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#5 resolve docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 done
+
+#3 [internal] load .dockerignore
+#3 transferring context: 57B done
+#3 DONE 0.0s
+
+#4 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#4 resolve docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 done
+
+#3 [internal] load .dockerignore
+#3 transferring context: 57B done
+#3 DONE 0.0s
+
+#4 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#4 resolve docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 done
+#4 sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 5.20kB / 5.20kB done
+#4 sha256:f14847d5cb4a6ed418924c7d20755ffab20b3229c2c91bfa76a6a0cd9c61629f 1.93kB / 1.93kB done
+#4 sha256:033db42b848ffa65ca33afb72e79dd2865207ed407e0916f9576707879ff9a3b 6.87kB / 6.87kB done
+#4 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 0B / 28.24MB 0.1s
+#4 sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 3.31kB / 3.31kB 0.0s done
+#4 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 1.05MB / 49.17MB 0.1s
+#4 sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 0B / 1.71MB 0.1s
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 998.09kB 0.1s done
+#5 DONE 0.1s
+
+#4 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#4 sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 5.20kB / 5.20kB done
+#4 sha256:f14847d5cb4a6ed418924c7d20755ffab20b3229c2c91bfa76a6a0cd9c61629f 1.93kB / 1.93kB done
+#4 sha256:033db42b848ffa65ca33afb72e79dd2865207ed407e0916f9576707879ff9a3b 6.87kB / 6.87kB done
+#4 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 24.12MB / 28.24MB 0.2s
+#4 sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 3.31kB / 3.31kB 0.0s done
+#4 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 29.36MB / 49.17MB 0.2s
+#4 sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 1.71MB / 1.71MB 0.1s done
+#4 sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae 447B / 447B 0.2s done
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 886.50kB 0.1s done
+#5 DONE 0.1s
+
+#4 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#4 sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 5.20kB / 5.20kB done
+#4 sha256:f14847d5cb4a6ed418924c7d20755ffab20b3229c2c91bfa76a6a0cd9c61629f 1.93kB / 1.93kB done
+#4 sha256:033db42b848ffa65ca33afb72e79dd2865207ed407e0916f9576707879ff9a3b 6.87kB / 6.87kB done
+#4 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 24.12MB / 28.24MB 0.2s
+#4 sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 3.31kB / 3.31kB 0.0s done
+#5 ...
+
+#4 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 29.36MB / 49.17MB 0.2s
+#6 [internal] load build context
+#4 sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 1.71MB / 1.71MB 0.1s done
+#6 transferring context: 909.12kB 0.1s done
+#4 sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae 447B / 447B 0.2s done
+#6 DONE 0.1s
+
+#5 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#5 sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8 5.20kB / 5.20kB done
+#5 sha256:f14847d5cb4a6ed418924c7d20755ffab20b3229c2c91bfa76a6a0cd9c61629f 1.93kB / 1.93kB done
+#5 sha256:033db42b848ffa65ca33afb72e79dd2865207ed407e0916f9576707879ff9a3b 6.87kB / 6.87kB done
+#5 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 24.12MB / 28.24MB 0.2s
+#5 sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 3.31kB / 3.31kB 0.0s done
+#5 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 29.36MB / 49.17MB 0.2s
+#5 sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 1.71MB / 1.71MB 0.1s done
+#5 sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae 447B / 447B 0.2s done
+#4 ...
+
+#5 [internal] load build context
+#5 transferring context: 20.04MB 0.2s done
+#5 DONE 0.2s
+
+#4 [builder  1/18] FROM docker.io/library/node:25-slim@sha256:e49fd70491eb042270f974167c874d6245287263ffc16422fcf93b3c150409d8
+#4 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 24.12MB / 28.24MB 0.2s
+#4 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 29.36MB / 49.17MB 0.2s
+#4 sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 1.71MB / 1.71MB 0.1s done
+#4 sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae 447B / 447B 0.2s done
+#4 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4
+#4 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 28.24MB / 28.24MB 0.2s done
+#4 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 28.24MB / 28.24MB 0.2s done
+#4 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 49.17MB / 49.17MB 0.3s done
+#4 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 0.1s
+#4 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 49.17MB / 49.17MB 0.3s done
+#5 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 28.24MB / 28.24MB 0.2s done
+#5 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 49.17MB / 49.17MB 0.3s done
+#5 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 0.1s
+#4 sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 28.24MB / 28.24MB 0.2s done
+#4 sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 49.17MB / 49.17MB 0.3s done
+#4 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 0.1s
+#4 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 1.0s done
+#4 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 1.0s done
+#5 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 1.0s done
+#4 extracting sha256:ff86ea2e5edce334d19a34fbc65d1a511aa1fc823dba1110422f991aa56b44d4 1.0s done
+#4 extracting sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 done
+#4 extracting sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 done
+#4 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6
+#5 extracting sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 done
+#5 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6
+#4 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6
+#4 extracting sha256:e54aec64c365815cd7b91e718f00ac6e625562b1de09036b38614621b42c7582 done
+#4 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6
+#5 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 1.2s done
+#5 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410
+#4 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 1.2s done
+#4 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410
+#4 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 1.2s done
+#4 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410
+#4 extracting sha256:8756b2addaa654610599bdc8d53bda671aa1c7740b9487e736ede336f1e211c6 1.2s done
+#4 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410
+#4 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 0.0s done
+#4 extracting sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae done
+#4 DONE 2.8s
+
+#6 [runner  2/12] WORKDIR /app
+#6 DONE 0.0s
+
+#7 [builder  2/18] WORKDIR /workspace
+#7 DONE 0.0s
+
+#8 [builder  3/15] COPY package*.json ./
+#8 DONE 0.0s
+#4 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 0.0s done
+#4 extracting sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae done
+#4 DONE 2.8s
+
+#6 [runner  2/12] WORKDIR /app
+#6 DONE 0.0s
+
+#7 [builder  2/18] WORKDIR /workspace
+#7 DONE 0.0s
+
+#8 [builder  3/15] COPY package*.json ./
+#8 DONE 0.0s
+#5 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 0.0s done
+#5 extracting sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae done
+#5 DONE 2.8s
+
+#7 [runner  2/12] WORKDIR /app
+#7 DONE 0.0s
+
+#8 [builder  2/18] WORKDIR /workspace
+#8 DONE 0.0s
+
+#9 [builder  3/15] COPY package*.json ./
+#9 DONE 0.0s
+
+#9 [builder  4/15] COPY nx.json ./
+#9 DONE 0.0s
+
+#10 [builder  5/15] COPY tsconfig*.json ./
+#10 DONE 0.0s
+
+#11 [builder  6/15] COPY jest.config.ts ./
+#11 DONE 0.0s
+
+#12 [builder  7/15] COPY jest.preset.js ./
+#12 DONE 0.0s
+
+#13 [builder  8/15] COPY eslint.config.mjs ./
+#13 DONE 0.0s
+
+#14 [builder  9/15] COPY apps/executor ./apps/executor
+#14 DONE 0.0s
+
+#9 [builder  4/15] COPY nx.json ./
+#9 DONE 0.0s
+
+#10 [builder  5/15] COPY tsconfig*.json ./
+#10 DONE 0.0s
+
+#11 [builder  6/15] COPY jest.config.ts ./
+#11 DONE 0.0s
+
+#12 [builder  7/15] COPY jest.preset.js ./
+#12 DONE 0.0s
+
+#13 [builder  8/15] COPY eslint.config.mjs ./
+#13 DONE 0.0s
+
+#14 [builder  9/16] COPY scripts ./scripts
+#14 DONE 0.0s
+#4 extracting sha256:e83894e61b61f1112adf46a1d82239d6a0d513d8a2af911533362335b09f1410 0.0s done
+#4 extracting sha256:1b018adbb54b38cebc6717403e061106155f3587280d4503daa0e80651c662ae done
+#4 DONE 2.8s
+
+#6 [builder  2/18] WORKDIR /workspace
+#6 DONE 0.0s
+
+#7 [builder  3/18] RUN apt-get update && apt-get install -y openssl
+
+#10 [builder  4/15] COPY nx.json ./
+#10 DONE 0.0s
+
+#11 [builder  5/15] COPY tsconfig*.json ./
+#11 DONE 0.0s
+
+#12 [builder  6/15] COPY jest.config.ts ./
+#12 DONE 0.0s
+
+#13 [builder  7/15] COPY jest.preset.js ./
+#13 DONE 0.0s
+
+#14 [builder  8/15] COPY eslint.config.mjs ./
+#14 DONE 0.0s
+
+#15 [builder  7/16] COPY jest.preset.js ./
+#15 CACHED
+
+#16 [builder  4/16] COPY nx.json ./
+#16 CACHED
+
+#17 [builder  8/16] COPY eslint.config.mjs ./
+#17 CACHED
+
+#18 [builder  5/16] COPY tsconfig*.json ./
+#18 CACHED
+
+#19 [builder  6/16] COPY jest.config.ts ./
+#19 CACHED
+
+#20 [builder  3/16] COPY package*.json ./
+#20 CACHED
+
+#21 [builder  9/16] COPY scripts ./scripts
+#21 DONE 0.0s
+
+#15 [builder 10/15] COPY libs/grpc ./libs/grpc
+#15 DONE 0.1s
+#7 0.281 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+
+#22 [builder 10/16] COPY apps/products ./apps/products
+#22 DONE 0.1s
+
+#15 [builder  8/17] COPY eslint.config.mjs ./
+#15 CACHED
+
+#16 [builder  9/17] COPY scripts ./scripts
+#16 CACHED
+
+#17 [builder  4/17] COPY nx.json ./
+#17 CACHED
+
+#18 [builder  5/17] COPY tsconfig*.json ./
+#18 CACHED
+
+#19 [builder  6/17] COPY jest.config.ts ./
+#19 CACHED
+
+#20 [builder  7/17] COPY jest.preset.js ./
+#20 CACHED
+
+#21 [builder  3/17] COPY package*.json ./
+#21 CACHED
+
+#22 [builder 10/17] COPY apps/jobs ./apps/jobs
+#22 DONE 0.1s
+
+#23 [builder 11/16] COPY libs/grpc ./libs/grpc
+#23 DONE 0.0s
+
+#24 [builder 12/16] COPY libs/graphql ./libs/graphql
+#24 DONE 0.0s
+
+#25 [builder 13/16] COPY libs/nestjs ./libs/nestjs
+#25 DONE 0.0s
+
+#23 [builder 11/17] COPY libs/graphql ./libs/graphql
+#23 DONE 0.0s
+
+#24 [builder 12/17] COPY libs/grpc ./libs/grpc
+#24 DONE 0.0s
+
+#25 [builder 13/17] COPY libs/nestjs ./libs/nestjs
+#25 DONE 0.0s
+#7 0.296 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#7 0.296 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#7 0.447 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+
+#16 [builder 11/15] COPY libs/nestjs ./libs/nestjs
+#16 DONE 0.0s
+
+#17 [builder 12/15] COPY libs/pulsar ./libs/pulsar
+#17 DONE 0.0s
+
+#18 [builder 13/15] RUN npm install
+
+#26 [builder 14/16] RUN npm install
+
+#26 [builder 14/17] COPY libs/pulsar ./libs/pulsar
+#26 DONE 0.0s
+
+#27 [builder 15/17] RUN npm install
+#7 0.667 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#7 0.736 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [299 kB]
+#7 1.894 Fetched 9352 kB in 2s (5774 kB/s)
+#7 1.894 Reading package lists...
+#7 2.817 Reading package lists...
+#7 3.705 Building dependency tree...
+#7 4.021 Reading state information...
+#7 4.319 The following additional packages will be installed:
+#7 4.319   libssl3
+#7 4.321 Suggested packages:
+#7 4.321   ca-certificates
+#7 4.516 The following NEW packages will be installed:
+#7 4.518   libssl3 openssl
+#7 4.564 0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+#7 4.564 Need to get 3467 kB of archives.
+#7 4.564 After this operation, 8537 kB of additional disk space will be used.
+#7 4.564 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.19-1~deb12u2 [2032 kB]
+#7 4.613 Get:2 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.19-1~deb12u2 [1435 kB]
+#7 5.076 debconf: delaying package configuration, since apt-utils is not installed
+#7 5.117 Fetched 3467 kB in 0s (25.8 MB/s)
+#7 5.146 Selecting previously unselected package libssl3:amd64.
+#7 5.146 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6099 files and directories currently installed.)
+#7 5.162 Preparing to unpack .../libssl3_3.0.19-1~deb12u2_amd64.deb ...
+#7 5.167 Unpacking libssl3:amd64 (3.0.19-1~deb12u2) ...
+#7 5.556 Selecting previously unselected package openssl.
+#7 5.556 Preparing to unpack .../openssl_3.0.19-1~deb12u2_amd64.deb ...
+#7 5.559 Unpacking openssl (3.0.19-1~deb12u2) ...
+#7 5.799 Setting up libssl3:amd64 (3.0.19-1~deb12u2) ...
+#7 5.804 Setting up openssl (3.0.19-1~deb12u2) ...
+#7 5.809 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#7 DONE 6.1s
+
+#8 [runner  2/14] RUN apt-get update && apt-get install -y openssl
+#8 0.324 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#8 0.334 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#8 0.338 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#8 0.472 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#8 0.645 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#8 0.848 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [299 kB]
+#8 2.152 Fetched 9352 kB in 2s (5139 kB/s)
+#8 2.152 Reading package lists...
+#8 3.251 Reading package lists...
+#8 4.341 Building dependency tree...
+#8 4.618 Reading state information...
+#8 4.990 The following additional packages will be installed:
+#8 4.991   libssl3
+#8 4.993 Suggested packages:
+#8 4.993   ca-certificates
+#8 5.065 The following NEW packages will be installed:
+#8 5.069   libssl3 openssl
+#8 5.128 0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+#8 5.128 Need to get 3467 kB of archives.
+#8 5.128 After this operation, 8537 kB of additional disk space will be used.
+#8 5.128 Get:1 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.19-1~deb12u2 [2032 kB]
+#8 5.147 Get:2 http://deb.debian.org/debian-security bookworm-security/main amd64 openssl amd64 3.0.19-1~deb12u2 [1435 kB]
+#8 5.467 Fetched 3467 kB in 0s (53.5 MB/s)
+#8 5.480 debconf: delaying package configuration, since apt-utils is not installed
+#8 5.571 Selecting previously unselected package libssl3:amd64.
+#8 5.571 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6099 files and directories currently installed.)
+#8 5.780 Preparing to unpack .../libssl3_3.0.19-1~deb12u2_amd64.deb ...
+#8 5.791 Unpacking libssl3:amd64 (3.0.19-1~deb12u2) ...
+#26 5.668 npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#8 ...
+
+#9 [builder  4/18] COPY package*.json ./
+#9 DONE 0.0s
+
+#10 [builder  5/18] COPY nx.json ./
+#10 DONE 0.0s
+
+#11 [builder  6/18] COPY tsconfig*.json ./
+#11 DONE 0.0s
+
+#12 [builder  7/18] COPY jest.config.ts ./
+#12 DONE 0.0s
+
+#8 [runner  2/14] RUN apt-get update && apt-get install -y openssl
+#8 6.070 Selecting previously unselected package openssl.
+#8 6.070 Preparing to unpack .../openssl_3.0.19-1~deb12u2_amd64.deb ...
+#8 6.070 Unpacking openssl (3.0.19-1~deb12u2) ...
+#8 ...
+
+#13 [builder  8/18] COPY jest.preset.js ./
+#13 DONE 0.0s
+
+#14 [builder  9/18] COPY eslint.config.mjs ./
+#14 DONE 0.0s
+
+#15 [builder 10/18] COPY scripts ./scripts
+#15 DONE 0.0s
+
+#16 [builder 11/18] COPY apps/auth ./apps/auth
+#16 DONE 0.1s
+
+#17 [builder 12/18] COPY libs/graphql ./libs/graphql
+#17 DONE 0.0s
+
+#8 [runner  2/14] RUN apt-get update && apt-get install -y openssl
+#8 6.285 Setting up libssl3:amd64 (3.0.19-1~deb12u2) ...
+#8 6.288 Setting up openssl (3.0.19-1~deb12u2) ...
+#8 6.320 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#8 DONE 6.4s
+
+#18 [builder 13/18] COPY libs/grpc ./libs/grpc
+#18 DONE 0.0s
+
+#19 [builder 14/18] COPY libs/nestjs ./libs/nestjs
+#19 DONE 0.0s
+
+#20 [runner  3/14] WORKDIR /app
+#20 DONE 0.0s
+
+#21 [builder 15/18] COPY libs/prisma ./libs/prisma
+#21 DONE 0.0s
+
+#22 [builder 16/18] RUN npm install
+#27 6.532 npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#18 6.947 npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#26 8.959 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#27 9.913 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#18 10.56 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#22 7.116 npm warn deprecated whatwg-encoding@2.0.0: Use @exodus/bytes instead for a more spec-conformant and faster implementation
+#26 14.56 npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+#26 15.01 npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+#26 16.85 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#26 16.94 npm warn deprecated subscriptions-transport-ws@0.11.0: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+#27 17.26 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#22 11.35 npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+#18 17.79 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#27 18.61 npm warn deprecated subscriptions-transport-ws@0.11.0: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+#26 21.86 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#26 21.90 npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+#27 23.08 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#27 23.08 npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+#18 23.62 npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+#18 23.64 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#22 19.28 npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#22 19.48 npm warn deprecated subscriptions-transport-ws@0.11.0: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+#22 24.12 npm warn deprecated glob@10.5.0: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+#22 24.26 npm warn deprecated uuid@8.3.2: uuid@10 and below is no longer supported.  For ESM codebases, update to uuid@latest.  For CommonJS codebases, use uuid@11 (but be aware this version will likely be deprecated in 2028).
+#26 75.96 
+#26 75.96 > @jobber/source@0.0.0 prepare
+#26 75.96 > husky
+#26 75.96 
+#26 76.00 .git can't be found
+#26 76.03 added 1329 packages, and audited 1339 packages in 1m
+#26 76.03 
+#26 76.03 289 packages are looking for funding
+#26 76.03   run `npm fund` for details
+#26 76.18 
+#26 76.18 18 vulnerabilities (15 moderate, 3 high)
+#26 76.18 
+#26 76.18 To address issues that do not require attention, run:
+#26 76.18   npm audit fix
+#26 76.18 
+#26 76.18 To address all issues (including breaking changes), run:
+#26 76.18   npm audit fix --force
+#26 76.18 
+#26 76.18 Run `npm audit` for details.
+#26 76.18 npm notice
+#26 76.18 npm notice New minor version of npm available! 11.12.1 -> 11.14.0
+#26 76.18 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.0
+#26 76.18 npm notice To update run: npm install -g npm@11.14.0
+#26 76.18 npm notice
+#26 DONE 77.6s
+
+#27 [builder 15/16] RUN apt-get update && apt-get install -y protobuf-compiler
+#27 0.191 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#27 0.202 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#27 0.210 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#27 0.273 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#27 0.756 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#27 0.770 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [299 kB]
+#27 78.97 
+#27 78.97 > @jobber/source@0.0.0 prepare
+#27 78.97 > husky
+#27 78.97 
+#27 79.03 .git can't be found
+#27 79.08 added 1368 packages, and audited 1378 packages in 1m
+#27 79.08 
+#27 79.08 303 packages are looking for funding
+#27 79.08   run `npm fund` for details
+#27 79.26 
+#27 79.26 14 vulnerabilities (11 moderate, 3 high)
+#27 79.26 
+#27 79.26 To address issues that do not require attention, run:
+#27 79.26   npm audit fix
+#27 79.26 
+#27 79.26 To address all issues (including breaking changes), run:
+#27 79.26   npm audit fix --force
+#27 79.26 
+#27 79.26 Run `npm audit` for details.
+#27 1.799 Fetched 9352 kB in 2s (5761 kB/s)
+#27 1.799 Reading package lists...#27 79.27 npm notice
+#27 79.27 npm notice New minor version of npm available! 11.12.1 -> 11.14.0
+#27 79.27 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.0
+#27 79.27 npm notice To update run: npm install -g npm@11.14.0
+#27 79.27 npm notice
+#27 DONE 79.6s
+
+#28 [builder 16/17] RUN apt-get update && apt-get install -y protobuf-compiler
+#28 0.189 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+
+#28 0.203 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#28 0.203 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#28 0.286 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#28 0.355 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#27 2.446 Reading package lists...#28 0.417 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [299 kB]
+
+#27 3.146 Building dependency tree...
+#28 1.285 Fetched 9352 kB in 1s (8455 kB/s)
+#28 1.285 Reading package lists...#27 3.324 Reading state information...
+#27 3.473 The following additional packages will be installed:
+#27 3.473   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#27 3.473   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#27 3.473   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#27 3.473   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#27 3.473   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#27 3.473   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#27 3.474   libprotobuf32 libprotoc32 librav1e0 libssl3 libsvtav1enc1 libtiff6
+#27 3.474   libtirpc-common libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data
+#27 3.474   libx265-199 libxau6 libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev
+#27 3.474   manpages manpages-dev rpcsvc-proto zlib1g-dev
+#27 3.474 Suggested packages:
+#27 3.474   glibc-doc libgd-tools krb5-doc krb5-user man-browser protobuf-mode-el
+#27 3.870 The following NEW packages will be installed:
+
+#27 3.870   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#27 3.870   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#27 3.870   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#27 3.870   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#27 3.870   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#27 3.870   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#27 3.871   libprotobuf32 libprotoc32 librav1e0 libssl3 libsvtav1enc1 libtiff6
+#27 3.871   libtirpc-common libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data
+#27 3.871   libx265-199 libxau6 libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev
+#27 3.871   manpages manpages-dev protobuf-compiler rpcsvc-proto zlib1g-dev
+#27 3.894 0 upgraded, 59 newly installed, 0 to remove and 0 not upgraded.
+#27 3.894 Need to get 28.4 MB of archives.
+#27 3.894 After this operation, 109 MB of additional disk space will be used.
+#27 3.894 Get:1 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#27 3.898 Get:2 http://deb.debian.org/debian bookworm/main amd64 manpages all 6.03-2 [1332 kB]
+#27 3.908 Get:3 http://deb.debian.org/debian bookworm/main amd64 fonts-dejavu-core all 2.37-6 [1068 kB]
+#27 3.914 Get:4 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+#27 3.916 Get:5 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+#27 3.919 Get:6 http://deb.debian.org/debian bookworm/main amd64 libaom3 amd64 3.6.0-1+deb12u2 [1850 kB]
+#27 3.928 Get:7 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+#27 3.931 Get:8 http://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+#27 3.933 Get:9 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]
+#27 3.937 Get:10 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]
+#27 3.947 Get:11 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+#27 3.948 Get:12 http://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+#27 3.952 Get:13 http://deb.debian.org/debian bookworm/main amd64 libavif15 amd64 0.11.1-1+deb12u1 [94.4 kB]
+#27 3.952 Get:14 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#27 3.954 Get:15 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#27 3.955 Get:16 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u13 [47.4 kB]
+#27 3.956 Get:17 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#27 3.956 Get:18 http://deb.debian.org/debian-security bookworm-security/main amd64 libpng16-16 amd64 1.6.39-2+deb12u4 [276 kB]
+#27 3.957 Get:19 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+#27 3.960 Get:20 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+#27 3.962 Get:21 http://deb.debian.org/debian bookworm/main amd64 libde265-0 amd64 1.0.11-1+deb12u2 [185 kB]
+#27 3.963 Get:22 http://deb.debian.org/debian bookworm/main amd64 libnuma1 amd64 2.0.16-1 [21.0 kB]
+#27 3.964 Get:23 http://deb.debian.org/debian bookworm/main amd64 libx265-199 amd64 3.5-2+b1 [1150 kB]
+#27 3.970 Get:24 http://deb.debian.org/debian bookworm/main amd64 libheif1 amd64 1.15.1-1+deb12u1 [215 kB]
+#27 3.971 Get:25 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+#28 1.835 Reading package lists...#27 3.975 Get:26 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+#27 3.975 Get:27 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+#27 3.975 Get:28 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+#27 3.975 Get:29 http://deb.debian.org/debian-security bookworm-security/main amd64 libtiff6 amd64 4.5.0-6+deb12u4 [316 kB]
+#27 3.978 Get:30 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#27 3.979 Get:31 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#27 3.979 Get:32 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#27 3.980 Get:33 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#27 3.981 Get:34 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#27 3.984 Get:35 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+#27 3.985 Get:36 http://deb.debian.org/debian bookworm/main amd64 libgd3 amd64 2.3.3-9 [124 kB]
+#27 3.986 Get:37 http://deb.debian.org/debian bookworm/main amd64 libc-devtools amd64 2.36-9+deb12u13 [55.0 kB]
+#27 3.987 Get:38 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.170-1 [2271 kB]
+#27 3.992 Get:39 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#27 3.994 Get:40 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#27 3.995 Get:41 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#27 3.995 Get:42 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#27 3.996 Get:43 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.19-1~deb12u2 [2032 kB]
+#27 4.000 Get:44 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#27 4.001 Get:45 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#27 4.003 Get:46 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#27 4.003 Get:47 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#27 4.004 Get:48 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#27 4.004 Get:49 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#27 4.006 Get:50 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#27 4.006 Get:51 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#27 4.007 Get:52 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u13 [1904 kB]
+#27 4.016 Get:53 http://deb.debian.org/debian bookworm/main amd64 zlib1g-dev amd64 1:1.2.13.dfsg-1 [916 kB]
+#27 4.020 Get:54 http://deb.debian.org/debian bookworm/main amd64 libprotobuf32 amd64 3.21.12-3 [932 kB]
+#27 4.025 Get:55 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-lite32 amd64 3.21.12-3 [261 kB]
+#27 4.026 Get:56 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-dev amd64 3.21.12-3 [1283 kB]
+#27 4.033 Get:57 http://deb.debian.org/debian bookworm/main amd64 libprotoc32 amd64 3.21.12-3 [829 kB]
+#27 4.037 Get:58 http://deb.debian.org/debian bookworm/main amd64 manpages-dev all 6.03-2 [2030 kB]
+#27 4.047 Get:59 http://deb.debian.org/debian bookworm/main amd64 protobuf-compiler amd64 3.21.12-3 [83.9 kB]
+#27 4.144 debconf: delaying package configuration, since apt-utils is not installed
+#27 4.167 Fetched 28.4 MB in 0s (170 MB/s)
+#27 4.178 Selecting previously unselected package krb5-locales.
+#27 4.178 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6099 files and directories currently installed.)
+#27 4.184 Preparing to unpack .../00-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#27 4.185 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#27 4.202 Selecting previously unselected package manpages.
+#27 4.202 Preparing to unpack .../01-manpages_6.03-2_all.deb ...
+#27 4.203 Unpacking manpages (6.03-2) ...
+#27 4.285 Selecting previously unselected package fonts-dejavu-core.
+#27 4.287 Preparing to unpack .../02-fonts-dejavu-core_2.37-6_all.deb ...
+#27 4.288 Unpacking fonts-dejavu-core (2.37-6) ...
+#27 4.378 Selecting previously unselected package fontconfig-config.
+#27 4.379 Preparing to unpack .../03-fontconfig-config_2.14.1-4_amd64.deb ...
+#27 4.476 Unpacking fontconfig-config (2.14.1-4) ...
+
+#27 4.505 Selecting previously unselected package libabsl20220623:amd64.
+#27 4.507 Preparing to unpack .../04-libabsl20220623_20220623.1-1+deb12u2_amd64.deb ...
+#27 4.508 Unpacking libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#27 4.562 Selecting previously unselected package libaom3:amd64.
+#27 4.564 Preparing to unpack .../05-libaom3_3.6.0-1+deb12u2_amd64.deb ...
+#27 4.565 Unpacking libaom3:amd64 (3.6.0-1+deb12u2) ...
+#27 4.708 Selecting previously unselected package libdav1d6:amd64.
+#28 2.530 Building dependency tree...
+#28 2.666 Reading state information...#27 4.710 Preparing to unpack .../06-libdav1d6_1.0.0-2+deb12u1_amd64.deb ...
+#27 4.711 Unpacking libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#27 4.770 Selecting previously unselected package libgav1-1:amd64.
+#27 4.772 Preparing to unpack .../07-libgav1-1_0.18.0-1+b1_amd64.deb ...
+#27 4.773 Unpacking libgav1-1:amd64 (0.18.0-1+b1) ...
+#27 4.816 Selecting previously unselected package librav1e0:amd64.
+
+#28 2.778 The following additional packages will be installed:
+#27 4.817 Preparing to unpack .../08-librav1e0_0.5.1-6_amd64.deb ...
+#27 4.818 Unpacking librav1e0:amd64 (0.5.1-6) ...
+#27 4.901 Selecting previously unselected package libsvtav1enc1:amd64.
+#27 4.902 Preparing to unpack .../09-libsvtav1enc1_1.4.1+dfsg-1_amd64.deb ...
+#27 4.903 Unpacking libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#28 2.778   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#28 2.778   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#28 2.778   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#28 2.778   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#28 2.778   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#28 2.778   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#28 2.778   libprotobuf32 libprotoc32 librav1e0 libssl3 libsvtav1enc1 libtiff6
+#28 2.778   libtirpc-common libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data
+#28 2.778   libx265-199 libxau6 libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev
+#28 2.778   manpages manpages-dev rpcsvc-proto zlib1g-dev
+#28 2.779 Suggested packages:
+#28 2.779   glibc-doc libgd-tools krb5-doc krb5-user man-browser protobuf-mode-el
+#27 5.096 Selecting previously unselected package libjpeg62-turbo:amd64.
+#27 5.098 Preparing to unpack .../10-libjpeg62-turbo_1%3a2.1.5-2_amd64.deb ...
+#27 5.099 Unpacking libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#27 5.130 Selecting previously unselected package libyuv0:amd64.
+#27 5.133 Preparing to unpack .../11-libyuv0_0.0~git20230123.b2528b0-1_amd64.deb ...
+#27 5.134 Unpacking libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#27 5.167 Selecting previously unselected package libavif15:amd64.
+#27 5.170 Preparing to unpack .../12-libavif15_0.11.1-1+deb12u1_amd64.deb ...
+#27 5.172 Unpacking libavif15:amd64 (0.11.1-1+deb12u1) ...
+#27 5.197 Selecting previously unselected package libbrotli1:amd64.
+#28 3.154 The following NEW packages will be installed:
+#27 5.199 Preparing to unpack .../13-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#27 5.201 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#27 5.246 Selecting previously unselected package libbsd0:amd64.
+#27 5.247 Preparing to unpack .../14-libbsd0_0.11.7-2_amd64.deb ...
+#27 5.248 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#27 5.273 Selecting previously unselected package libc-dev-bin.
+#27 5.275 Preparing to unpack .../15-libc-dev-bin_2.36-9+deb12u13_amd64.deb ...
+#27 5.276 Unpacking libc-dev-bin (2.36-9+deb12u13) ...
+#27 5.297 Selecting previously unselected package libexpat1:amd64.
+#27 5.299 Preparing to unpack .../16-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#28 3.154   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#28 3.155   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#28 3.155   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#28 3.155   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#28 3.155   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#28 3.155   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#28 3.155   libprotobuf32 libprotoc32 librav1e0 libssl3 libsvtav1enc1 libtiff6
+#28 3.155   libtirpc-common libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data
+#28 3.155   libx265-199 libxau6 libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev
+#28 3.156   manpages manpages-dev protobuf-compiler rpcsvc-proto zlib1g-dev
+#28 3.183 0 upgraded, 59 newly installed, 0 to remove and 0 not upgraded.
+#28 3.183 Need to get 28.4 MB of archives.
+#28 3.183 After this operation, 109 MB of additional disk space will be used.
+#28 3.183 Get:1 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#28 3.186 Get:2 http://deb.debian.org/debian bookworm/main amd64 manpages all 6.03-2 [1332 kB]
+#28 3.197 Get:3 http://deb.debian.org/debian bookworm/main amd64 fonts-dejavu-core all 2.37-6 [1068 kB]
+#28 3.202 Get:4 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+#28 3.204 Get:5 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+#28 3.207 Get:6 http://deb.debian.org/debian bookworm/main amd64 libaom3 amd64 3.6.0-1+deb12u2 [1850 kB]
+#28 3.217 Get:7 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+#28 3.221 Get:8 http://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+#28 3.224 Get:9 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]
+#28 3.227 Get:10 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]
+#28 3.238 Get:11 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+#28 3.242 Get:12 http://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+#28 3.242 Get:13 http://deb.debian.org/debian bookworm/main amd64 libavif15 amd64 0.11.1-1+deb12u1 [94.4 kB]
+#28 3.242 Get:14 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#28 3.243 Get:15 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#28 3.244 Get:16 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u13 [47.4 kB]
+#28 3.245 Get:17 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#28 3.246 Get:18 http://deb.debian.org/debian-security bookworm-security/main amd64 libpng16-16 amd64 1.6.39-2+deb12u4 [276 kB]
+#28 3.247 Get:19 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+#28 3.249 Get:20 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+#28 3.251 Get:21 http://deb.debian.org/debian bookworm/main amd64 libde265-0 amd64 1.0.11-1+deb12u2 [185 kB]
+#28 3.252 Get:22 http://deb.debian.org/debian bookworm/main amd64 libnuma1 amd64 2.0.16-1 [21.0 kB]
+#28 3.253 Get:23 http://deb.debian.org/debian bookworm/main amd64 libx265-199 amd64 3.5-2+b1 [1150 kB]
+#28 3.261 Get:24 http://deb.debian.org/debian bookworm/main amd64 libheif1 amd64 1.15.1-1+deb12u1 [215 kB]
+#27 5.301 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#27 5.324 Selecting previously unselected package libpng16-16:amd64.
+#27 5.326 Preparing to unpack .../17-libpng16-16_1.6.39-2+deb12u4_amd64.deb ...
+#27 5.327 Unpacking libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#27 5.364 Selecting previously unselected package libfreetype6:amd64.
+#27 5.366 Preparing to unpack .../18-libfreetype6_2.12.1+dfsg-5+deb12u4_amd64.deb ...
+#27 5.367 Unpacking libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#27 5.423 Selecting previously unselected package libfontconfig1:amd64.
+#27 5.425 Preparing to unpack .../19-libfontconfig1_2.14.1-4_amd64.deb ...
+#27 5.426 Unpacking libfontconfig1:amd64 (2.14.1-4) ...
+#27 5.459 Selecting previously unselected package libde265-0:amd64.
+#27 5.461 Preparing to unpack .../20-libde265-0_1.0.11-1+deb12u2_amd64.deb ...
+#27 5.463 Unpacking libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#27 5.504 Selecting previously unselected package libnuma1:amd64.
+#27 5.506 Preparing to unpack .../21-libnuma1_2.0.16-1_amd64.deb ...
+#27 5.507 Unpacking libnuma1:amd64 (2.0.16-1) ...
+#27 5.527 Selecting previously unselected package libx265-199:amd64.
+#28 3.267 Get:25 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+#28 3.268 Get:26 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+#28 3.269 Get:27 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+#28 3.270 Get:28 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+#28 3.272 Get:29 http://deb.debian.org/debian-security bookworm-security/main amd64 libtiff6 amd64 4.5.0-6+deb12u4 [316 kB]
+#28 3.274 Get:30 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#28 3.274 Get:31 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#28 3.275 Get:32 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#28 3.275 Get:33 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#28 3.277 Get:34 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#28 3.280 Get:35 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+#28 3.281 Get:36 http://deb.debian.org/debian bookworm/main amd64 libgd3 amd64 2.3.3-9 [124 kB]
+#28 3.284 Get:37 http://deb.debian.org/debian bookworm/main amd64 libc-devtools amd64 2.36-9+deb12u13 [55.0 kB]
+#28 3.284 Get:38 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.170-1 [2271 kB]
+#28 3.290 Get:39 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#28 3.291 Get:40 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#28 3.292 Get:41 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#28 3.293 Get:42 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#28 3.293 Get:43 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.19-1~deb12u2 [2032 kB]
+#28 3.299 Get:44 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#28 3.300 Get:45 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#28 3.301 Get:46 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#28 3.304 Get:47 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#28 3.304 Get:48 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#28 3.305 Get:49 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#28 3.305 Get:50 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#28 3.306 Get:51 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#28 3.307 Get:52 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u13 [1904 kB]
+#28 3.316 Get:53 http://deb.debian.org/debian bookworm/main amd64 zlib1g-dev amd64 1:1.2.13.dfsg-1 [916 kB]
+#28 3.321 Get:54 http://deb.debian.org/debian bookworm/main amd64 libprotobuf32 amd64 3.21.12-3 [932 kB]
+#28 3.326 Get:55 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-lite32 amd64 3.21.12-3 [261 kB]
+#28 3.328 Get:56 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-dev amd64 3.21.12-3 [1283 kB]
+#28 3.334 Get:57 http://deb.debian.org/debian bookworm/main amd64 libprotoc32 amd64 3.21.12-3 [829 kB]
+#28 3.339 Get:58 http://deb.debian.org/debian bookworm/main amd64 manpages-dev all 6.03-2 [2030 kB]
+#28 3.348 Get:59 http://deb.debian.org/debian bookworm/main amd64 protobuf-compiler amd64 3.21.12-3 [83.9 kB]
+#28 3.467 debconf: delaying package configuration, since apt-utils is not installed
+#27 5.529 Preparing to unpack .../22-libx265-199_3.5-2+b1_amd64.deb ...
+#27 5.530 Unpacking libx265-199:amd64 (3.5-2+b1) ...
+#27 5.662 Selecting previously unselected package libheif1:amd64.
+#27 5.664 Preparing to unpack .../23-libheif1_1.15.1-1+deb12u1_amd64.deb ...
+#27 5.666 Unpacking libheif1:amd64 (1.15.1-1+deb12u1) ...
+#27 5.705 Selecting previously unselected package libdeflate0:amd64.
+#27 5.707 Preparing to unpack .../24-libdeflate0_1.14-1_amd64.deb ...
+#27 5.708 Unpacking libdeflate0:amd64 (1.14-1) ...
+#27 5.733 Selecting previously unselected package libjbig0:amd64.
+#27 5.733 Preparing to unpack .../25-libjbig0_2.1-6.1_amd64.deb ...
+#27 5.734 Unpacking libjbig0:amd64 (2.1-6.1) ...
+#27 5.753 Selecting previously unselected package liblerc4:amd64.
+#27 5.755 Preparing to unpack .../26-liblerc4_4.0.0+ds-2_amd64.deb ...
+#27 5.755 Unpacking liblerc4:amd64 (4.0.0+ds-2) ...
+#27 5.786 Selecting previously unselected package libwebp7:amd64.
+#28 3.510 Fetched 28.4 MB in 0s (155 MB/s)
+#28 3.526 Selecting previously unselected package krb5-locales.
+#28 3.526 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6099 files and directories currently installed.)
+#28 3.540 Preparing to unpack .../00-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#28 3.542 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#28 3.564 Selecting previously unselected package manpages.
+#28 3.565 Preparing to unpack .../01-manpages_6.03-2_all.deb ...
+#28 3.566 Unpacking manpages (6.03-2) ...
+#28 3.666 Selecting previously unselected package fonts-dejavu-core.
+#27 5.788 Preparing to unpack .../27-libwebp7_1.2.4-0.2+deb12u1_amd64.deb ...
+#27 5.789 Unpacking libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#27 5.831 Selecting previously unselected package libtiff6:amd64.
+#27 5.833 Preparing to unpack .../28-libtiff6_4.5.0-6+deb12u4_amd64.deb ...
+#27 5.834 Unpacking libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#27 5.868 Selecting previously unselected package libxau6:amd64.
+#27 5.870 Preparing to unpack .../29-libxau6_1%3a1.0.9-1_amd64.deb ...
+#27 5.873 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#27 5.892 Selecting previously unselected package libxdmcp6:amd64.
+#27 5.892 Preparing to unpack .../30-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#28 3.669 Preparing to unpack .../02-fonts-dejavu-core_2.37-6_all.deb ...
+#28 3.669 Unpacking fonts-dejavu-core (2.37-6) ...
+#28 3.771 Selecting previously unselected package fontconfig-config.
+#27 5.894 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#27 5.916 Selecting previously unselected package libxcb1:amd64.
+#27 5.918 Preparing to unpack .../31-libxcb1_1.15-1_amd64.deb ...
+#27 5.919 Unpacking libxcb1:amd64 (1.15-1) ...
+#27 5.941 Selecting previously unselected package libx11-data.
+#27 5.943 Preparing to unpack .../32-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#27 5.944 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#27 6.009 Selecting previously unselected package libx11-6:amd64.
+#28 3.773 Preparing to unpack .../03-fontconfig-config_2.14.1-4_amd64.deb ...
+#28 3.899 Unpacking fontconfig-config (2.14.1-4) ...
+#27 6.010 Preparing to unpack .../33-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#27 6.012 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#27 6.077 Selecting previously unselected package libxpm4:amd64.
+#27 6.080 Preparing to unpack .../34-libxpm4_1%3a3.5.12-1.1+deb12u1_amd64.deb ...
+#27 6.080 Unpacking libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#27 6.104 Selecting previously unselected package libgd3:amd64.
+#27 6.107 Preparing to unpack .../35-libgd3_2.3.3-9_amd64.deb ...
+#27 6.109 Unpacking libgd3:amd64 (2.3.3-9) ...
+#28 3.938 Selecting previously unselected package libabsl20220623:amd64.
+#28 3.939 Preparing to unpack .../04-libabsl20220623_20220623.1-1+deb12u2_amd64.deb ...
+#28 3.942 Unpacking libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#28 4.004 Selecting previously unselected package libaom3:amd64.
+#28 4.005 Preparing to unpack .../05-libaom3_3.6.0-1+deb12u2_amd64.deb ...
+#28 4.007 Unpacking libaom3:amd64 (3.6.0-1+deb12u2) ...
+#27 6.139 Selecting previously unselected package libc-devtools.
+#27 6.141 Preparing to unpack .../36-libc-devtools_2.36-9+deb12u13_amd64.deb ...
+#27 6.142 Unpacking libc-devtools (2.36-9+deb12u13) ...
+#27 6.163 Selecting previously unselected package linux-libc-dev:amd64.
+#27 6.165 Preparing to unpack .../37-linux-libc-dev_6.1.170-1_amd64.deb ...
+#27 6.166 Unpacking linux-libc-dev:amd64 (6.1.170-1) ...
+#28 4.193 Selecting previously unselected package libdav1d6:amd64.
+#27 6.373 Selecting previously unselected package libcrypt-dev:amd64.
+#28 4.195 Preparing to unpack .../06-libdav1d6_1.0.0-2+deb12u1_amd64.deb ...
+#28 4.197 Unpacking libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#28 4.260 Selecting previously unselected package libgav1-1:amd64.
+#28 4.263 Preparing to unpack .../07-libgav1-1_0.18.0-1+b1_amd64.deb ...
+#28 4.265 Unpacking libgav1-1:amd64 (0.18.0-1+b1) ...
+#28 4.310 Selecting previously unselected package librav1e0:amd64.
+#28 4.310 Preparing to unpack .../08-librav1e0_0.5.1-6_amd64.deb ...
+#27 6.376 Preparing to unpack .../38-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#27 6.381 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#27 6.410 Selecting previously unselected package libkrb5support0:amd64.
+#27 6.412 Preparing to unpack .../39-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#27 6.417 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#27 6.438 Selecting previously unselected package libk5crypto3:amd64.
+#27 6.440 Preparing to unpack .../40-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#27 6.442 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#27 6.465 Selecting previously unselected package libkeyutils1:amd64.
+#27 6.465 Preparing to unpack .../41-libkeyutils1_1.6.3-2_amd64.deb ...
+#27 6.466 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#27 6.487 Selecting previously unselected package libssl3:amd64.
+#28 4.311 Unpacking librav1e0:amd64 (0.5.1-6) ...
+#28 4.406 Selecting previously unselected package libsvtav1enc1:amd64.
+#28 4.410 Preparing to unpack .../09-libsvtav1enc1_1.4.1+dfsg-1_amd64.deb ...
+#28 4.411 Unpacking libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...#27 6.490 Preparing to unpack .../42-libssl3_3.0.19-1~deb12u2_amd64.deb ...
+#27 6.492 Unpacking libssl3:amd64 (3.0.19-1~deb12u2) ...
+#27 6.681 Selecting previously unselected package libkrb5-3:amd64.
+#27 6.681 Preparing to unpack .../43-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+
+#28 4.648 Selecting previously unselected package libjpeg62-turbo:amd64.
+#27 6.682 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#27 6.751 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#27 6.754 Preparing to unpack .../44-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#27 6.756 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#27 6.802 Selecting previously unselected package libtirpc-common.
+#27 6.805 Preparing to unpack .../45-libtirpc-common_1.3.3+ds-1_all.deb ...
+#27 6.806 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#27 6.836 Selecting previously unselected package libtirpc3:amd64.
+#27 6.838 Preparing to unpack .../46-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#27 6.839 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#27 6.918 Selecting previously unselected package libnsl2:amd64.
+#28 4.650 Preparing to unpack .../10-libjpeg62-turbo_1%3a2.1.5-2_amd64.deb ...
+#28 4.651 Unpacking libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#28 4.685 Selecting previously unselected package libyuv0:amd64.
+#28 4.689 Preparing to unpack .../11-libyuv0_0.0~git20230123.b2528b0-1_amd64.deb ...
+#28 4.691 Unpacking libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#28 4.789 Selecting previously unselected package libavif15:amd64.
+#27 6.922 Preparing to unpack .../47-libnsl2_1.3.0-2_amd64.deb ...
+#27 6.928 Unpacking libnsl2:amd64 (1.3.0-2) ...
+#27 6.961 Selecting previously unselected package libtirpc-dev:amd64.
+#27 6.964 Preparing to unpack .../48-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#27 6.966 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#27 7.035 Selecting previously unselected package libnsl-dev:amd64.#28 4.792 Preparing to unpack .../12-libavif15_0.11.1-1+deb12u1_amd64.deb ...
+#28 4.796 Unpacking libavif15:amd64 (0.11.1-1+deb12u1) ...
+#28 4.847 Selecting previously unselected package libbrotli1:amd64.
+#28 4.850 Preparing to unpack .../13-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#28 4.852 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#28 4.903 Selecting previously unselected package libbsd0:amd64.
+#28 4.907 Preparing to unpack .../14-libbsd0_0.11.7-2_amd64.deb ...
+#28 4.909 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#28 4.954 Selecting previously unselected package libc-dev-bin.
+#28 4.956 Preparing to unpack .../15-libc-dev-bin_2.36-9+deb12u13_amd64.deb ...
+#28 4.957 Unpacking libc-dev-bin (2.36-9+deb12u13) ...
+#28 4.985 Selecting previously unselected package libexpat1:amd64.
+#28 4.986 Preparing to unpack .../16-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#28 4.988 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#28 5.027 Selecting previously unselected package libpng16-16:amd64.
+#27 7.039 Preparing to unpack .../49-libnsl-dev_1.3.0-2_amd64.deb ...
+#27 7.041 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#27 7.075 Selecting previously unselected package rpcsvc-proto.
+#27 7.076 Preparing to unpack .../50-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#27 7.078 Unpacking rpcsvc-proto (1.4.3-1) ...
+#27 7.111 Selecting previously unselected package libc6-dev:amd64.
+#27 7.114 Preparing to unpack .../51-libc6-dev_2.36-9+deb12u13_amd64.deb ...
+#27 7.116 Unpacking libc6-dev:amd64 (2.36-9+deb12u13) ...
+
+#28 5.033 Preparing to unpack .../17-libpng16-16_1.6.39-2+deb12u4_amd64.deb ...
+#28 5.035 Unpacking libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#28 5.097 Selecting previously unselected package libfreetype6:amd64.
+#28 5.098 Preparing to unpack .../18-libfreetype6_2.12.1+dfsg-5+deb12u4_amd64.deb ...
+#28 5.099 Unpacking libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#28 5.173 Selecting previously unselected package libfontconfig1:amd64.
+#28 5.173 Preparing to unpack .../19-libfontconfig1_2.14.1-4_amd64.deb ...
+#27 7.400 Selecting previously unselected package zlib1g-dev:amd64.
+#27 7.400 Preparing to unpack .../52-zlib1g-dev_1%3a1.2.13.dfsg-1_amd64.deb ...
+#28 5.175 Unpacking libfontconfig1:amd64 (2.14.1-4) ...
+#28 5.211 Selecting previously unselected package libde265-0:amd64.
+#28 5.213 Preparing to unpack .../20-libde265-0_1.0.11-1+deb12u2_amd64.deb ...
+#28 5.214 Unpacking libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#28 5.258 Selecting previously unselected package libnuma1:amd64.
+#28 5.258 Preparing to unpack .../21-libnuma1_2.0.16-1_amd64.deb ...
+#28 5.259 Unpacking libnuma1:amd64 (2.0.16-1) ...
+#28 5.295 Selecting previously unselected package libx265-199:amd64.
+#28 5.296 Preparing to unpack .../22-libx265-199_3.5-2+b1_amd64.deb ...
+#28 5.298 Unpacking libx265-199:amd64 (3.5-2+b1) ...
+#28 5.452 Selecting previously unselected package libheif1:amd64.
+#27 7.406 Unpacking zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#27 7.488 Selecting previously unselected package libprotobuf32:amd64.
+#27 7.491 Preparing to unpack .../53-libprotobuf32_3.21.12-3_amd64.deb ...
+#27 7.493 Unpacking libprotobuf32:amd64 (3.21.12-3) ...
+#27 7.646 Selecting previously unselected package libprotobuf-lite32:amd64.
+#28 5.454 Preparing to unpack .../23-libheif1_1.15.1-1+deb12u1_amd64.deb ...
+#28 5.455 Unpacking libheif1:amd64 (1.15.1-1+deb12u1) ...
+#28 5.511 Selecting previously unselected package libdeflate0:amd64.
+#28 5.516 Preparing to unpack .../24-libdeflate0_1.14-1_amd64.deb ...
+#28 5.516 Unpacking libdeflate0:amd64 (1.14-1) ...
+#28 5.545 Selecting previously unselected package libjbig0:amd64.
+#28 5.547 Preparing to unpack .../25-libjbig0_2.1-6.1_amd64.deb ...
+#28 5.549 Unpacking libjbig0:amd64 (2.1-6.1) ...
+#28 5.595 Selecting previously unselected package liblerc4:amd64.
+#18 85.48 
+#18 85.48 > @jobber/source@0.0.0 prepare
+#18 85.48 > husky
+#18 85.48 
+#27 7.647 Preparing to unpack .../54-libprotobuf-lite32_3.21.12-3_amd64.deb ...
+#27 7.650 Unpacking libprotobuf-lite32:amd64 (3.21.12-3) ...
+#27 7.700 Selecting previously unselected package libprotobuf-dev:amd64.
+#27 7.702 Preparing to unpack .../55-libprotobuf-dev_3.21.12-3_amd64.deb ...
+#27 7.704 Unpacking libprotobuf-dev:amd64 (3.21.12-3) ...
+#28 5.598 Preparing to unpack .../26-liblerc4_4.0.0+ds-2_amd64.deb ...
+#28 5.599 Unpacking liblerc4:amd64 (4.0.0+ds-2) ...
+#28 5.670 Selecting previously unselected package libwebp7:amd64.
+#28 5.672 Preparing to unpack .../27-libwebp7_1.2.4-0.2+deb12u1_amd64.deb ...
+#28 5.674 Unpacking libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#28 5.723 Selecting previously unselected package libtiff6:amd64.
+#27 7.883 Selecting previously unselected package libprotoc32:amd64.
+#28 5.725 Preparing to unpack .../28-libtiff6_4.5.0-6+deb12u4_amd64.deb ...
+#28 5.726 Unpacking libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#28 5.766 Selecting previously unselected package libxau6:amd64.
+#28 5.768 Preparing to unpack .../29-libxau6_1%3a1.0.9-1_amd64.deb ...
+#28 5.769 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#28 5.789 Selecting previously unselected package libxdmcp6:amd64.
+#28 5.791 Preparing to unpack .../30-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#28 5.793 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#28 5.831 Selecting previously unselected package libxcb1:amd64.
+#28 5.831 Preparing to unpack .../31-libxcb1_1.15-1_amd64.deb ...#18 85.54 .git can't be found
+#18 85.62 added 1297 packages, and audited 1307 packages in 1m
+#27 7.887 Preparing to unpack .../56-libprotoc32_3.21.12-3_amd64.deb ...
+#27 7.889 Unpacking libprotoc32:amd64 (3.21.12-3) ...
+#27 8.003 Selecting previously unselected package manpages-dev.
+#28 5.837 Unpacking libxcb1:amd64 (1.15-1) ...
+#28 5.880 Selecting previously unselected package libx11-data.
+#28 5.882 Preparing to unpack .../32-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#28 5.883 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#28 6.000 Selecting previously unselected package libx11-6:amd64.#18 85.62 
+#18 85.62 286 packages are looking for funding
+#18 85.63   run `npm fund` for details
+
+#27 8.007 Preparing to unpack .../57-manpages-dev_6.03-2_all.deb ...
+#27 8.010 Unpacking manpages-dev (6.03-2) ...
+#18 85.87 
+#18 85.87 14 vulnerabilities (11 moderate, 3 high)
+#18 85.87 
+#18 85.87 To address issues that do not require attention, run:
+#18 85.87   npm audit fix
+#18 85.87 
+#18 85.87 To address all issues (including breaking changes), run:
+#18 85.87   npm audit fix --force
+#18 85.87 
+#18 85.87 Run `npm audit` for details.
+
+#28 6.002 Preparing to unpack .../33-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#28 6.005 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#28 6.141 Selecting previously unselected package libxpm4:amd64.
+#27 8.333 Selecting previously unselected package protobuf-compiler.
+#18 85.87 npm notice
+#18 85.87 npm notice New minor version of npm available! 11.12.1 -> 11.14.0
+#18 85.87 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.0
+#18 85.87 npm notice To update run: npm install -g npm@11.14.0
+#18 85.87 npm notice
+#28 6.143 Preparing to unpack .../34-libxpm4_1%3a3.5.12-1.1+deb12u1_amd64.deb ...
+#28 6.146 Unpacking libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#28 6.173 Selecting previously unselected package libgd3:amd64.
+#28 6.175 Preparing to unpack .../35-libgd3_2.3.3-9_amd64.deb ...
+#28 6.177 Unpacking libgd3:amd64 (2.3.3-9) ...
+#28 6.217 Selecting previously unselected package libc-devtools.
+#28 6.220 Preparing to unpack .../36-libc-devtools_2.36-9+deb12u13_amd64.deb ...
+#28 6.222 Unpacking libc-devtools (2.36-9+deb12u13) ...
+#28 6.266 Selecting previously unselected package linux-libc-dev:amd64.
+#27 8.339 Preparing to unpack .../58-protobuf-compiler_3.21.12-3_amd64.deb ...
+#27 8.340 Unpacking protobuf-compiler (3.21.12-3) ...
+#27 8.387 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#27 8.391 Setting up libaom3:amd64 (3.6.0-1+deb12u2) ...
+#27 8.394 Setting up libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#27 8.399 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#27 8.403 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#27 8.414 Setting up liblerc4:amd64 (4.0.0+ds-2) ...
+#27 8.423 Setting up manpages (6.03-2) ...
+#27 8.457 Setting up libtirpc-common (1.3.3+ds-1) ...
+#28 6.269 Preparing to unpack .../37-linux-libc-dev_6.1.170-1_amd64.deb ...
+#28 6.272 Unpacking linux-libc-dev:amd64 (6.1.170-1) ...
+#27 8.469 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#27 8.484 Setting up libssl3:amd64 (3.0.19-1~deb12u2) ...
+#27 8.484 Setting up libdeflate0:amd64 (1.14-1) ...
+#27 8.487 Setting up linux-libc-dev:amd64 (6.1.170-1) ...
+#27 8.490 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#27 8.493 Setting up libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#27 8.500 Setting up libjbig0:amd64 (2.1-6.1) ...
+#27 8.517 Setting up librav1e0:amd64 (0.5.1-6) ...
+#27 8.521 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#27 8.524 Setting up rpcsvc-proto (1.4.3-1) ...
+#27 8.530 Setting up libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#27 8.543 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#27 8.545 Setting up libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#27 8.548 Setting up fonts-dejavu-core (2.37-6) ...
+#27 8.570 Setting up libgav1-1:amd64 (0.18.0-1+b1) ...
+#27 8.573 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#27 8.577 Setting up libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#27 8.580 Setting up libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#27 8.584 Setting up libnuma1:amd64 (2.0.16-1) ...
+#27 8.589 Setting up libprotobuf32:amd64 (3.21.12-3) ...
+#27 8.592 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#27 8.602 Setting up libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#27 8.606 Setting up libprotobuf-lite32:amd64 (3.21.12-3) ...
+#27 8.608 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#27 8.611 Setting up libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#27 8.615 Setting up libc-dev-bin (2.36-9+deb12u13) ...
+#27 8.618 Setting up libbsd0:amd64 (0.11.7-2) ...
+#27 8.621 Setting up libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#27 8.623 Setting up libprotoc32:amd64 (3.21.12-3) ...
+#27 8.626 Setting up manpages-dev (6.03-2) ...
+#27 8.628 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#27 8.632 Setting up libxcb1:amd64 (1.15-1) ...
+#27 8.635 Setting up libavif15:amd64 (0.11.1-1+deb12u1) ...
+#27 8.637 Setting up protobuf-compiler (3.21.12-3) ...
+#27 8.639 Setting up fontconfig-config (2.14.1-4) ...
+#27 8.750 debconf: unable to initialize frontend: Dialog
+#27 8.750 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#27 8.750 debconf: falling back to frontend: Readline
+#27 8.752 debconf: unable to initialize frontend: Readline
+#27 8.752 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#27 8.752 debconf: falling back to frontend: Teletype
+#28 6.814 Selecting previously unselected package libcrypt-dev:amd64.
+#18 DONE 86.6s
+#27 8.963 Setting up libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#28 6.819 Preparing to unpack .../38-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#28 6.840 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#28 6.900 Selecting previously unselected package libkrb5support0:amd64.
+#28 6.903 Preparing to unpack .../39-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#28 6.904 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#28 6.943 Selecting previously unselected package libk5crypto3:amd64.
+
+#19 [builder 14/15] RUN apt-get update && apt-get install -y protobuf-compiler
+#27 8.967 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#27 9.006 Setting up libx265-199:amd64 (3.5-2+b1) ...
+#27 9.010 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#27 9.015 Setting up libfontconfig1:amd64 (2.14.1-4) ...
+#27 9.018 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#27 9.021 Setting up libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#27 9.024 Setting up libheif1:amd64 (1.15.1-1+deb12u1) ...
+#27 9.028 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#27 9.031 Setting up libgd3:amd64 (2.3.3-9) ...
+#27 9.035 Setting up libnsl2:amd64 (1.3.0-2) ...
+#27 9.038 Setting up libc-devtools (2.36-9+deb12u13) ...
+#27 9.041 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#27 9.046 Setting up libc6-dev:amd64 (2.36-9+deb12u13) ...
+#27 9.049 Setting up zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#27 9.053 Setting up libprotobuf-dev:amd64 (3.21.12-3) ...
+#27 9.057 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#27 DONE 9.2s
+#28 6.943 Preparing to unpack .../40-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#28 6.945 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#28 6.978 Selecting previously unselected package libkeyutils1:amd64.
+#28 6.982 Preparing to unpack .../41-libkeyutils1_1.6.3-2_amd64.deb ...
+#28 6.983 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#28 7.027 Selecting previously unselected package libssl3:amd64.
+#28 7.031 Preparing to unpack .../42-libssl3_3.0.19-1~deb12u2_amd64.deb ...
+#28 7.033 Unpacking libssl3:amd64 (3.0.19-1~deb12u2) ...
+
+#28 [builder 16/16] RUN npx nx build products
+#19 0.369 Get:1 http://deb.debian.org/debian bookworm InRelease [151 kB]
+#28 7.252 Selecting previously unselected package libkrb5-3:amd64.
+#19 0.398 Get:2 http://deb.debian.org/debian bookworm-updates InRelease [55.4 kB]
+#19 0.399 Get:3 http://deb.debian.org/debian-security bookworm-security InRelease [48.0 kB]
+#19 0.523 Get:4 http://deb.debian.org/debian bookworm/main amd64 Packages [8792 kB]
+#28 7.257 Preparing to unpack .../43-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#28 7.259 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#28 7.344 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#28 7.344 Preparing to unpack .../44-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#28 7.347 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#28 7.402 Selecting previously unselected package libtirpc-common.
+#19 0.645 Get:5 http://deb.debian.org/debian bookworm-updates/main amd64 Packages [6924 B]
+#28 7.404 Preparing to unpack .../45-libtirpc-common_1.3.3+ds-1_all.deb ...
+#28 7.405 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#28 7.446 Selecting previously unselected package libtirpc3:amd64.
+#28 7.448 Preparing to unpack .../46-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#28 7.449 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#28 7.494 Selecting previously unselected package libnsl2:amd64.
+#28 7.499 Preparing to unpack .../47-libnsl2_1.3.0-2_amd64.deb ...
+#28 7.500 Unpacking libnsl2:amd64 (1.3.0-2) ...
+#28 7.534 Selecting previously unselected package libtirpc-dev:amd64.
+#19 0.747 Get:6 http://deb.debian.org/debian-security bookworm-security/main amd64 Packages [299 kB]
+#28 7.538 Preparing to unpack .../48-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#28 7.540 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#28 7.582 Selecting previously unselected package libnsl-dev:amd64.
+#28 7.585 Preparing to unpack .../49-libnsl-dev_1.3.0-2_amd64.deb ...
+#28 7.587 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#28 7.633 Selecting previously unselected package rpcsvc-proto.
+#28 7.636 Preparing to unpack .../50-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#28 7.638 Unpacking rpcsvc-proto (1.4.3-1) ...
+#28 7.693 Selecting previously unselected package libc6-dev:amd64.
+#28 7.695 Preparing to unpack .../51-libc6-dev_2.36-9+deb12u13_amd64.deb ...
+#28 7.696 Unpacking libc6-dev:amd64 (2.36-9+deb12u13) ...
+#28 7.982 Selecting previously unselected package zlib1g-dev:amd64.
+#28 7.982 Preparing to unpack .../52-zlib1g-dev_1%3a1.2.13.dfsg-1_amd64.deb ...
+#28 7.982 Unpacking zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#28 7.982 Selecting previously unselected package libprotobuf32:amd64.
+#28 7.982 Preparing to unpack .../53-libprotobuf32_3.21.12-3_amd64.deb ...
+#28 7.985 Unpacking libprotobuf32:amd64 (3.21.12-3) ...
+#28 8.124 Selecting previously unselected package libprotobuf-lite32:amd64.
+#28 8.125 Preparing to unpack .../54-libprotobuf-lite32_3.21.12-3_amd64.deb ...
+#28 8.127 Unpacking libprotobuf-lite32:amd64 (3.21.12-3) ...
+#28 8.181 Selecting previously unselected package libprotobuf-dev:amd64.
+#28 8.184 Preparing to unpack .../55-libprotobuf-dev_3.21.12-3_amd64.deb ...
+#28 8.187 Unpacking libprotobuf-dev:amd64 (3.21.12-3) ...
+#28 8.450 Selecting previously unselected package libprotoc32:amd64.
+#28 8.455 Preparing to unpack .../56-libprotoc32_3.21.12-3_amd64.deb ...
+#28 8.457 Unpacking libprotoc32:amd64 (3.21.12-3) ...
+#28 8.577 Selecting previously unselected package manpages-dev.
+#19 1.926 Fetched 9352 kB in 2s (5909 kB/s)
+#19 1.926 Reading package lists...#28 8.579 Preparing to unpack .../57-manpages-dev_6.03-2_all.deb ...
+#28 8.580 Unpacking manpages-dev (6.03-2) ...
+#28 9.221 Selecting previously unselected package protobuf-compiler.
+#28 9.223 Preparing to unpack .../58-protobuf-compiler_3.21.12-3_amd64.deb ...
+#28 9.225 Unpacking protobuf-compiler (3.21.12-3) ...
+
+#19 2.959 Reading package lists...#28 9.825 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#28 9.828 Setting up libaom3:amd64 (3.6.0-1+deb12u2) ...
+#28 9.832 Setting up libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#28 9.835 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#28 9.837 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#28 9.845 Setting up liblerc4:amd64 (4.0.0+ds-2) ...
+#28 9.848 Setting up manpages (6.03-2) ...
+#28 9.856 Setting up libtirpc-common (1.3.3+ds-1) ...
+#28 9.862 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#28 9.864 Setting up libssl3:amd64 (3.0.19-1~deb12u2) ...
+#28 9.867 Setting up libdeflate0:amd64 (1.14-1) ...
+#28 9.871 Setting up linux-libc-dev:amd64 (6.1.170-1) ...
+#28 9.874 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#28 9.876 Setting up libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#28 9.880 Setting up libjbig0:amd64 (2.1-6.1) ...
+#28 9.883 Setting up librav1e0:amd64 (0.5.1-6) ...
+#28 9.886 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#28 9.889 Setting up rpcsvc-proto (1.4.3-1) ...
+#28 9.892 Setting up libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#28 9.894 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#28 9.897 Setting up libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#28 9.899 Setting up fonts-dejavu-core (2.37-6) ...
+#28 9.920 Setting up libgav1-1:amd64 (0.18.0-1+b1) ...
+#28 9.923 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#28 9.926 Setting up libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#28 9.929 Setting up libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#28 9.932 Setting up libnuma1:amd64 (2.0.16-1) ...
+#28 9.935 Setting up libprotobuf32:amd64 (3.21.12-3) ...
+#28 9.937 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#28 9.947 Setting up libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#28 9.948 Setting up libprotobuf-lite32:amd64 (3.21.12-3) ...
+#28 9.951 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#28 9.953 Setting up libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#28 9.956 Setting up libc-dev-bin (2.36-9+deb12u13) ...
+#28 9.961 Setting up libbsd0:amd64 (0.11.7-2) ...
+#28 9.964 Setting up libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#28 9.966 Setting up libprotoc32:amd64 (3.21.12-3) ...
+#28 9.969 Setting up manpages-dev (6.03-2) ...
+#28 9.972 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#28 9.974 Setting up libxcb1:amd64 (1.15-1) ...
+#28 10.01 Setting up libavif15:amd64 (0.11.1-1+deb12u1) ...
+#28 10.01 Setting up protobuf-compiler (3.21.12-3) ...
+#28 10.01 Setting up fontconfig-config (2.14.1-4) ...
+#28 10.24 debconf: unable to initialize frontend: Dialog
+#28 10.25 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#28 10.25 debconf: falling back to frontend: Readline
+#28 10.25 debconf: unable to initialize frontend: Readline
+#28 10.25 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#28 10.25 debconf: falling back to frontend: Teletype
+#28 10.54 Setting up libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+
+#28 10.54 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#28 10.55 Setting up libx265-199:amd64 (3.5-2+b1) ...
+#28 10.55 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#28 10.55 Setting up libfontconfig1:amd64 (2.14.1-4) ...
+#28 10.56 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#28 10.56 Setting up libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#28 10.56 Setting up libheif1:amd64 (1.15.1-1+deb12u1) ...
+#28 10.56 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#28 10.57 Setting up libgd3:amd64 (2.3.3-9) ...
+#28 10.57 Setting up libnsl2:amd64 (1.3.0-2) ...
+#28 10.57 Setting up libc-devtools (2.36-9+deb12u13) ...
+#28 10.57 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#28 10.58 Setting up libc6-dev:amd64 (2.36-9+deb12u13) ...
+#28 10.58 Setting up zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#28 10.58 Setting up libprotobuf-dev:amd64 (3.21.12-3) ...
+#28 10.59 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#19 3.826 Building dependency tree...#22 84.48 
+#22 84.48 > @jobber/source@0.0.0 prepare
+#22 84.48 > husky
+#22 84.48 
+#28 DONE 10.8s
+
+#29 [builder 17/17] RUN npx nx build jobs
+
+#22 84.80 .git can't be found
+#22 84.80 added 1461 packages, and audited 1471 packages in 1m
+#22 84.80 
+#22 84.80 308 packages are looking for funding
+#22 84.80   run `npm fund` for details
+#19 4.169 Reading state information...
+#19 4.433 The following additional packages will be installed:
+#19 4.433   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#19 4.433   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#19 4.433   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#19 4.433   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#19 4.433   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#19 4.433   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#19 4.433   libprotobuf32 libprotoc32 librav1e0 libssl3 libsvtav1enc1 libtiff6
+#19 4.433   libtirpc-common libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data
+#19 4.433   libx265-199 libxau6 libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev
+#19 4.433   manpages manpages-dev rpcsvc-proto zlib1g-dev
+#19 4.433 Suggested packages:
+#19 4.433   glibc-doc libgd-tools krb5-doc krb5-user man-browser protobuf-mode-el
+#22 85.31 
+#22 85.31 18 vulnerabilities (15 moderate, 3 high)
+#22 85.31 
+#22 85.31 To address issues that do not require attention, run:
+#22 85.31   npm audit fix
+#22 85.31 
+#22 85.31 To address all issues (including breaking changes), run:
+#22 85.31   npm audit fix --force
+#22 85.31 
+#22 85.31 Run `npm audit` for details.
+#22 85.32 npm notice
+#22 85.32 npm notice New minor version of npm available! 11.12.1 -> 11.14.0
+#22 85.32 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.0
+#22 85.32 npm notice To update run: npm install -g npm@11.14.0
+#22 85.32 npm notice
+#19 5.018 The following NEW packages will be installed:
+#19 5.018   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#19 5.018   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#19 5.018   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#19 5.018   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#19 5.018   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#19 5.018   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#19 5.018   libprotobuf32 libprotoc32 librav1e0 libssl3 libsvtav1enc1 libtiff6
+#19 5.018   libtirpc-common libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data
+#19 5.018   libx265-199 libxau6 libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev
+#19 5.018   manpages manpages-dev protobuf-compiler rpcsvc-proto zlib1g-dev
+#19 5.066 0 upgraded, 59 newly installed, 0 to remove and 0 not upgraded.
+#19 5.066 Need to get 28.4 MB of archives.
+#19 5.066 After this operation, 109 MB of additional disk space will be used.
+#19 5.066 Get:1 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#19 5.066 Get:2 http://deb.debian.org/debian bookworm/main amd64 manpages all 6.03-2 [1332 kB]
+#19 5.068 Get:3 http://deb.debian.org/debian bookworm/main amd64 fonts-dejavu-core all 2.37-6 [1068 kB]
+#19 5.081 Get:4 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+#19 5.085 Get:5 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+#19 5.090 Get:6 http://deb.debian.org/debian bookworm/main amd64 libaom3 amd64 3.6.0-1+deb12u2 [1850 kB]
+#19 5.121 Get:7 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+#19 5.130 Get:8 http://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+#19 5.133 Get:9 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]
+#19 5.141 Get:10 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]
+#19 5.168 Get:11 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+#19 5.170 Get:12 http://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+#19 5.173 Get:13 http://deb.debian.org/debian bookworm/main amd64 libavif15 amd64 0.11.1-1+deb12u1 [94.4 kB]
+#19 5.175 Get:14 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#19 5.180 Get:15 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#19 5.180 Get:16 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u13 [47.4 kB]
+#19 5.182 Get:17 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#19 5.184 Get:18 http://deb.debian.org/debian-security bookworm-security/main amd64 libpng16-16 amd64 1.6.39-2+deb12u4 [276 kB]
+#19 5.186 Get:19 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+#19 5.199 Get:20 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+#19 5.200 Get:21 http://deb.debian.org/debian bookworm/main amd64 libde265-0 amd64 1.0.11-1+deb12u2 [185 kB]
+#19 5.204 Get:22 http://deb.debian.org/debian bookworm/main amd64 libnuma1 amd64 2.0.16-1 [21.0 kB]
+#19 5.204 Get:23 http://deb.debian.org/debian bookworm/main amd64 libx265-199 amd64 3.5-2+b1 [1150 kB]
+#19 5.219 Get:24 http://deb.debian.org/debian bookworm/main amd64 libheif1 amd64 1.15.1-1+deb12u1 [215 kB]
+#19 5.223 Get:25 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+#19 5.227 Get:26 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+#19 5.229 Get:27 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+#19 5.232 Get:28 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+#19 5.234 Get:29 http://deb.debian.org/debian-security bookworm-security/main amd64 libtiff6 amd64 4.5.0-6+deb12u4 [316 kB]
+#19 5.237 Get:30 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#19 5.238 Get:31 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#19 5.238 Get:32 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#19 5.242 Get:33 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#19 5.242 Get:34 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#19 5.248 Get:35 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+#19 5.249 Get:36 http://deb.debian.org/debian bookworm/main amd64 libgd3 amd64 2.3.3-9 [124 kB]
+#19 5.249 Get:37 http://deb.debian.org/debian bookworm/main amd64 libc-devtools amd64 2.36-9+deb12u13 [55.0 kB]
+#19 5.250 Get:38 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.170-1 [2271 kB]
+#19 5.261 Get:39 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#19 5.263 Get:40 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#19 5.263 Get:41 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#19 5.264 Get:42 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#19 5.266 Get:43 http://deb.debian.org/debian-security bookworm-security/main amd64 libssl3 amd64 3.0.19-1~deb12u2 [2032 kB]
+#19 5.275 Get:44 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#19 5.278 Get:45 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#19 5.279 Get:46 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#19 5.280 Get:47 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#19 5.281 Get:48 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#19 5.282 Get:49 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#19 5.286 Get:50 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#19 5.287 Get:51 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#19 5.288 Get:52 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u13 [1904 kB]
+#19 5.307 Get:53 http://deb.debian.org/debian bookworm/main amd64 zlib1g-dev amd64 1:1.2.13.dfsg-1 [916 kB]
+#19 5.309 Get:54 http://deb.debian.org/debian bookworm/main amd64 libprotobuf32 amd64 3.21.12-3 [932 kB]
+#19 5.313 Get:55 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-lite32 amd64 3.21.12-3 [261 kB]
+#19 5.316 Get:56 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-dev amd64 3.21.12-3 [1283 kB]
+#19 5.336 Get:57 http://deb.debian.org/debian bookworm/main amd64 libprotoc32 amd64 3.21.12-3 [829 kB]
+#22 DONE 85.8s
+
+#23 [builder 17/18] RUN apt-get update && apt-get install -y protobuf-compiler
+#19 5.345 Get:58 http://deb.debian.org/debian bookworm/main amd64 manpages-dev all 6.03-2 [2030 kB]
+#19 5.375 Get:59 http://deb.debian.org/debian bookworm/main amd64 protobuf-compiler amd64 3.21.12-3 [83.9 kB]
+#19 5.571 debconf: delaying package configuration, since apt-utils is not installed
+#23 0.327 Hit:1 http://deb.debian.org/debian bookworm InRelease
+#23 0.327 Hit:2 http://deb.debian.org/debian bookworm-updates InRelease
+#23 0.327 Hit:3 http://deb.debian.org/debian-security bookworm-security InRelease
+#19 5.618 Fetched 28.4 MB in 0s (81.6 MB/s)
+#19 5.638 Selecting previously unselected package krb5-locales.
+#19 5.639 (Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6099 files and directories currently installed.)
+#19 5.655 Preparing to unpack .../00-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#19 5.657 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#19 5.697 Selecting previously unselected package manpages.
+#19 5.700 Preparing to unpack .../01-manpages_6.03-2_all.deb ...
+#19 5.701 Unpacking manpages (6.03-2) ...
+#19 5.827 Selecting previously unselected package fonts-dejavu-core.
+#19 5.830 Preparing to unpack .../02-fonts-dejavu-core_2.37-6_all.deb ...
+#19 5.836 Unpacking fonts-dejavu-core (2.37-6) ...
+#19 6.076 Selecting previously unselected package fontconfig-config.
+#19 6.079 Preparing to unpack .../03-fontconfig-config_2.14.1-4_amd64.deb ...
+#23 1.014 Reading package lists...#19 6.403 Unpacking fontconfig-config (2.14.1-4) ...
+#28 6.195 
+#28 6.195  NX   Running target build for project products and 4 tasks it depends on:
+#28 6.195 
+#28 6.195 
+#19 6.690 Selecting previously unselected package libabsl20220623:amd64.
+#19 6.691 Preparing to unpack .../04-libabsl20220623_20220623.1-1+deb12u2_amd64.deb ...
+#19 6.693 Unpacking libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#28 6.734 
+#28 6.736 > nx run grpc:"proto:generate-ts"
+#28 6.736 
+#28 6.736 > node scripts/proto-generate-ts.mjs
+#28 6.736 
+#19 7.147 Selecting previously unselected package libaom3:amd64.
+
+#19 7.149 Preparing to unpack .../05-libaom3_3.6.0-1+deb12u2_amd64.deb ...
+#19 7.150 Unpacking libaom3:amd64 (3.6.0-1+deb12u2) ...
+#23 2.030 Reading package lists...#19 7.926 Selecting previously unselected package libdav1d6:amd64.
+#19 7.926 Preparing to unpack .../06-libdav1d6_1.0.0-2+deb12u1_amd64.deb ...
+#19 7.926 Unpacking libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+
+#19 8.471 Selecting previously unselected package libgav1-1:amd64.
+#19 8.471 Preparing to unpack .../07-libgav1-1_0.18.0-1+b1_amd64.deb ...
+#19 8.473 Unpacking libgav1-1:amd64 (0.18.0-1+b1) ...
+#19 8.598 Selecting previously unselected package librav1e0:amd64.
+#23 3.148 Building dependency tree...#19 8.600 Preparing to unpack .../08-librav1e0_0.5.1-6_amd64.deb ...
+#19 8.607 Unpacking librav1e0:amd64 (0.5.1-6) ...
+
+#23 3.445 Reading state information...
+#23 3.747 The following additional packages will be installed:
+#19 9.103 Selecting previously unselected package libsvtav1enc1:amd64.
+#23 3.748   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#23 3.748   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#23 3.748   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#23 3.749   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#23 3.749   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#23 3.749   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#23 3.750   libprotobuf32 libprotoc32 librav1e0 libsvtav1enc1 libtiff6 libtirpc-common
+#23 3.750   libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data libx265-199 libxau6
+#23 3.751   libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev manpages manpages-dev
+#23 3.751   rpcsvc-proto zlib1g-dev
+#23 3.752 Suggested packages:
+#23 3.752   glibc-doc libgd-tools krb5-doc krb5-user man-browser protobuf-mode-el
+#19 9.110 Preparing to unpack .../09-libsvtav1enc1_1.4.1+dfsg-1_amd64.deb ...
+#19 9.113 Unpacking libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#19 9.585 Selecting previously unselected package libjpeg62-turbo:amd64.
+#19 9.585 Preparing to unpack .../10-libjpeg62-turbo_1%3a2.1.5-2_amd64.deb ...
+#23 4.383 The following NEW packages will be installed:
+#19 9.587 Unpacking libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#23 4.383   fontconfig-config fonts-dejavu-core krb5-locales libabsl20220623 libaom3
+#23 4.383   libavif15 libbrotli1 libbsd0 libc-dev-bin libc-devtools libc6-dev
+#23 4.383   libcrypt-dev libdav1d6 libde265-0 libdeflate0 libexpat1 libfontconfig1
+#23 4.383   libfreetype6 libgav1-1 libgd3 libgssapi-krb5-2 libheif1 libjbig0
+#23 4.383   libjpeg62-turbo libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 liblerc4
+#23 4.383   libnsl-dev libnsl2 libnuma1 libpng16-16 libprotobuf-dev libprotobuf-lite32
+#23 4.384   libprotobuf32 libprotoc32 librav1e0 libsvtav1enc1 libtiff6 libtirpc-common
+#23 4.384   libtirpc-dev libtirpc3 libwebp7 libx11-6 libx11-data libx265-199 libxau6
+#23 4.385   libxcb1 libxdmcp6 libxpm4 libyuv0 linux-libc-dev manpages manpages-dev
+#23 4.386   protobuf-compiler rpcsvc-proto zlib1g-dev
+#23 4.491 0 upgraded, 58 newly installed, 0 to remove and 0 not upgraded.
+#23 4.491 Need to get 26.4 MB of archives.
+#23 4.491 After this operation, 103 MB of additional disk space will be used.
+#23 4.491 Get:1 http://deb.debian.org/debian bookworm/main amd64 krb5-locales all 1.20.1-2+deb12u4 [63.4 kB]
+#23 4.491 Get:2 http://deb.debian.org/debian bookworm/main amd64 manpages all 6.03-2 [1332 kB]
+#19 9.840 Selecting previously unselected package libyuv0:amd64.
+#23 4.558 Get:3 http://deb.debian.org/debian bookworm/main amd64 fonts-dejavu-core all 2.37-6 [1068 kB]
+#23 4.558 Get:4 http://deb.debian.org/debian bookworm/main amd64 fontconfig-config amd64 2.14.1-4 [315 kB]
+#23 4.558 Get:5 http://deb.debian.org/debian bookworm/main amd64 libabsl20220623 amd64 20220623.1-1+deb12u2 [391 kB]
+#23 4.558 Get:6 http://deb.debian.org/debian bookworm/main amd64 libaom3 amd64 3.6.0-1+deb12u2 [1850 kB]
+#23 4.558 Get:7 http://deb.debian.org/debian bookworm/main amd64 libdav1d6 amd64 1.0.0-2+deb12u1 [513 kB]
+#23 4.558 Get:8 http://deb.debian.org/debian bookworm/main amd64 libgav1-1 amd64 0.18.0-1+b1 [332 kB]
+#23 4.558 Get:9 http://deb.debian.org/debian bookworm/main amd64 librav1e0 amd64 0.5.1-6 [763 kB]
+#23 4.558 Get:10 http://deb.debian.org/debian bookworm/main amd64 libsvtav1enc1 amd64 1.4.1+dfsg-1 [2121 kB]
+#23 4.558 Get:11 http://deb.debian.org/debian bookworm/main amd64 libjpeg62-turbo amd64 1:2.1.5-2 [166 kB]
+#23 4.558 Get:12 http://deb.debian.org/debian bookworm/main amd64 libyuv0 amd64 0.0~git20230123.b2528b0-1 [168 kB]
+#23 4.558 Get:13 http://deb.debian.org/debian bookworm/main amd64 libavif15 amd64 0.11.1-1+deb12u1 [94.4 kB]
+#23 4.558 Get:14 http://deb.debian.org/debian bookworm/main amd64 libbrotli1 amd64 1.0.9-2+b6 [275 kB]
+#23 4.558 Get:15 http://deb.debian.org/debian bookworm/main amd64 libbsd0 amd64 0.11.7-2 [117 kB]
+#23 4.558 Get:16 http://deb.debian.org/debian bookworm/main amd64 libc-dev-bin amd64 2.36-9+deb12u13 [47.4 kB]
+#23 4.558 Get:17 http://deb.debian.org/debian bookworm/main amd64 libexpat1 amd64 2.5.0-1+deb12u2 [99.9 kB]
+#23 4.558 Get:18 http://deb.debian.org/debian-security bookworm-security/main amd64 libpng16-16 amd64 1.6.39-2+deb12u4 [276 kB]
+#23 4.558 Get:19 http://deb.debian.org/debian bookworm/main amd64 libfreetype6 amd64 2.12.1+dfsg-5+deb12u4 [398 kB]
+#23 4.565 Get:20 http://deb.debian.org/debian bookworm/main amd64 libfontconfig1 amd64 2.14.1-4 [386 kB]
+#23 4.565 Get:21 http://deb.debian.org/debian bookworm/main amd64 libde265-0 amd64 1.0.11-1+deb12u2 [185 kB]
+#23 4.568 Get:22 http://deb.debian.org/debian bookworm/main amd64 libnuma1 amd64 2.0.16-1 [21.0 kB]
+#23 4.568 Get:23 http://deb.debian.org/debian bookworm/main amd64 libx265-199 amd64 3.5-2+b1 [1150 kB]
+#23 4.590 Get:24 http://deb.debian.org/debian bookworm/main amd64 libheif1 amd64 1.15.1-1+deb12u1 [215 kB]
+#23 4.590 Get:25 http://deb.debian.org/debian bookworm/main amd64 libdeflate0 amd64 1.14-1 [61.4 kB]
+#23 4.590 Get:26 http://deb.debian.org/debian bookworm/main amd64 libjbig0 amd64 2.1-6.1 [31.7 kB]
+#23 4.590 Get:27 http://deb.debian.org/debian bookworm/main amd64 liblerc4 amd64 4.0.0+ds-2 [170 kB]
+#23 4.590 Get:28 http://deb.debian.org/debian bookworm/main amd64 libwebp7 amd64 1.2.4-0.2+deb12u1 [286 kB]
+#23 4.590 Get:29 http://deb.debian.org/debian-security bookworm-security/main amd64 libtiff6 amd64 4.5.0-6+deb12u4 [316 kB]
+#23 4.590 Get:30 http://deb.debian.org/debian bookworm/main amd64 libxau6 amd64 1:1.0.9-1 [19.7 kB]
+#23 4.590 Get:31 http://deb.debian.org/debian bookworm/main amd64 libxdmcp6 amd64 1:1.1.2-3 [26.3 kB]
+#23 4.590 Get:32 http://deb.debian.org/debian bookworm/main amd64 libxcb1 amd64 1.15-1 [144 kB]
+#23 4.590 Get:33 http://deb.debian.org/debian bookworm/main amd64 libx11-data all 2:1.8.4-2+deb12u2 [292 kB]
+#23 4.590 Get:34 http://deb.debian.org/debian bookworm/main amd64 libx11-6 amd64 2:1.8.4-2+deb12u2 [760 kB]
+#23 4.592 Get:35 http://deb.debian.org/debian bookworm/main amd64 libxpm4 amd64 1:3.5.12-1.1+deb12u1 [48.6 kB]
+#23 4.594 Get:36 http://deb.debian.org/debian bookworm/main amd64 libgd3 amd64 2.3.3-9 [124 kB]
+#19 9.848 Preparing to unpack .../11-libyuv0_0.0~git20230123.b2528b0-1_amd64.deb ...
+#19 9.851 Unpacking libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#23 4.598 Get:37 http://deb.debian.org/debian bookworm/main amd64 libc-devtools amd64 2.36-9+deb12u13 [55.0 kB]
+#23 4.598 Get:38 http://deb.debian.org/debian-security bookworm-security/main amd64 linux-libc-dev amd64 6.1.170-1 [2271 kB]
+#23 4.605 Get:39 http://deb.debian.org/debian bookworm/main amd64 libcrypt-dev amd64 1:4.4.33-2 [118 kB]
+#23 4.606 Get:40 http://deb.debian.org/debian bookworm/main amd64 libkrb5support0 amd64 1.20.1-2+deb12u4 [33.2 kB]
+#23 4.609 Get:41 http://deb.debian.org/debian bookworm/main amd64 libk5crypto3 amd64 1.20.1-2+deb12u4 [79.8 kB]
+#23 4.609 Get:42 http://deb.debian.org/debian bookworm/main amd64 libkeyutils1 amd64 1.6.3-2 [8808 B]
+#23 4.609 Get:43 http://deb.debian.org/debian bookworm/main amd64 libkrb5-3 amd64 1.20.1-2+deb12u4 [334 kB]
+#23 4.611 Get:44 http://deb.debian.org/debian bookworm/main amd64 libgssapi-krb5-2 amd64 1.20.1-2+deb12u4 [135 kB]
+#23 4.613 Get:45 http://deb.debian.org/debian bookworm/main amd64 libtirpc-common all 1.3.3+ds-1 [14.0 kB]
+#23 4.614 Get:46 http://deb.debian.org/debian bookworm/main amd64 libtirpc3 amd64 1.3.3+ds-1 [85.2 kB]
+#23 4.616 Get:47 http://deb.debian.org/debian bookworm/main amd64 libnsl2 amd64 1.3.0-2 [39.5 kB]
+#23 4.616 Get:48 http://deb.debian.org/debian bookworm/main amd64 libtirpc-dev amd64 1.3.3+ds-1 [191 kB]
+#23 4.617 Get:49 http://deb.debian.org/debian bookworm/main amd64 libnsl-dev amd64 1.3.0-2 [66.4 kB]
+#23 4.618 Get:50 http://deb.debian.org/debian bookworm/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+#23 4.620 Get:51 http://deb.debian.org/debian bookworm/main amd64 libc6-dev amd64 2.36-9+deb12u13 [1904 kB]
+#23 4.632 Get:52 http://deb.debian.org/debian bookworm/main amd64 zlib1g-dev amd64 1:1.2.13.dfsg-1 [916 kB]
+#23 4.814 Get:53 http://deb.debian.org/debian bookworm/main amd64 libprotobuf32 amd64 3.21.12-3 [932 kB]
+#23 4.814 Get:54 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-lite32 amd64 3.21.12-3 [261 kB]
+#23 4.814 Get:55 http://deb.debian.org/debian bookworm/main amd64 libprotobuf-dev amd64 3.21.12-3 [1283 kB]
+#23 4.814 Get:56 http://deb.debian.org/debian bookworm/main amd64 libprotoc32 amd64 3.21.12-3 [829 kB]
+#23 4.814 Get:57 http://deb.debian.org/debian bookworm/main amd64 manpages-dev all 6.03-2 [2030 kB]
+#23 4.814 Get:58 http://deb.debian.org/debian bookworm/main amd64 protobuf-compiler amd64 3.21.12-3 [83.9 kB]
+#19 10.17 Selecting previously unselected package libavif15:amd64.
+#19 10.17 Preparing to unpack .../12-libavif15_0.11.1-1+deb12u1_amd64.deb ...
+#19 10.17 Unpacking libavif15:amd64 (0.11.1-1+deb12u1) ...
+#19 10.32 Selecting previously unselected package libbrotli1:amd64.
+#23 4.846 debconf: delaying package configuration, since apt-utils is not installed
+#23 4.892 Fetched 26.4 MB in 0s (97.9 MB/s)
+#23 5.030 Selecting previously unselected package krb5-locales.
+#23 5.030 (Reading database ... 
+#19 10.32 Preparing to unpack .../13-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#19 10.32 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#19 10.52 Selecting previously unselected package libbsd0:amd64.
+#19 10.52 Preparing to unpack .../14-libbsd0_0.11.7-2_amd64.deb ...
+#19 10.52 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#29 6.566 
+#29 6.566  NX   Running target build for project jobs and 5 tasks it depends on:
+#29 6.566 
+#29 6.566 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 6419 files and directories currently installed.)
+#23 5.049 Preparing to unpack .../00-krb5-locales_1.20.1-2+deb12u4_all.deb ...
+#23 5.051 Unpacking krb5-locales (1.20.1-2+deb12u4) ...
+#23 5.124 Selecting previously unselected package manpages.
+#23 5.126 Preparing to unpack .../01-manpages_6.03-2_all.deb ...
+#23 5.129 Unpacking manpages (6.03-2) ...
+#23 5.363 Selecting previously unselected package fonts-dejavu-core.
+#19 10.85 Selecting previously unselected package libc-dev-bin.
+#23 5.366 Preparing to unpack .../02-fonts-dejavu-core_2.37-6_all.deb ...
+#23 5.371 Unpacking fonts-dejavu-core (2.37-6) ...
+#19 10.85 Preparing to unpack .../15-libc-dev-bin_2.36-9+deb12u13_amd64.deb ...
+#19 10.85 Unpacking libc-dev-bin (2.36-9+deb12u13) ...
+#19 11.03 Selecting previously unselected package libexpat1:amd64.
+#19 11.04 Preparing to unpack .../16-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#19 11.04 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#23 5.931 Selecting previously unselected package fontconfig-config.
+#23 5.931 Preparing to unpack .../03-fontconfig-config_2.14.1-4_amd64.deb ...
+#19 11.30 Selecting previously unselected package libpng16-16:amd64.
+#19 11.30 Preparing to unpack .../17-libpng16-16_1.6.39-2+deb12u4_amd64.deb ...
+#19 11.30 Unpacking libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#19 11.53 Selecting previously unselected package libfreetype6:amd64.
+#19 11.59 Preparing to unpack .../18-libfreetype6_2.12.1+dfsg-5+deb12u4_amd64.deb ...
+#19 11.59 Unpacking libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#23 6.429 Unpacking fontconfig-config (2.14.1-4) ...
+#19 11.79 Selecting previously unselected package libfontconfig1:amd64.
+#29 7.818 
+#29 7.818 > nx run grpc:"proto:generate-ts"
+#29 7.818 
+#29 7.818 > node scripts/proto-generate-ts.mjs
+#29 7.818 
+#19 11.79 Preparing to unpack .../19-libfontconfig1_2.14.1-4_amd64.deb ...
+#19 11.80 Unpacking libfontconfig1:amd64 (2.14.1-4) ...
+#19 11.84 Selecting previously unselected package libde265-0:amd64.
+#19 11.84 Preparing to unpack .../20-libde265-0_1.0.11-1+deb12u2_amd64.deb ...
+#19 11.85 Unpacking libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#19 11.97 Selecting previously unselected package libnuma1:amd64.
+#23 6.483 Selecting previously unselected package libabsl20220623:amd64.
+#23 6.483 Preparing to unpack .../04-libabsl20220623_20220623.1-1+deb12u2_amd64.deb ...
+#23 6.486 Unpacking libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#19 11.98 Preparing to unpack .../21-libnuma1_2.0.16-1_amd64.deb ...
+#19 11.98 Unpacking libnuma1:amd64 (2.0.16-1) ...
+#19 12.08 Selecting previously unselected package libx265-199:amd64.
+#19 12.08 Preparing to unpack .../22-libx265-199_3.5-2+b1_amd64.deb ...
+#19 12.08 Unpacking libx265-199:amd64 (3.5-2+b1) ...
+#23 6.801 Selecting previously unselected package libaom3:amd64.
+#23 6.801 Preparing to unpack .../05-libaom3_3.6.0-1+deb12u2_amd64.deb ...
+#23 6.801 Unpacking libaom3:amd64 (3.6.0-1+deb12u2) ...
+#19 12.38 Selecting previously unselected package libheif1:amd64.
+#19 12.38 Preparing to unpack .../23-libheif1_1.15.1-1+deb12u1_amd64.deb ...
+#19 12.38 Unpacking libheif1:amd64 (1.15.1-1+deb12u1) ...
+#19 12.39 Selecting previously unselected package libdeflate0:amd64.
+#19 12.39 Preparing to unpack .../24-libdeflate0_1.14-1_amd64.deb ...
+#19 12.39 Unpacking libdeflate0:amd64 (1.14-1) ...
+#19 12.43 Selecting previously unselected package libjbig0:amd64.
+#19 12.44 Preparing to unpack .../25-libjbig0_2.1-6.1_amd64.deb ...
+#19 12.44 Unpacking libjbig0:amd64 (2.1-6.1) ...
+#19 12.48 Selecting previously unselected package liblerc4:amd64.
+#19 12.48 Preparing to unpack .../26-liblerc4_4.0.0+ds-2_amd64.deb ...
+#19 12.49 Unpacking liblerc4:amd64 (4.0.0+ds-2) ...
+#19 12.63 Selecting previously unselected package libwebp7:amd64.
+#23 7.295 Selecting previously unselected package libdav1d6:amd64.
+#19 12.63 Preparing to unpack .../27-libwebp7_1.2.4-0.2+deb12u1_amd64.deb ...
+#19 12.64 Unpacking libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#19 12.71 Selecting previously unselected package libtiff6:amd64.
+#19 12.71 Preparing to unpack .../28-libtiff6_4.5.0-6+deb12u4_amd64.deb ...
+#19 12.71 Unpacking libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#19 12.80 Selecting previously unselected package libxau6:amd64.
+#23 7.359 Preparing to unpack .../06-libdav1d6_1.0.0-2+deb12u1_amd64.deb ...
+#23 7.359 Unpacking libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#23 7.483 Selecting previously unselected package libgav1-1:amd64.
+#23 7.483 Preparing to unpack .../07-libgav1-1_0.18.0-1+b1_amd64.deb ...
+#23 7.483 Unpacking libgav1-1:amd64 (0.18.0-1+b1) ...
+#19 12.80 Preparing to unpack .../29-libxau6_1%3a1.0.9-1_amd64.deb ...
+#19 12.80 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#23 7.622 Selecting previously unselected package librav1e0:amd64.
+#23 7.622 Preparing to unpack .../08-librav1e0_0.5.1-6_amd64.deb ...
+#19 13.08 Selecting previously unselected package libxdmcp6:amd64.
+#19 13.08 Preparing to unpack .../30-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#19 13.08 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#23 7.622 Unpacking librav1e0:amd64 (0.5.1-6) ...
+#19 13.09 Selecting previously unselected package libxcb1:amd64.
+#19 13.09 Preparing to unpack .../31-libxcb1_1.15-1_amd64.deb ...
+#19 13.09 Unpacking libxcb1:amd64 (1.15-1) ...
+#19 13.33 Selecting previously unselected package libx11-data.
+#19 13.33 Preparing to unpack .../32-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#23 8.067 Selecting previously unselected package libsvtav1enc1:amd64.
+#23 8.067 Preparing to unpack .../09-libsvtav1enc1_1.4.1+dfsg-1_amd64.deb ...
+#19 13.41 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#23 8.081 Unpacking libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#19 13.57 Selecting previously unselected package libx11-6:amd64.
+#28 13.49 
+#28 13.49 > nx run grpc:build
+#28 13.49 
+#28 13.49 > npx tsc -p libs/grpc/tsconfig.lib.json
+#28 13.49 
+#19 13.64 Preparing to unpack .../33-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#19 13.73 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#23 8.459 Selecting previously unselected package libjpeg62-turbo:amd64.
+#23 8.463 Preparing to unpack .../10-libjpeg62-turbo_1%3a2.1.5-2_amd64.deb ...
+#23 8.464 Unpacking libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#19 14.16 Selecting previously unselected package libxpm4:amd64.
+#19 14.16 Preparing to unpack .../34-libxpm4_1%3a3.5.12-1.1+deb12u1_amd64.deb ...
+#19 14.16 Unpacking libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#23 10.29 Selecting previously unselected package libyuv0:amd64.
+#23 10.29 Preparing to unpack .../11-libyuv0_0.0~git20230123.b2528b0-1_amd64.deb ...
+#23 10.32 Unpacking libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#19 15.91 Selecting previously unselected package libgd3:amd64.
+#19 15.91 Preparing to unpack .../35-libgd3_2.3.3-9_amd64.deb ...
+#19 15.91 Unpacking libgd3:amd64 (2.3.3-9) ...
+#19 15.91 Selecting previously unselected package libc-devtools.
+#19 15.91 Preparing to unpack .../36-libc-devtools_2.36-9+deb12u13_amd64.deb ...#28 15.69 
+#23 10.57 Selecting previously unselected package libavif15:amd64.
+
+#19 15.92 Unpacking libc-devtools (2.36-9+deb12u13) ...
+#19 16.03 Selecting previously unselected package linux-libc-dev:amd64.
+#23 10.57 Preparing to unpack .../12-libavif15_0.11.1-1+deb12u1_amd64.deb ...
+#23 10.57 Unpacking libavif15:amd64 (0.11.1-1+deb12u1) ...
+#23 10.70 Selecting previously unselected package libbrotli1:amd64.
+#28 15.70 > nx run nestjs:build
+#28 15.70 
+#28 15.70 > npx tsc -p libs/nestjs/tsconfig.lib.json
+#28 15.70 
+#23 10.70 Preparing to unpack .../13-libbrotli1_1.0.9-2+b6_amd64.deb ...
+#19 16.04 Preparing to unpack .../37-linux-libc-dev_6.1.170-1_amd64.deb ...
+#19 16.04 Unpacking linux-libc-dev:amd64 (6.1.170-1) ...
+
+#23 10.70 Unpacking libbrotli1:amd64 (1.0.9-2+b6) ...
+#23 11.10 Selecting previously unselected package libbsd0:amd64.
+#23 11.10 Preparing to unpack .../14-libbsd0_0.11.7-2_amd64.deb ...
+#23 11.10 Unpacking libbsd0:amd64 (0.11.7-2) ...
+#19 16.50 Selecting previously unselected package libcrypt-dev:amd64.
+#23 11.17 Selecting previously unselected package libc-dev-bin.
+#23 11.18 Preparing to unpack .../15-libc-dev-bin_2.36-9+deb12u13_amd64.deb ...
+#23 11.18 Unpacking libc-dev-bin (2.36-9+deb12u13) ...
+#23 11.33 Selecting previously unselected package libexpat1:amd64.
+#19 16.51 Preparing to unpack .../38-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#19 16.52 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#19 16.69 Selecting previously unselected package libkrb5support0:amd64.
+#23 11.33 Preparing to unpack .../16-libexpat1_2.5.0-1+deb12u2_amd64.deb ...
+#23 11.33 Unpacking libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#19 16.69 Preparing to unpack .../39-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#19 16.69 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#19 16.75 Selecting previously unselected package libk5crypto3:amd64.
+#19 16.75 Preparing to unpack .../40-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#19 16.75 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#19 17.00 Selecting previously unselected package libkeyutils1:amd64.
+#19 17.00 Preparing to unpack .../41-libkeyutils1_1.6.3-2_amd64.deb ...
+#19 17.00 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#23 11.76 Selecting previously unselected package libpng16-16:amd64.
+#23 11.76 Preparing to unpack .../17-libpng16-16_1.6.39-2+deb12u4_amd64.deb ...
+#23 11.76 Unpacking libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#19 17.02 Selecting previously unselected package libssl3:amd64.
+#19 17.03 Preparing to unpack .../42-libssl3_3.0.19-1~deb12u2_amd64.deb ...
+#19 17.03 Unpacking libssl3:amd64 (3.0.19-1~deb12u2) ...
+#23 11.81 Selecting previously unselected package libfreetype6:amd64.
+#23 11.82 Preparing to unpack .../18-libfreetype6_2.12.1+dfsg-5+deb12u4_amd64.deb ...
+#23 11.82 Unpacking libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#23 12.32 Selecting previously unselected package libfontconfig1:amd64.
+#23 12.32 Preparing to unpack .../19-libfontconfig1_2.14.1-4_amd64.deb ...
+#23 12.32 Unpacking libfontconfig1:amd64 (2.14.1-4) ...
+#19 17.88 Selecting previously unselected package libkrb5-3:amd64.
+#19 17.88 Preparing to unpack .../43-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#19 17.88 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#23 12.59 Selecting previously unselected package libde265-0:amd64.
+#23 12.59 Preparing to unpack .../20-libde265-0_1.0.11-1+deb12u2_amd64.deb ...
+#23 12.60 Unpacking libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#19 17.97 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#19 17.97 Preparing to unpack .../44-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#19 17.97 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#29 14.37 
+#29 14.37 > nx run pulsar:build
+#29 14.37 
+#29 14.37 > npx tsc -p libs/pulsar/tsconfig.lib.json
+#29 14.37 
+#19 18.51 Selecting previously unselected package libtirpc-common.
+#19 18.51 Preparing to unpack .../45-libtirpc-common_1.3.3+ds-1_all.deb ...
+#19 18.51 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#23 13.22 Selecting previously unselected package libnuma1:amd64.
+#19 18.56 Selecting previously unselected package libtirpc3:amd64.
+#19 18.57 Preparing to unpack .../46-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#19 18.57 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#23 13.23 Preparing to unpack .../21-libnuma1_2.0.16-1_amd64.deb ...
+#23 13.23 Unpacking libnuma1:amd64 (2.0.16-1) ...
+#23 13.40 Selecting previously unselected package libx265-199:amd64.
+#23 13.40 Preparing to unpack .../22-libx265-199_3.5-2+b1_amd64.deb ...
+#23 13.40 Unpacking libx265-199:amd64 (3.5-2+b1) ...
+#23 13.60 Selecting previously unselected package libheif1:amd64.#19 18.98 Selecting previously unselected package libnsl2:amd64.
+#19 18.98 Preparing to unpack .../47-libnsl2_1.3.0-2_amd64.deb ...
+
+#23 13.60 Preparing to unpack .../23-libheif1_1.15.1-1+deb12u1_amd64.deb ...
+#23 13.60 Unpacking libheif1:amd64 (1.15.1-1+deb12u1) ...
+#23 13.64 Selecting previously unselected package libdeflate0:amd64.
+#23 13.65 Preparing to unpack .../24-libdeflate0_1.14-1_amd64.deb ...
+#23 13.65 Unpacking libdeflate0:amd64 (1.14-1) ...
+#23 13.68 Selecting previously unselected package libjbig0:amd64.
+#23 13.69 Preparing to unpack .../25-libjbig0_2.1-6.1_amd64.deb ...
+#23 13.69 Unpacking libjbig0:amd64 (2.1-6.1) ...
+#19 18.99 Unpacking libnsl2:amd64 (1.3.0-2) ...
+#19 19.04 Selecting previously unselected package libtirpc-dev:amd64.
+#19 19.04 Preparing to unpack .../48-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#19 19.04 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#19 19.45 Selecting previously unselected package libnsl-dev:amd64.#23 14.23 Selecting previously unselected package liblerc4:amd64.
+
+#19 19.46 Preparing to unpack .../49-libnsl-dev_1.3.0-2_amd64.deb ...
+#19 19.46 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#19 19.59 Selecting previously unselected package rpcsvc-proto.
+#23 14.24 Preparing to unpack .../26-liblerc4_4.0.0+ds-2_amd64.deb ...
+#23 14.24 Unpacking liblerc4:amd64 (4.0.0+ds-2) ...
+#23 14.40 Selecting previously unselected package libwebp7:amd64.
+#23 14.40 Preparing to unpack .../27-libwebp7_1.2.4-0.2+deb12u1_amd64.deb ...
+#23 14.40 Unpacking libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#19 19.59 Preparing to unpack .../50-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#19 19.59 Unpacking rpcsvc-proto (1.4.3-1) ...
+#19 19.67 Selecting previously unselected package libc6-dev:amd64.
+#19 19.67 Preparing to unpack .../51-libc6-dev_2.36-9+deb12u13_amd64.deb ...
+#19 19.67 Unpacking libc6-dev:amd64 (2.36-9+deb12u13) ...
+#23 14.59 Selecting previously unselected package libtiff6:amd64.
+#23 14.63 Preparing to unpack .../28-libtiff6_4.5.0-6+deb12u4_amd64.deb ...
+#23 14.63 Unpacking libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#23 14.63 Selecting previously unselected package libxau6:amd64.
+#23 14.63 Preparing to unpack .../29-libxau6_1%3a1.0.9-1_amd64.deb ...
+#23 14.64 Unpacking libxau6:amd64 (1:1.0.9-1) ...
+#19 20.15 Selecting previously unselected package zlib1g-dev:amd64.
+#23 14.81 Selecting previously unselected package libxdmcp6:amd64.
+#19 20.15 Preparing to unpack .../52-zlib1g-dev_1%3a1.2.13.dfsg-1_amd64.deb ...
+#19 20.15 Unpacking zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#19 20.28 Selecting previously unselected package libprotobuf32:amd64.
+#23 14.82 Preparing to unpack .../30-libxdmcp6_1%3a1.1.2-3_amd64.deb ...
+#23 14.82 Unpacking libxdmcp6:amd64 (1:1.1.2-3) ...
+#23 14.89 Selecting previously unselected package libxcb1:amd64.
+#23 14.89 Preparing to unpack .../31-libxcb1_1.15-1_amd64.deb ...
+#23 14.89 Unpacking libxcb1:amd64 (1.15-1) ...
+#23 15.10 Selecting previously unselected package libx11-data.
+#23 15.10 Preparing to unpack .../32-libx11-data_2%3a1.8.4-2+deb12u2_all.deb ...
+#19 20.32 Preparing to unpack .../53-libprotobuf32_3.21.12-3_amd64.deb ...
+#19 20.32 Unpacking libprotobuf32:amd64 (3.21.12-3) ...
+#23 15.14 Unpacking libx11-data (2:1.8.4-2+deb12u2) ...
+#19 20.66 Selecting previously unselected package libprotobuf-lite32:amd64.
+#19 20.66 Preparing to unpack .../54-libprotobuf-lite32_3.21.12-3_amd64.deb ...#23 15.51 Selecting previously unselected package libx11-6:amd64.
+
+#19 20.66 Unpacking libprotobuf-lite32:amd64 (3.21.12-3) ...
+#19 20.74 Selecting previously unselected package libprotobuf-dev:amd64.
+#19 20.74 Preparing to unpack .../55-libprotobuf-dev_3.21.12-3_amd64.deb ...
+#19 20.74 Unpacking libprotobuf-dev:amd64 (3.21.12-3) ...
+#28 20.68 
+#28 20.68 > nx run graphql:build
+#28 20.68 
+#28 20.68 > npx tsc -p libs/graphql/tsconfig.lib.json
+#28 20.68 
+#23 15.51 Preparing to unpack .../33-libx11-6_2%3a1.8.4-2+deb12u2_amd64.deb ...
+#23 15.51 Unpacking libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#29 17.02 
+#29 17.02 > nx run nestjs:build
+#29 17.02 
+#23 15.71 Selecting previously unselected package libxpm4:amd64.
+#28 20.69 
+#28 20.69 > nx run products:build
+#28 20.69 
+#28 20.69 > webpack-cli build --node-env=production
+#28 20.69 
+#19 21.14 Selecting previously unselected package libprotoc32:amd64.
+#29 17.03 > npx tsc -p libs/nestjs/tsconfig.lib.json
+#29 17.03 
+#23 15.72 Preparing to unpack .../34-libxpm4_1%3a3.5.12-1.1+deb12u1_amd64.deb ...
+#23 15.72 Unpacking libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#23 15.75 Selecting previously unselected package libgd3:amd64.
+#23 15.75 Preparing to unpack .../35-libgd3_2.3.3-9_amd64.deb ...
+#23 15.75 Unpacking libgd3:amd64 (2.3.3-9) ...
+#23 15.93 Selecting previously unselected package libc-devtools.
+#29 17.27 
+#19 21.14 Preparing to unpack .../56-libprotoc32_3.21.12-3_amd64.deb ...
+#19 21.14 Unpacking libprotoc32:amd64 (3.21.12-3) ...
+#19 21.29 Selecting previously unselected package manpages-dev.
+#19 21.29 Preparing to unpack .../57-manpages-dev_6.03-2_all.deb ...
+#19 21.29 Unpacking manpages-dev (6.03-2) ...
+#29 17.29 > nx run grpc:build
+#29 17.29 
+#29 17.29 > npx tsc -p libs/grpc/tsconfig.lib.json
+#29 17.29 
+#23 15.93 Preparing to unpack .../36-libc-devtools_2.36-9+deb12u13_amd64.deb ...
+#23 15.93 Unpacking libc-devtools (2.36-9+deb12u13) ...
+#23 15.95 Selecting previously unselected package linux-libc-dev:amd64.
+#23 15.96 Preparing to unpack .../37-linux-libc-dev_6.1.170-1_amd64.deb ...
+#23 15.96 Unpacking linux-libc-dev:amd64 (6.1.170-1) ...
+#23 16.25 Selecting previously unselected package libcrypt-dev:amd64.
+#23 16.25 Preparing to unpack .../38-libcrypt-dev_1%3a4.4.33-2_amd64.deb ...
+#19 21.63 Selecting previously unselected package protobuf-compiler.#23 16.27 Unpacking libcrypt-dev:amd64 (1:4.4.33-2) ...
+#23 16.32 Selecting previously unselected package libkrb5support0:amd64.
+#23 16.37 Preparing to unpack .../39-libkrb5support0_1.20.1-2+deb12u4_amd64.deb ...
+#23 16.37 Unpacking libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+
+#19 21.63 Preparing to unpack .../58-protobuf-compiler_3.21.12-3_amd64.deb ...
+#19 21.63 Unpacking protobuf-compiler (3.21.12-3) ...
+#19 21.71 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#19 21.71 Setting up libaom3:amd64 (3.6.0-1+deb12u2) ...
+#19 21.71 Setting up libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#19 21.72 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#19 21.73 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#19 21.73 Setting up liblerc4:amd64 (4.0.0+ds-2) ...
+#23 16.37 Selecting previously unselected package libk5crypto3:amd64.
+#23 16.38 Preparing to unpack .../40-libk5crypto3_1.20.1-2+deb12u4_amd64.deb ...
+#23 16.38 Unpacking libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#23 16.49 Selecting previously unselected package libkeyutils1:amd64.
+#19 21.73 Setting up manpages (6.03-2) ...
+#19 21.74 Setting up libtirpc-common (1.3.3+ds-1) ...
+#19 21.74 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#19 21.74 Setting up libssl3:amd64 (3.0.19-1~deb12u2) ...
+#19 21.74 Setting up libdeflate0:amd64 (1.14-1) ...
+#19 21.75 Setting up linux-libc-dev:amd64 (6.1.170-1) ...
+#19 21.75 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#19 21.79 Setting up libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#19 21.79 Setting up libjbig0:amd64 (2.1-6.1) ...
+#19 21.79 Setting up librav1e0:amd64 (0.5.1-6) ...
+#19 21.79 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#19 21.79 Setting up rpcsvc-proto (1.4.3-1) ...
+#19 21.79 Setting up libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#19 21.80 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#19 21.80 Setting up libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#19 21.81 Setting up fonts-dejavu-core (2.37-6) ...
+#19 21.83 Setting up libgav1-1:amd64 (0.18.0-1+b1) ...
+#19 21.83 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#19 21.83 Setting up libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#23 16.49 Preparing to unpack .../41-libkeyutils1_1.6.3-2_amd64.deb ...
+#23 16.50 Unpacking libkeyutils1:amd64 (1.6.3-2) ...
+#23 16.52 Selecting previously unselected package libkrb5-3:amd64.
+#23 16.53 Preparing to unpack .../42-libkrb5-3_1.20.1-2+deb12u4_amd64.deb ...
+#23 16.53 Unpacking libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#23 16.68 Selecting previously unselected package libgssapi-krb5-2:amd64.
+#19 21.84 Setting up libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#19 21.84 Setting up libnuma1:amd64 (2.0.16-1) ...
+#19 21.85 Setting up libprotobuf32:amd64 (3.21.12-3) ...
+#19 21.85 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#19 21.86 Setting up libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#19 21.87 Setting up libprotobuf-lite32:amd64 (3.21.12-3) ...
+#19 21.87 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#19 21.87 Setting up libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#19 21.88 Setting up libc-dev-bin (2.36-9+deb12u13) ...
+#19 21.89 Setting up libbsd0:amd64 (0.11.7-2) ...
+#19 21.89 Setting up libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#19 21.89 Setting up libprotoc32:amd64 (3.21.12-3) ...
+#19 21.89 Setting up manpages-dev (6.03-2) ...
+#19 21.91 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#19 21.91 Setting up libxcb1:amd64 (1.15-1) ...
+#19 21.91 Setting up libavif15:amd64 (0.11.1-1+deb12u1) ...
+#19 21.91 Setting up protobuf-compiler (3.21.12-3) ...
+#19 21.91 Setting up fontconfig-config (2.14.1-4) ...
+#23 16.69 Preparing to unpack .../43-libgssapi-krb5-2_1.20.1-2+deb12u4_amd64.deb ...
+#23 16.69 Unpacking libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#23 16.80 Selecting previously unselected package libtirpc-common.
+#19 22.18 debconf: unable to initialize frontend: Dialog
+#19 22.18 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#19 22.18 debconf: falling back to frontend: Readline
+#19 22.18 debconf: unable to initialize frontend: Readline
+#19 22.18 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#19 22.18 debconf: falling back to frontend: Teletype
+#23 16.82 Preparing to unpack .../44-libtirpc-common_1.3.3+ds-1_all.deb ...
+#23 16.84 Unpacking libtirpc-common (1.3.3+ds-1) ...
+#23 17.07 Selecting previously unselected package libtirpc3:amd64.
+#19 22.54 Setting up libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...#23 17.08 Preparing to unpack .../45-libtirpc3_1.3.3+ds-1_amd64.deb ...
+#23 17.08 Unpacking libtirpc3:amd64 (1.3.3+ds-1) ...
+#23 17.31 Selecting previously unselected package libnsl2:amd64.
+#23 17.31 Preparing to unpack .../46-libnsl2_1.3.0-2_amd64.deb ...
+#23 17.31 Unpacking libnsl2:amd64 (1.3.0-2) ...
+
+#19 22.55 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#19 22.55 Setting up libx265-199:amd64 (3.5-2+b1) ...
+#19 22.56 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#19 22.56 Setting up libfontconfig1:amd64 (2.14.1-4) ...
+#19 22.57 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#19 22.57 Setting up libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#19 22.58 Setting up libheif1:amd64 (1.15.1-1+deb12u1) ...
+#19 22.58 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#19 22.58 Setting up libgd3:amd64 (2.3.3-9) ...
+#19 22.59 Setting up libnsl2:amd64 (1.3.0-2) ...
+#19 22.59 Setting up libc-devtools (2.36-9+deb12u13) ...
+#19 22.59 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#19 22.60 Setting up libc6-dev:amd64 (2.36-9+deb12u13) ...
+#19 22.60 Setting up zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#19 22.60 Setting up libprotobuf-dev:amd64 (3.21.12-3) ...
+#19 22.60 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#23 17.35 Selecting previously unselected package libtirpc-dev:amd64.
+#23 17.35 Preparing to unpack .../47-libtirpc-dev_1.3.3+ds-1_amd64.deb ...
+#23 17.35 Unpacking libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#23 17.39 Selecting previously unselected package libnsl-dev:amd64.
+#23 17.40 Preparing to unpack .../48-libnsl-dev_1.3.0-2_amd64.deb ...
+#23 17.40 Unpacking libnsl-dev:amd64 (1.3.0-2) ...
+#23 17.67 Selecting previously unselected package rpcsvc-proto.
+#23 17.67 Preparing to unpack .../49-rpcsvc-proto_1.4.3-1_amd64.deb ...
+#23 17.68 Unpacking rpcsvc-proto (1.4.3-1) ...
+#23 17.98 Selecting previously unselected package libc6-dev:amd64.
+#19 DONE 23.5s
+#23 17.98 Preparing to unpack .../50-libc6-dev_2.36-9+deb12u13_amd64.deb ...
+#23 18.00 Unpacking libc6-dev:amd64 (2.36-9+deb12u13) ...
+
+#20 [builder 15/15] RUN npx nx build executor
+#23 18.40 Selecting previously unselected package zlib1g-dev:amd64.
+#23 18.40 Preparing to unpack .../51-zlib1g-dev_1%3a1.2.13.dfsg-1_amd64.deb ...
+#23 18.41 Unpacking zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#23 18.46 Selecting previously unselected package libprotobuf32:amd64.
+#23 18.47 Preparing to unpack .../52-libprotobuf32_3.21.12-3_amd64.deb ...
+#23 18.47 Unpacking libprotobuf32:amd64 (3.21.12-3) ...
+#23 18.64 Selecting previously unselected package libprotobuf-lite32:amd64.
+#23 18.68 Preparing to unpack .../53-libprotobuf-lite32_3.21.12-3_amd64.deb ...
+#23 18.68 Unpacking libprotobuf-lite32:amd64 (3.21.12-3) ...
+#23 18.68 Selecting previously unselected package libprotobuf-dev:amd64.
+#23 18.69 Preparing to unpack .../54-libprotobuf-dev_3.21.12-3_amd64.deb ...
+#23 18.69 Unpacking libprotobuf-dev:amd64 (3.21.12-3) ...
+#23 19.30 Selecting previously unselected package libprotoc32:amd64.
+#23 19.30 Preparing to unpack .../55-libprotoc32_3.21.12-3_amd64.deb ...
+#23 19.30 Unpacking libprotoc32:amd64 (3.21.12-3) ...
+#23 19.51 Selecting previously unselected package manpages-dev.
+#23 19.51 Preparing to unpack .../56-manpages-dev_6.03-2_all.deb ...
+#23 19.51 Unpacking manpages-dev (6.03-2) ...
+#23 19.68 Selecting previously unselected package protobuf-compiler.
+#23 19.68 Preparing to unpack .../57-protobuf-compiler_3.21.12-3_amd64.deb ...
+#23 19.69 Unpacking protobuf-compiler (3.21.12-3) ...
+#23 19.79 Setting up libexpat1:amd64 (2.5.0-1+deb12u2) ...
+#23 19.79 Setting up libaom3:amd64 (3.6.0-1+deb12u2) ...
+#23 19.79 Setting up libabsl20220623:amd64 (20220623.1-1+deb12u2) ...
+#23 19.79 Setting up libxau6:amd64 (1:1.0.9-1) ...
+#23 19.80 Setting up libkeyutils1:amd64 (1.6.3-2) ...
+#23 19.80 Setting up liblerc4:amd64 (4.0.0+ds-2) ...
+#23 19.80 Setting up manpages (6.03-2) ...
+#23 19.80 Setting up libtirpc-common (1.3.3+ds-1) ...
+#23 19.81 Setting up libbrotli1:amd64 (1.0.9-2+b6) ...
+#23 19.81 Setting up libdeflate0:amd64 (1.14-1) ...
+#23 19.81 Setting up linux-libc-dev:amd64 (6.1.170-1) ...
+#23 19.81 Setting up krb5-locales (1.20.1-2+deb12u4) ...
+#23 19.82 Setting up libsvtav1enc1:amd64 (1.4.1+dfsg-1) ...
+#23 19.82 Setting up libjbig0:amd64 (2.1-6.1) ...
+#23 19.82 Setting up librav1e0:amd64 (0.5.1-6) ...
+#23 19.82 Setting up libkrb5support0:amd64 (1.20.1-2+deb12u4) ...
+#23 19.83 Setting up rpcsvc-proto (1.4.3-1) ...
+#23 19.83 Setting up libjpeg62-turbo:amd64 (1:2.1.5-2) ...
+#23 19.83 Setting up libx11-data (2:1.8.4-2+deb12u2) ...
+#23 19.83 Setting up libpng16-16:amd64 (1.6.39-2+deb12u4) ...
+#23 19.84 Setting up fonts-dejavu-core (2.37-6) ...
+#23 19.85 Setting up libgav1-1:amd64 (0.18.0-1+b1) ...
+#23 19.86 Setting up libk5crypto3:amd64 (1.20.1-2+deb12u4) ...
+#23 19.86 Setting up libdav1d6:amd64 (1.0.0-2+deb12u1) ...
+#23 19.86 Setting up libwebp7:amd64 (1.2.4-0.2+deb12u1) ...
+#23 19.87 Setting up libnuma1:amd64 (2.0.16-1) ...
+#23 19.87 Setting up libprotobuf32:amd64 (3.21.12-3) ...
+#23 19.88 Setting up libcrypt-dev:amd64 (1:4.4.33-2) ...
+#23 20.03 Setting up libtiff6:amd64 (4.5.0-6+deb12u4) ...
+#23 20.04 Setting up libprotobuf-lite32:amd64 (3.21.12-3) ...
+#23 20.04 Setting up libkrb5-3:amd64 (1.20.1-2+deb12u4) ...
+#23 20.08 Setting up libde265-0:amd64 (1.0.11-1+deb12u2) ...
+#23 20.08 Setting up libc-dev-bin (2.36-9+deb12u13) ...
+#23 20.08 Setting up libbsd0:amd64 (0.11.7-2) ...
+#23 20.14 Setting up libyuv0:amd64 (0.0~git20230123.b2528b0-1) ...
+#23 20.15 Setting up libprotoc32:amd64 (3.21.12-3) ...
+#23 20.15 Setting up manpages-dev (6.03-2) ...
+#23 20.15 Setting up libxdmcp6:amd64 (1:1.1.2-3) ...
+#23 20.16 Setting up libxcb1:amd64 (1.15-1) ...
+#23 20.16 Setting up libavif15:amd64 (0.11.1-1+deb12u1) ...
+#23 20.16 Setting up protobuf-compiler (3.21.12-3) ...
+#23 20.16 Setting up fontconfig-config (2.14.1-4) ...
+#23 20.41 debconf: unable to initialize frontend: Dialog
+#23 20.41 debconf: (TERM is not set, so the dialog frontend is not usable.)
+#23 20.41 debconf: falling back to frontend: Readline
+#23 20.41 debconf: unable to initialize frontend: Readline
+#23 20.41 debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC contains: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.36.0 /usr/local/share/perl/5.36.0 /usr/lib/x86_64-linux-gnu/perl5/5.36 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.36 /usr/share/perl/5.36 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 7.)
+#23 20.41 debconf: falling back to frontend: Teletype
+#29 23.09 
+#29 23.09 > nx run graphql:build
+#29 23.09 
+#29 23.09 > npx tsc -p libs/graphql/tsconfig.lib.json
+#29 23.09 
+#29 23.10 
+#29 23.10 > nx run jobs:build
+#29 23.10 
+#29 23.10 > webpack-cli build --node-env=production
+#29 23.10 
+#23 22.12 Setting up libfreetype6:amd64 (2.12.1+dfsg-5+deb12u4) ...
+#23 22.12 Setting up libgssapi-krb5-2:amd64 (1.20.1-2+deb12u4) ...
+#23 22.13 Setting up libx265-199:amd64 (3.5-2+b1) ...
+#23 22.14 Setting up libx11-6:amd64 (2:1.8.4-2+deb12u2) ...
+#23 22.14 Setting up libfontconfig1:amd64 (2.14.1-4) ...
+#23 22.14 Setting up libtirpc3:amd64 (1.3.3+ds-1) ...
+#23 22.14 Setting up libxpm4:amd64 (1:3.5.12-1.1+deb12u1) ...
+#23 22.15 Setting up libheif1:amd64 (1.15.1-1+deb12u1) ...
+#23 22.15 Setting up libtirpc-dev:amd64 (1.3.3+ds-1) ...
+#23 22.15 Setting up libgd3:amd64 (2.3.3-9) ...
+#23 22.16 Setting up libnsl2:amd64 (1.3.0-2) ...
+#23 22.16 Setting up libc-devtools (2.36-9+deb12u13) ...
+#23 22.16 Setting up libnsl-dev:amd64 (1.3.0-2) ...
+#23 22.16 Setting up libc6-dev:amd64 (2.36-9+deb12u13) ...
+#23 22.17 Setting up zlib1g-dev:amd64 (1:1.2.13.dfsg-1) ...
+#23 22.17 Setting up libprotobuf-dev:amd64 (3.21.12-3) ...
+#23 22.18 Processing triggers for libc-bin (2.36-9+deb12u13) ...
+#23 DONE 22.5s
+
+#24 [builder 18/18] RUN npx nx build auth
+#20 7.769 
+#20 7.769  NX   Running target build for project executor and 4 tasks it depends on:
+#20 7.769 
+#20 7.769 
+#20 8.074 
+#20 8.074 > nx run grpc:"proto:generate-ts"
+#20 8.074 
+#20 8.074 > node scripts/proto-generate-ts.mjs
+#20 8.074 
+#20 8.074 node:internal/modules/cjs/loader:1478
+#20 8.074   throw err;
+#20 8.074   ^
+#20 8.074 
+#20 8.074 Error: Cannot find module '/workspace/scripts/proto-generate-ts.mjs'
+#20 8.074     at Module._resolveFilename (node:internal/modules/cjs/loader:1475:15)
+#20 8.074     at wrapResolveFilename (node:internal/modules/cjs/loader:1048:27)
+#20 8.074     at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1072:10)
+#20 8.074     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1093:12)
+#20 8.074     at Module._load (node:internal/modules/cjs/loader:1261:25)
+#20 8.074     at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)
+#20 8.074     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+#20 8.074     at node:internal/main/run_main_module:33:47 {
+#20 8.074   code: 'MODULE_NOT_FOUND',
+#20 8.074   requireStack: []
+#20 8.074 }
+#20 8.074 
+#20 8.074 Node.js v25.9.0
+#20 8.074 Warning: command "node scripts/proto-generate-ts.mjs" exited with non-zero status code#28 32.52 webpack compiled successfully (7ce8014f7ce3f713)
+#28 34.17 
+#28 34.17 
+#28 34.17 
+#28 34.17  NX   Successfully ran target build for project products and 4 tasks it depends on
+#28 34.17 
+#28 34.17 
+
+#20 12.19 > nx run pulsar:build
+#20 12.19 
+#20 12.19 > npx tsc -p libs/pulsar/tsconfig.lib.json
+#20 12.19 
+#28 DONE 35.7s
+#24 8.984 
+#24 8.984  NX   Running target build for project auth and 6 tasks it depends on:
+#24 8.984 
+#24 8.984 
+#24 9.868 
+#24 9.868 > nx run grpc:"proto:generate-ts"
+#24 9.877 
+#24 9.877 > node scripts/proto-generate-ts.mjs
+#24 9.877 
+
+#29 [runner  3/12] COPY --from=builder /workspace/package.json ./
+#29 DONE 0.0s
+
+#30 [runner  4/12] COPY --from=builder /workspace/apps/products/package.json ./apps/products/package.json
+#30 DONE 0.0s
+
+#31 [runner  5/12] COPY --from=builder /workspace/libs/grpc/package.json ./libs/grpc/package.json
+#31 DONE 0.3s
+
+#32 [runner  6/12] COPY --from=builder /workspace/libs/graphql/package.json ./libs/graphql/package.json
+#32 DONE 0.0s
+
+#33 [runner  7/12] COPY --from=builder /workspace/libs/nestjs/package.json ./libs/nestjs/package.json
+#33 DONE 0.1s
+
+#34 [runner  8/12] COPY --from=builder /workspace/package-lock.json ./
+#34 DONE 0.0s
+
+#35 [runner  9/12] COPY --from=builder /workspace/apps/products/drizzle.config.ts ./apps/products/drizzle.config.ts
+#35 DONE 0.2s
+
+#36 [runner 10/12] COPY --from=builder /workspace/apps/products/drizzle ./apps/products/drizzle
+#36 DONE 0.0s
+
+#37 [runner 11/12] RUN npm ci --omit=dev --ignore-scripts
+#29 36.73 webpack compiled successfully (cbd9b2104f80a578)
+#29 37.89 
+#29 37.89 
+#29 37.89 
+#29 37.89  NX   Successfully ran target build for project jobs and 5 tasks it depends on
+#29 37.89 
+#29 37.89 
+#20 19.03 
+#29 DONE 38.6s
+#20 19.03 > nx run nestjs:build
+#20 19.03 
+#20 19.03 > npx tsc -p libs/nestjs/tsconfig.lib.json
+#20 19.03 
+#20 19.08 
+#20 19.08 
+#20 19.08 
+#20 19.08  NX   Running target build for project executor and 4 tasks it depends on failed
+#20 19.08 
+#20 19.08 Failed tasks:
+#20 19.08 
+#20 19.08 - grpc:proto:generate-ts
+#20 19.08 
+#20 19.08 Hint: run the command with --verbose for more details.
+#20 19.08 
+#20 ERROR: process "/bin/sh -c npx nx build executor" did not complete successfully: exit code: 130
+------
+ > [builder 15/15] RUN npx nx build executor:
+19.08 
+19.08 
+19.08  NX   Running target build for project executor and 4 tasks it depends on failed
+19.08 
+19.08 Failed tasks:
+19.08 
+19.08 - grpc:proto:generate-ts
+19.08 
+19.08 Hint: run the command with --verbose for more details.
+19.08 
+------
+Dockerfile:21
+--------------------
+  19 |     RUN apt-get update && apt-get install -y protobuf-compiler
+  20 |     
+  21 | >>> RUN npx nx build executor
+  22 |     
+  23 |     FROM node:25-slim AS runner
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c npx nx build executor" did not complete successfully: exit code: 130
+
+#30 [runner  3/12] COPY --from=builder /workspace/package.json ./
+#30 DONE 0.0s
+#24 15.99 
+#24 15.99 > nx run prisma:build
+#24 15.99 
+#24 15.99 > npx tsc -p libs/prisma/tsconfig.lib.json
+#24 15.99 
+
+#31 [runner  3/12] COPY --from=builder /workspace/package.json ./
+#31 CACHED
+
+#32 [runner  4/12] COPY --from=builder /workspace/apps/jobs/package.json ./apps/jobs/package.json
+#24 16.29 
+#32 DONE 0.1s
+
+#33 [runner  5/12] COPY --from=builder /workspace/libs/graphql/package.json ./libs/graphql/package.json
+#33 DONE 0.0s
+
+#34 [runner  6/12] COPY --from=builder /workspace/libs/grpc/package.json ./libs/grpc/package.json
+#34 DONE 0.0s
+
+#35 [runner  7/12] COPY --from=builder /workspace/libs/nestjs/package.json ./libs/nestjs/package.json
+#35 DONE 0.0s
+
+#36 [runner  8/12] COPY --from=builder /workspace/libs/pulsar/package.json ./libs/pulsar/package.json
+#36 DONE 0.0s
+
+#37 [runner  9/12] COPY --from=builder /workspace/package-lock.json ./
+#37 DONE 0.0s
+#24 16.30 > nx run auth:prisma-generate
+#24 16.30 
+#24 16.33 > prisma generate
+#24 16.33 
+
+#38 [runner 10/12] RUN npm ci --omit=dev --ignore-scripts
+#37 7.633 npm warn deprecated @esbuild-kit/core-utils@3.3.2: Merged into tsx: https://tsx.is
+#37 7.691 npm warn deprecated @esbuild-kit/esm-loader@2.6.5: Merged into tsx: https://tsx.is
+#37 8.872 npm warn deprecated subscriptions-transport-ws@0.11.0: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+#24 20.62 
+#24 20.63 > nx run grpc:build
+#24 20.63 
+#24 20.63 > npx tsc -p libs/grpc/tsconfig.lib.json
+#24 20.63 
+#24 21.47 Loaded Prisma config from prisma.config.ts.
+#24 21.47 
+#24 21.83 Prisma schema loaded from src/prisma/schema.prisma.
+#24 22.07 
+#24 22.08 > nx run nestjs:build
+#24 22.08 
+#24 22.08 > npx tsc -p libs/nestjs/tsconfig.lib.json
+#24 22.08 
+#24 22.30 
+#24 22.30 ✔ Generated Prisma Client (7.7.0) to ./src/prisma/generated in 388ms
+#24 22.30 
+#38 6.607 npm warn deprecated subscriptions-transport-ws@0.11.0: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+#37 15.23 
+#37 15.23 added 294 packages, and audited 304 packages in 14s
+#37 15.23 
+#37 15.23 77 packages are looking for funding
+#37 15.23   run `npm fund` for details
+#24 26.36 
+#24 26.36 > nx run graphql:build
+#24 26.36 
+#24 26.36 > npx tsc -p libs/graphql/tsconfig.lib.json
+#24 26.36 
+#37 15.26 
+#37 15.26 7 vulnerabilities (4 moderate, 3 high)
+#37 15.26 
+#37 15.26 To address issues that do not require attention, run:
+#37 15.26   npm audit fix
+#37 15.26 
+#37 15.26 To address all issues (including breaking changes), run:
+#37 15.26   npm audit fix --force
+#37 15.26 
+#37 15.26 Run `npm audit` for details.
+#37 15.28 npm notice
+#37 15.28 npm notice New minor version of npm available! 11.12.1 -> 11.14.0
+#37 15.28 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.0
+#37 15.28 npm notice To update run: npm install -g npm@11.14.0
+#37 15.28 npm notice
+#24 26.38 
+#24 26.38 > nx run auth:build
+#24 26.38 
+#24 26.38 > webpack-cli build --node-env=production
+#24 26.38 
+#37 DONE 16.3s
+
+#38 [runner 12/12] COPY --from=builder /workspace/dist/ ./dist/
+#38 DONE 0.0s
+
+#39 exporting to image
+#39 exporting layers
+#38 12.02 
+#38 12.02 added 335 packages, and audited 345 packages in 11s
+#38 12.02 
+#38 12.02 88 packages are looking for funding
+#38 12.02   run `npm fund` for details
+#38 12.02 
+#38 12.02 3 high severity vulnerabilities
+#38 12.02 
+#38 12.02 To address issues that do not require attention, run:
+#38 12.02   npm audit fix
+#38 12.02 
+#38 12.02 To address all issues (including breaking changes), run:
+#38 12.02   npm audit fix --force
+#38 12.02 
+#38 12.02 Run `npm audit` for details.
+#38 12.05 npm notice
+#38 12.05 npm notice New minor version of npm available! 11.12.1 -> 11.14.0
+#38 12.05 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.0
+#38 12.05 npm notice To update run: npm install -g npm@11.14.0
+#38 12.05 npm notice
+#38 DONE 12.7s
+
+#39 [runner 11/12] COPY --from=builder /workspace/node_modules/pulsar-client ./node_modules/pulsar-client
+#39 DONE 0.2s
+
+#40 [runner 12/12] COPY --from=builder /workspace/dist/ ./dist/
+#40 DONE 0.1s
+
+#41 exporting to image
+#41 exporting layers
+#24 34.28 webpack compiled successfully (95cc73d108f4fb0e)
+#24 34.36 
+#24 34.36 
+#24 34.36 
+#24 34.36  NX   Successfully ran target build for project auth and 6 tasks it depends on
+#24 34.36 
+#24 34.36 
+#24 DONE 34.6s
+#39 exporting layers 7.4s done
+#39 writing image sha256:86d3205ca075641ed4c38fbc9bedd9da49303d179ddcd615b6085a12f05ddba6 done
+#39 naming to 677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/products:latest done
+#39 DONE 7.4s
+#41 exporting layers 5.5s done
+#41 writing image sha256:af793a534fe4ebab3a9bc27aa971e7ea0f03007ce9a402cce206ae85d8a53227 done
+#41 naming to 677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/jobs:latest done
+#41 DONE 5.5s
+The push refers to repository [677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/products]
+The push refers to repository [677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/jobs]
+
+#25 [runner  4/14] COPY --from=builder /workspace/package.json ./
+f7e5a2ea21fe: Preparing
+5c9096443ef7: Preparing
+be74e1e79fd8: Preparing
+7ab77c3e8745: Preparing
+5882c2280c75: Preparing
+8e8e320e7fa5: Preparing
+29ecdf362023: Preparing
+0504389c7671: Preparing
+ecde70a31312: Preparing
+01b46200ad79: Preparing
+49492fe8bee5: Preparing
+713cb64d0e13: Preparing
+ba163dcef985: Preparing
+0f7f696273bc: Preparing
+4337a9b79b84: Preparing
+0da811fd3ed4: Preparing
+ecde70a31312: Waiting
+01b46200ad79: Waiting
+49492fe8bee5: Waiting
+713cb64d0e13: Waiting
+ba163dcef985: Waiting
+0f7f696273bc: Waiting
+4337a9b79b84: Waiting
+0da811fd3ed4: Waiting
+8e8e320e7fa5: Waiting
+29ecdf362023: Waiting
+0504389c7671: Waiting
+35464aa21786: Preparing
+0387c02512fa: Preparing
+da4fea9b2bf4: Preparing
+f5338fadc1ce: Preparing
+269121ce806b: Preparing
+9ea7a583f45c: Preparing
+9f0eafb66309: Preparing
+d8c0a135c0aa: Preparing
+25518ffe501d: Preparing
+01b46200ad79: Preparing
+49492fe8bee5: Preparing
+713cb64d0e13: Preparing
+ba163dcef985: Preparing
+0f7f696273bc: Preparing
+4337a9b79b84: Preparing
+0da811fd3ed4: Preparing
+35464aa21786: Waiting
+0387c02512fa: Waiting
+da4fea9b2bf4: Waiting
+f5338fadc1ce: Waiting
+269121ce806b: Waiting
+9ea7a583f45c: Waiting
+9f0eafb66309: Waiting
+d8c0a135c0aa: Waiting
+25518ffe501d: Waiting
+01b46200ad79: Waiting
+49492fe8bee5: Waiting
+713cb64d0e13: Waiting
+ba163dcef985: Waiting
+0f7f696273bc: Waiting
+4337a9b79b84: Waiting
+0da811fd3ed4: Waiting
+#25 DONE 0.1s
+
+#26 [runner  5/14] COPY --from=builder /workspace/apps/auth/package.json ./apps/auth/package.json
+#26 DONE 0.0s
+
+#27 [runner  6/14] COPY --from=builder /workspace/libs/graphql/package.json ./libs/graphql/package.json
+#27 DONE 0.0s
+
+#28 [runner  7/14] COPY --from=builder /workspace/libs/grpc/package.json ./libs/grpc/package.json
+#28 DONE 0.0s
+
+#29 [runner  8/14] COPY --from=builder /workspace/libs/nestjs/package.json ./libs/nestjs/package.json
+#29 DONE 0.0s
+
+#30 [runner  9/14] COPY --from=builder /workspace/libs/prisma/package.json ./libs/prisma/package.json
+#30 DONE 0.0s
+
+#31 [runner 10/14] COPY --from=builder /workspace/package-lock.json ./
+#31 DONE 0.0s
+
+#32 [runner 11/14] COPY --from=builder /workspace/apps/auth/src/prisma ./apps/auth/src/prisma
+#32 DONE 0.0s
+
+#33 [runner 12/14] COPY --from=builder /workspace/apps/auth/prisma.config.ts ./apps/auth/prisma.config.ts
+#33 DONE 0.0s
+
+#34 [runner 13/14] RUN npm ci --omit=dev --ignore-scripts
+5882c2280c75: Pushed
+7ab77c3e8745: Pushed
+f7e5a2ea21fe: Pushed
+5c9096443ef7: Pushed
+8e8e320e7fa5: Pushed
+29ecdf362023: Pushed
+0504389c7671: Pushed
+713cb64d0e13: Layer already exists
+#34 5.002 npm warn deprecated subscriptions-transport-ws@0.11.0: The `subscriptions-transport-ws` package is no longer maintained. We recommend you use `graphql-ws` instead. For help migrating Apollo software to `graphql-ws`, see https://www.apollographql.com/docs/apollo-server/data/subscriptions/#switching-from-subscriptions-transport-ws    For general help using `graphql-ws`, see https://github.com/enisdenjo/graphql-ws/blob/master/README.md
+ba163dcef985: Layer already exists
+ecde70a31312: Pushed
+0f7f696273bc: Layer already exists
+4337a9b79b84: Layer already exists
+01b46200ad79: Pushed
+49492fe8bee5: Pushed
+be74e1e79fd8: Pushed
+35464aa21786: Pushed
+da4fea9b2bf4: Pushed
+f5338fadc1ce: Pushed
+269121ce806b: Pushed
+9ea7a583f45c: Pushed
+9f0eafb66309: Pushed
+d8c0a135c0aa: Pushed
+25518ffe501d: Pushed
+0da811fd3ed4: Pushed
+#34 13.30 
+#34 13.30 added 436 packages, and audited 446 packages in 13s
+01b46200ad79: Pushed
+#34 13.30 
+#34 13.30 95 packages are looking for funding
+#34 13.30   run `npm fund` for details
+#34 13.38 
+#34 13.38 7 vulnerabilities (4 moderate, 3 high)
+#34 13.38 
+#34 13.38 To address issues that do not require attention, run:
+#34 13.38   npm audit fix
+#34 13.38 
+#34 13.38 To address all issues (including breaking changes), run:
+#34 13.38   npm audit fix --force
+#34 13.38 
+#34 13.38 Run `npm audit` for details.
+#34 13.38 npm notice
+#34 13.38 npm notice New minor version of npm available! 11.12.1 -> 11.14.0
+#34 13.38 npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.14.0
+#34 13.38 npm notice To update run: npm install -g npm@11.14.0
+#34 13.38 npm notice
+#34 DONE 14.3s
+
+#35 [runner 14/14] COPY --from=builder /workspace/dist/ ./dist/
+#35 DONE 0.0s
+
+#36 exporting to image
+#36 exporting layers
+49492fe8bee5: Pushed
+713cb64d0e13: Pushed
+ba163dcef985: Pushed
+latest: digest: sha256:f56d1a601576fd3c9141cf72e831d6ed5919015a1c35739c5bf279bae219d174 size: 3658
+0387c02512fa: Pushed
+4337a9b79b84: Pushed
+#36 exporting layers 5.4s done
+#36 writing image sha256:b8d47e882e35983a3b3cec048623f7db6f314d8a1588795894731e19e986cacb done
+#36 naming to 677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/auth:latest done
+#36 DONE 5.4s
+The push refers to repository [677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/auth]
+9d80f9db3c0c: Preparing
+2afa74530734: Preparing
+30d77f731561: Preparing
+e8569cd85cfa: Preparing
+2b3b62745336: Preparing
+95474eee6073: Preparing
+663eed7336e5: Preparing
+764a1c85d684: Preparing
+6634892e7963: Preparing
+44cf7e1fc3ec: Preparing
+117a9964ee7d: Preparing
+f55bc0c444d2: Preparing
+3d920e411057: Preparing
+713cb64d0e13: Preparing
+ba163dcef985: Preparing
+0f7f696273bc: Preparing
+4337a9b79b84: Preparing
+0da811fd3ed4: Preparing
+e8569cd85cfa: Waiting
+2b3b62745336: Waiting
+95474eee6073: Waiting
+663eed7336e5: Waiting
+764a1c85d684: Waiting
+6634892e7963: Waiting
+44cf7e1fc3ec: Waiting
+117a9964ee7d: Waiting
+f55bc0c444d2: Waiting
+3d920e411057: Waiting
+713cb64d0e13: Waiting
+ba163dcef985: Waiting
+0f7f696273bc: Waiting
+4337a9b79b84: Waiting
+0da811fd3ed4: Waiting
+30d77f731561: Pushed
+9d80f9db3c0c: Pushed
+0da811fd3ed4: Pushed
+0f7f696273bc: Pushed
+e8569cd85cfa: Pushed
+95474eee6073: Pushed
+2b3b62745336: Pushed
+663eed7336e5: Pushed
+764a1c85d684: Pushed
+latest: digest: sha256:b7ef7a50fe1dfe3f7305e8c6cd991ab248099eccd0659d9dad5a54b673baea24 size: 3654
+6634892e7963: Pushed
+44cf7e1fc3ec: Pushed
+117a9964ee7d: Pushed
+713cb64d0e13: Layer already exists
+ba163dcef985: Layer already exists
+0f7f696273bc: Layer already exists
+4337a9b79b84: Layer already exists
+0da811fd3ed4: Layer already exists
+f55bc0c444d2: Pushed
+3d920e411057: Pushed
+2afa74530734: Pushed
+latest: digest: sha256:84a4fbea0cb3ba5fbc64b616896dab6516711ffb32c7daa0106fb31881d2a3f6 size: 4077
+Error: Process completed with exit code 1.
