@@ -1,0 +1,51 @@
+{{- if .Values.products.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products
+  labels:
+    app: products
+spec:
+  replicas: {{ .Values.products.replicas }}
+  selector:
+    matchLabels:
+      app: products
+  template:
+    metadata:
+      labels:
+        app: products
+    spec:
+      initContainers:
+        - name: drizzle-migrate
+          image: {{ .Values.products.image }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          workingDir: /app/apps/products
+          command: ["sh", "-c"]
+          args:
+            - npx drizzle-kit migrate
+          env:
+            {{- include "common.env" . | nindent 12 }}
+            - name: DATABASE_URL
+              value: {{ printf "postgresql://%s:%s@%s-postgresql.%s.svc.cluster.local:5432/%s" .Values.postgresql.products.username (.Values.postgresql.products.password | urlquery) .Release.Name .Release.Namespace .Values.postgresql.products.database | quote }}
+      containers:
+        - name: products
+          image: {{ .Values.products.image }}
+          imagePullPolicy: {{ .Values.global.imagePullPolicy }}
+          ports:
+            - containerPort: {{ .Values.products.port.http }}
+            - containerPort: {{ .Values.products.port.grpc }}
+          env:
+            {{- include "common.env" . | nindent 12 }}
+            - name: COOKIE_SECRET
+              value: {{ .Values.products.cookieSecret | quote }}
+            - name: PORT
+              value: {{ .Values.products.port.http | quote }}
+            - name: JWT_SECRET
+              value: "{{ .Values.products.jwt.secret }}"
+            - name: JWT_EXPIRES_MS
+              value: {{ .Values.products.jwt.expiresMs | int | toString | quote }}
+            - name: PRODUCTS_GRPC_SERVICE_URL
+              value: "0.0.0.0:{{ .Values.products.port.grpc }}"
+            - name: DATABASE_URL
+              value: {{ printf "postgresql://%s:%s@%s-postgresql.%s.svc.cluster.local:5432/%s" .Values.postgresql.products.username (.Values.postgresql.products.password | urlquery) .Release.Name .Release.Namespace .Values.postgresql.products.database | quote }}
+{{- end }}

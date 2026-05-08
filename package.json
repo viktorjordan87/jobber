@@ -71,6 +71,7 @@
     "@jobber/graphql": "dist/libs/graphql/index.js",
     "@jobber/nestjs": "dist/libs/nestjs/index.js",
     "@jobber/prisma": "dist/libs/prisma/index.js",
-    "@jobber/pulsar": "dist/libs/pulsar/index.js"
+    "@jobber/pulsar": "dist/libs/pulsar/index.js",
+    "@jobber/products": "dist/libs/products/index.js"
   }
 }

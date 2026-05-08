@@ -26,6 +26,8 @@ spec:
             - npx prisma migrate deploy
           env:
             {{- include "common.env" . | nindent 12 }}
+            - name: DATABASE_URL
+              value: {{ printf "postgresql://%s:%s@%s-postgresql.%s.svc.cluster.local:5432/%s" .Values.postgresql.auth.username (.Values.postgresql.auth.password | urlquery) .Release.Name .Release.Namespace .Values.postgresql.auth.database | quote }}
       containers:
         - name: auth
           image: {{ .Values.auth.image }}
@@ -45,4 +47,6 @@ spec:
               value: {{ .Values.auth.jwt.expiresMs | int | toString | quote }}
             - name: AUTH_GRPC_SERVICE_URL
               value: "0.0.0.0:{{ .Values.auth.port.grpc }}"
+            - name: DATABASE_URL
+              value: {{ printf "postgresql://%s:%s@%s-postgresql.%s.svc.cluster.local:5432/%s" .Values.postgresql.auth.username (.Values.postgresql.auth.password | urlquery) .Release.Name .Release.Namespace .Values.postgresql.auth.database | quote }}
 {{- end }}

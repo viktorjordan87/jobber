@@ -8,6 +8,20 @@
       "when": 1778017885539,
       "tag": "0000_brave_sasquatch",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1778193759972,
+      "tag": "0001_milky_lord_hawal",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1778194341725,
+      "tag": "0002_seed-categories",
+      "breakpoints": true
     }
   ]
 }

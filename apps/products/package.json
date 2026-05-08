@@ -4,7 +4,8 @@
     "dependencies": {
         "dotenv": "^16.4.7",
         "drizzle-orm": "^0.45.2",
-        "pg": "^8.20.0"
+        "pg": "^8.20.0",
+        "drizzle-kit": "^0.31.10"
     },
     "scripts": {
         "build": "npx nx build products",
@@ -15,7 +16,6 @@
     },
     "devDependencies": {
         "@types/pg": "^8.20.0",
-        "drizzle-kit": "^0.31.10",
         "tsx": "^4.21.0"
     }
 }
