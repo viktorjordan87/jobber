@@ -15,7 +15,8 @@ export async function bootstrapInit(
   await app.register(fastifyCookie, {
     secret: app.get(ConfigService).getOrThrow<string>('COOKIE_SECRET'),
   });
-  await app.listen(port);
+  // Bind all interfaces so ClusterIP / Ingress can reach the app (127.0.0.1-only breaks Kubernetes).
+  await app.listen(port, '0.0.0.0');
   app
     .get<Logger>(Logger)
     .log(`Application is running on: http://localhost:${port}/${globalPrefix}`);

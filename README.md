@@ -121,13 +121,87 @@ kubectl get deployments -n jobber
 kubectl logs -n jobber -l app=jobs --tail=50
 ```
 
+### Ingress, `jobber.local`, and Minikube tunnel (beginner guide)
+
+If Kubernetes is new, this section explains **what the Ingress is**, how **`jobber.local`** fits in, and why **`minikube tunnel`** shows up in tutorials.
+
+#### The mental model (one request)
+
+1. Your machine runs **`curl`** or a browser and uses a **host name** (`jobber.local`).
+2. The OS turns that name into an **IP address** (via DNS or your **`hosts`** file).
+3. Something on that IP must accept **HTTP** (usually port **80** or **443**). That “something” is often the **ingress-nginx** controller inside Minikube.
+4. The controller looks at the **Host** header (`jobber.local`) and the **path** (`/jobs`, `/auth`, …) and forwards the request to the right **Kubernetes Service** (for example `auth-http`), which reaches the **Pods**.
+
+So: **Ingress = HTTP routing rules** at the edge of the cluster. It does **not** run your app code; it **dispatches** traffic to Services.
+
+#### What this repo’s Ingress does
+
+The chart defines a single Ingress (`charts/jobber/templates/ingress.yaml`):
+
+- **Host:** `jobber.local` — the controller only matches traffic that declares this host (browser/`curl` do that automatically when you open `http://jobber.local/...`).
+- **Ingress class:** `nginx` — handled by the **ingress-nginx** controller (installed separately, often in namespace `ingress-nginx`).
+- **Paths (prefix match):**
+  - **`/jobs`** → Service **`jobs-http`** on the HTTP port from `values.yaml` (`jobs.port.http`).
+  - **`/auth`** → Service **`auth-http`** on `auth.port.http`.
+
+If a path’s Service does not exist, the Ingress can still “work” at the edge but you get **502** or similar for that path. Check backends with:
+
+```bash
+kubectl describe ing ingress -n jobber
+```
+
+#### Why `kubectl get ing` shows an `ADDRESS` (or nothing at first)
+
+The **`ADDRESS`** column is **not** something you set in YAML. The **ingress controller** writes **status** on the Ingress after it syncs the object. It may be **empty for a short time** right after install, then fill in (for example with your Minikube node IP).
+
+On **Minikube**, that address is often the **node’s internal IP** (for example `192.168.49.2`). That is “where the cluster lives” from the hypervisor’s point of view, not necessarily `127.0.0.1` on Windows.
+
+#### `jobber.local` and your Windows `hosts` file
+
+`jobber.local` is **not** registered on the public internet. For your PC to resolve it, add a line to:
+
+`C:\Windows\System32\drivers\etc\hosts`
+
+Typical patterns:
+
+- **`127.0.0.1 jobber.local`** — use when **something on your machine** is listening on **localhost** and forwarding into the cluster (see **`minikube tunnel`** below). Matches how many guides set up **LoadBalancer**-style access on Minikube.
+- **`192.168.49.2 jobber.local`** (example) — point the name at the **Minikube node IP** if you reach the ingress via that IP (for example **NodePort** without tunnel). The exact IP comes from `kubectl get nodes -o wide`.
+
+**Mismatch symptom:** `ping jobber.local` works but the browser shows **connection refused** — the name resolves, but nothing is listening on the IP/port you are using.
+
+#### What `minikube tunnel` is and why it must stay running
+
+**Minikube** runs Kubernetes **inside a VM** (or similar). Cluster IPs and node IPs are **not** the same as `127.0.0.1` on Windows unless you bridge them.
+
+**`minikube tunnel`** (run in its **own** terminal, **as Administrator** on Windows when Minikube asks for it) creates a **network path** so that **LoadBalancer** Services (and related routing) can be reached from the host more like a “real” cloud load balancer. While the tunnel runs, using **`127.0.0.1`** in `hosts` for `jobber.local` can line up with how HTTP is exposed—**but the tunnel process must keep running**. Closing that terminal stops the tunnel.
+
+Minikube may warn about **ports below 1024 on Windows** with older OpenSSH; see the [Minikube accessing docs](https://minikube.sigs.k8s.io/docs/handbook/accessing/) if port 80 behaves oddly.
+
+#### Quick checks from Windows
+
+Use **`curl.exe`** in PowerShell (not `curl`, which is an alias for `Invoke-WebRequest`):
+
+```powershell
+curl.exe -v http://jobber.local/auth/graphql
+curl.exe -v http://jobber.local/jobs/graphql
+```
+
+Adjust paths if your apps only expose certain routes. If you use **HTTPS** locally with a dev certificate, you may need **`curl.exe -vk`**.
+
+#### Ingress vs `kubectl port-forward`
+
+- **Ingress:** one front door by **host name + path**; good match for “realistic” HTTP and multiple apps.
+- **`port-forward`:** directly maps a **Service** port to `127.0.0.1` on your machine; no DNS/`hosts` needed. See **Local testing (`kubectl port-forward`)** below.
+
+You can use either; they solve the same “how do I hit the cluster from my laptop?” problem in different ways.
+
 ### Local testing (`kubectl port-forward`)
 
 Workloads use **ClusterIP** Services, so nothing listens on your machine until you forward a port. Run each command in its **own terminal** and leave it open while you test.
 
 | App          | Command                                                        | Then open (examples)                                                                                     |
 | --------------| ----------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------|
-| **jobs**     | `kubectl port-forward -n jobber svc/jobs 3001:3001`            | GraphiQL: `http://127.0.0.1:3001/graphiql` · GraphQL HTTP: `POST http://127.0.0.1:3001/graphql`          |
+| **jobs**     | `kubectl port-forward -n jobber svc/jobs-http 3001:3001`        | GraphiQL: `http://127.0.0.1:3001/graphiql` · GraphQL HTTP: `POST http://127.0.0.1:3001/graphql`          |
 | **auth**     | `kubectl port-forward -n jobber svc/auth-http 3000:3000`       | Same paths on port **3000** (`/graphiql`, `/graphql`). The Service is named **`auth-http`**, not `auth`. |
 | **executor** | `kubectl port-forward -n jobber deployment/executor 3002:3002` | HTTP on **3002** (this chart has no `Service` for executor; forward the **Deployment** instead).         |
 
