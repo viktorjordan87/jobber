@@ -9,11 +9,14 @@ import { join } from 'node:path';
 import { PulsarModule } from '@jobber/pulsar';
 import { ConfigService } from '@nestjs/config';
 import { LoadProductsJob } from './jobs/products/load-products.job';
+import { PrismaModule } from './modules/prisma';
+import { JobsController } from './jobs.controller';
 
 @Module({
   imports: [
     PulsarModule,
     DiscoveryModule,
+    PrismaModule,
     ClientsModule.registerAsync([
       {
         name: AUTH_PACKAGE_NAME,
@@ -29,12 +32,8 @@ import { LoadProductsJob } from './jobs/products/load-products.job';
       },
     ]),
   ],
-  providers: [
-    FibonacciJob,
-    JobsService,
-    JobsResolver,
-    LoadProductsJob,
-  ],
+  providers: [FibonacciJob, JobsService, JobsResolver, LoadProductsJob],
+  controllers: [JobsController],
   exports: [],
 })
 export class JobsModule {}

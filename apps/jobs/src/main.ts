@@ -11,6 +11,10 @@ import {
 } from '@nestjs/platform-fastify';
 import { bootstrapInit } from '@jobber/nestjs';
 import fastifyMultipart from '@fastify/multipart';
+import { GrpcOptions, Transport } from '@nestjs/microservices';
+import { ConfigService } from '@nestjs/config';
+import { JOBS_PACKAGE_NAME } from '@jobber/grpc';
+import { join } from 'node:path';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -24,6 +28,15 @@ async function bootstrap() {
     },
   });
   await bootstrapInit(app);
+  app.connectMicroservice<GrpcOptions>({
+    transport: Transport.GRPC,
+    options: {
+      url: app.get(ConfigService).getOrThrow<string>('JOBS_GRPC_SERVICE_URL'),
+      package: JOBS_PACKAGE_NAME, // name of the package in the proto file
+      protoPath: join(__dirname, 'libs/grpc/src/lib/proto/job.proto'),
+    },
+  });
+  await app.startAllMicroservices();
 }
 
 bootstrap();

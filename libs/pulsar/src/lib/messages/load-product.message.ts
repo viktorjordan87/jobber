@@ -1,28 +1,36 @@
-import { IsString, IsNotEmpty, IsNumber, Min, IsInt, Max } from "class-validator";
+import {
+  IsString,
+  IsNotEmpty,
+  IsNumber,
+  Min,
+  IsInt,
+  Max,
+} from 'class-validator';
+import { JobMessage } from './job.message';
 
-export class LoadProductMessage {
-    @IsString()
-    @IsNotEmpty()
-    name: string;
+export class LoadProductMessage extends JobMessage {
+  @IsString()
+  @IsNotEmpty()
+  name: string;
 
-    @IsString()
-    @IsNotEmpty()
-    category: string;
+  @IsString()
+  @IsNotEmpty()
+  category: string;
 
-    @IsNumber()
-    @Min(0)
-    price: number;
+  @IsNumber()
+  @Min(0)
+  price: number;
 
-    @IsInt()
-    @Min(0)
-    stock: number;
+  @IsInt()
+  @Min(0)
+  stock: number;
 
-    @IsNumber()
-    @Min(0)
-    @Max(5)
-    rating: number;
+  @IsNumber()
+  @Min(0)
+  @Max(5)
+  rating: number;
 
-    @IsString()
-    @IsNotEmpty()
-    description: string;
+  @IsString()
+  @IsNotEmpty()
+  description: string;
 }

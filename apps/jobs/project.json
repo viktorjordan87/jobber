@@ -6,6 +6,7 @@
   "tags": [],
   "targets": {
     "build": {
+      "dependsOn": ["prisma-generate", "^build"],
       "executor": "nx:run-commands",
       "options": {
         "command": "webpack-cli build",
@@ -61,8 +62,39 @@
         }
       }
     },
-    "test": {
+    "prisma-generate": {
+      "executor": "nx:run-commands",
+      "inputs": [
+        "{projectRoot}/src/prisma/schema.prisma",
+        "{projectRoot}/prisma.config.ts"
+      ],
+      "outputs": ["{projectRoot}/src/prisma/generated"],
       "options": {
+        "command": "prisma generate",
+        "cwd": "{projectRoot}"
+      },
+      "cache": true
+    },
+    "prisma-studio": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma studio",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "prisma-format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "prisma format",
+        "cwd": "{projectRoot}"
+      }
+    },
+    "test": {
+      "dependsOn": ["prisma-generate"],
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "{projectRoot}/jest.config.cts",
         "passWithNoTests": true
       }
     }

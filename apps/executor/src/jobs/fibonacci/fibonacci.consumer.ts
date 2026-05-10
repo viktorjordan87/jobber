@@ -1,16 +1,22 @@
-import { Injectable, OnModuleInit } from '@nestjs/common';
-import { PulsarClient, PulsarConsumer } from '@jobber/pulsar';
+import { Inject, Injectable, OnModuleInit } from '@nestjs/common';
+import { PulsarClient } from '@jobber/pulsar';
 import { FibonacciMessage } from '@jobber/pulsar';
 import { iterate } from 'fibonacci';
 import { Jobs } from '@jobber/nestjs';
+import { JobsConsumer } from '../jobs.consumer';
+import { JOBS_PACKAGE_NAME } from '@jobber/grpc';
+import { ClientGrpc } from '@nestjs/microservices';
 
 @Injectable()
 export class FibonacciConsumer
-  extends PulsarConsumer<FibonacciMessage>
+  extends JobsConsumer<FibonacciMessage>
   implements OnModuleInit
 {
-  constructor(pulsarClient: PulsarClient) {
-    super(pulsarClient, Jobs.FIBONACCI);
+  constructor(
+    pulsarClient: PulsarClient,
+    @Inject(JOBS_PACKAGE_NAME) private clientJobs: ClientGrpc,
+  ) {
+    super(Jobs.FIBONACCI, pulsarClient, clientJobs);
   }
 
   /** Ensures Nest runs subscription setup (parent `onModuleInit` is not always picked up). */
@@ -18,7 +24,7 @@ export class FibonacciConsumer
     await super.onModuleInit();
   }
 
-  protected async onMessage(data: FibonacciMessage): Promise<void> {
+  protected async execute(data: FibonacciMessage): Promise<void> {
     const iterations = Number(data.iterations);
     if (!Number.isFinite(iterations) || iterations < 1) {
       this.logger.warn(

@@ -29,6 +29,11 @@
     "build": "npx nx build jobs",
     "start:dev": "concurrently -k -n serve,watch -c blue,magenta \"npx nx serve jobs\" \"npx nx watch --projects=jobs --includeDependentProjects -- npx nx serve jobs\"",
     "test": "npx jest --config jest.config.cts",
-    "graphql:playground": "open http://localhost:3001/graphiql || start http://localhost:3001/graphiql"
+    "graphql:playground": "open http://localhost:3001/graphiql || start http://localhost:3001/graphiql",
+    "prisma:generate": "npx nx run jobs:prisma-generate",
+    "prisma:migrate": "npx prisma migrate dev",
+    "prisma:studio": "npx prisma studio",
+    "prisma:migrate:deploy": "npx prisma migrate deploy",
+    "prisma:format": "npx nx run jobs:prisma-format"
   }
 }

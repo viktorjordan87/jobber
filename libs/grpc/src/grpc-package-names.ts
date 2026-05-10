@@ -2,4 +2,5 @@
 // Nest registration tokens: ts-proto omits these when exportCommonSymbols=false.
 
 export const AUTH_PACKAGE_NAME = 'auth';
+export const JOBS_PACKAGE_NAME = 'jobs';
 export const PRODUCTS_PACKAGE_NAME = 'products';

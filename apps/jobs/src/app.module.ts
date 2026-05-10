@@ -7,6 +7,7 @@ import { MercuriusDriver, MercuriusDriverConfig } from '@nestjs/mercurius';
 import { mercuriusGqlLoggerForRoot } from '@jobber/graphql';
 import { LoggerModule } from '@jobber/nestjs';
 import { UploadsModule } from './uploads/uploads.module';
+import { PrismaModule } from './modules/prisma';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { UploadsModule } from './uploads/uploads.module';
       ...mercuriusGqlLoggerForRoot(),
     }),
     JobsModule,
+    PrismaModule,
   ],
   controllers: [],
   providers: [],
