@@ -4,8 +4,10 @@ import { NestFastifyApplication } from '@nestjs/platform-fastify';
 import { ConfigService } from '@nestjs/config';
 import fastifyCookie from '@fastify/cookie';
 
-export async function bootstrapInit(app: NestFastifyApplication) {
-  const globalPrefix = 'api';
+export async function bootstrapInit(
+  app: NestFastifyApplication,
+  globalPrefix = 'api',
+) {
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
   app.setGlobalPrefix(globalPrefix);
   app.useLogger(app.get(Logger));

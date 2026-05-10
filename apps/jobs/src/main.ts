@@ -27,7 +27,7 @@ async function bootstrap() {
       fileSize: 1024 * 1024 * 20, // 20MB
     },
   });
-  await bootstrapInit(app);
+  await bootstrapInit(app, 'jobs');
   app.connectMicroservice<GrpcOptions>({
     transport: Transport.GRPC,
     options: {

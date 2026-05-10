@@ -20,6 +20,7 @@ import { PrismaModule } from './modules/prisma';
     GraphQLModule.forRoot<MercuriusDriverConfig>({
       driver: MercuriusDriver,
       graphiql: true,
+      useGlobalPrefix: true,
       autoSchemaFile: true,
       context: (request, reply) => ({ req: request, res: reply }),
       ...mercuriusGqlLoggerForRoot(),

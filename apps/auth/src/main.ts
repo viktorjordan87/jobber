@@ -21,7 +21,7 @@ async function bootstrap() {
     new FastifyAdapter(),
     { bufferLogs: true },
   );
-  await bootstrapInit(app);
+  await bootstrapInit(app, 'auth');
   app.connectMicroservice<GrpcOptions>({
     transport: Transport.GRPC,
     options: {

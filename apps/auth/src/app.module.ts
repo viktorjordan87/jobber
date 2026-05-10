@@ -20,6 +20,7 @@ import { LoggerModule } from '@jobber/nestjs';
     GraphQLModule.forRoot<MercuriusDriverConfig>({
       driver: MercuriusDriver,
       graphiql: true,
+      useGlobalPrefix: true,
       autoSchemaFile: true,
       context: (request, reply) => ({ req: request, res: reply }),
       ...mercuriusGqlLoggerForRoot(),

@@ -10,6 +10,8 @@ pulsar:
   # Let `helm install ... -n jobber --create-namespace` own the namespace. Pulsar's own
   # Namespace manifest can lack Helm labels and break upgrades on strict Helm versions.
   namespaceCreate: false
+  components:
+    proxy: false
   zookeeper:
     replicaCount: 1
     podMonitor:
@@ -29,7 +31,6 @@ pulsar:
     podMonitor:
       enabled: false
   proxy:
-    replicaCount: 1
     podMonitor:
       enabled: false
   autorecovery:
