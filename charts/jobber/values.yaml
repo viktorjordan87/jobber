@@ -61,19 +61,26 @@ postgresql:
     username: postgres
     password: postgres
     database: products
+  jobs:
+    username: postgres
+    password: postgres
+    database: jobs
   primary:
     initdb:
       scripts:
         create-databases.sql: |
           CREATE DATABASE jobber;
           CREATE DATABASE products;
+          CREATE DATABASE jobs;
 
 
 jobs:
   enabled: true
   replicas: 1
   image: '677673473760.dkr.ecr.eu-north-1.amazonaws.com/jobber/jobs:latest'
-  port: 3001
+  port:
+    http: 3001
+    grpc: 5002
   # Required by libs/nestjs bootstrap-init (fastify cookie). Matches apps/jobs/.env.example for local dev.
   # Override in prod (Helm --set, Sealed Secrets, External Secrets, etc.); do not commit real secrets.
   cookieSecret: secret

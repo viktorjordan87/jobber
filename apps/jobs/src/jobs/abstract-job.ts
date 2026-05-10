@@ -15,7 +15,7 @@ export abstract class AbstractJob<T extends object> {
     private readonly prisma: PrismaService,
   ) {}
 
-  async execute(data: T | T[], jobName: string) {
+  async execute(data: T | T[], jobName: string, jobMetadata = false) {
     if (!this.producer) {
       this.producer = await this.pulsarClient.createProducer(jobName);
     }
@@ -37,6 +37,10 @@ export abstract class AbstractJob<T extends object> {
     }
 
     this.send({ ...data, jobId: job.id });
+
+    if (jobMetadata) {
+      return job;
+    }
   }
 
   private send(data: T) {

@@ -196,6 +196,346 @@ kubectl get statefulsets,deployments,services -n jobber
 - **PowerShell** — Use **`helm`** (the Helm CLI), not **`help`** (that is `Get-Help`, not Helm).
 - **Broker `Init:Error` / `wait-bookkeeper-ready` looping** — The broker init waits until DNS returns at least **`managedLedgerDefaultEnsembleSize`** bookies (chart default **2**). With **`bookkeeper.replicaCount: 1`** (typical on Minikube), set **`pulsar.broker.configData`** `managedLedgerDefaultEnsembleSize`, `managedLedgerDefaultWriteQuorum`, and `managedLedgerDefaultAckQuorum` to **`"1"`** (see `charts/jobber/values.yaml`). After changing that, **`kubectl delete pod jobber-pulsar-broker-0 -n jobber`** so the StatefulSet recreates the pod with the new init script.
 
+## Kubernetes: `kubectl` for daily development
+
+These examples use namespace **`jobber`** (where this chart installs). They work on Minikube or any cluster where you deployed the release. On **Windows PowerShell**, the commands are the same; use **Ctrl+C** to stop `port-forward` or `get pods -w`.
+
+### Concepts (quick)
+
+| Idea | What it means |
+|------|----------------|
+| **Namespace** | `-n jobber` limits commands to this stack (apps + Pulsar + PostgreSQL). |
+| **Pod** | Ephemeral; the controller usually replaces it. Prefer **labels** (`-l app=jobs`) or **resource names** (`deployment/executor`) instead of hard-coding one pod name. |
+| **Deployment** | Manages stateless app pods (auth, jobs, executor, …). |
+| **StatefulSet** | Ordered pods with stable names (e.g. `jobber-postgresql-0`, Pulsar components). |
+
+### Cluster and context
+
+```bash
+kubectl config current-context
+kubectl config get-contexts
+kubectl cluster-info
+kubectl get nodes
+```
+
+Point at Minikube after a restart: `kubectl config use-context minikube` (or the name from `get-contexts`).
+
+### List resources
+
+```bash
+kubectl get pods -n jobber
+kubectl get deployments,statefulsets,services -n jobber
+kubectl get pvc -n jobber
+```
+
+**PersistentVolumes** are cluster-scoped (no namespace):
+
+```bash
+kubectl get pv
+```
+
+Watch pods until something changes (stop with **Ctrl+C**):
+
+```bash
+kubectl get pods -n jobber -w
+```
+
+### Describe and events (why is this pod failing?)
+
+Replace `<pod>` with a name from `kubectl get pods -n jobber`.
+
+```bash
+kubectl describe pod <pod> -n jobber
+kubectl get events -n jobber --sort-by='.lastTimestamp'
+```
+
+### Logs
+
+By pod name:
+
+```bash
+kubectl logs <pod> -n jobber --tail=100
+kubectl logs <pod> -n jobber -f
+```
+
+If the container restarted, previous run’s logs:
+
+```bash
+kubectl logs <pod> -n jobber --previous --tail=100
+```
+
+By label (matches how this chart labels apps):
+
+```bash
+kubectl logs -n jobber -l app=jobs --tail=50
+kubectl logs -n jobber -l app=auth --tail=50
+kubectl logs -n jobber -l app=executor --tail=50
+kubectl logs -n jobber -l app=products --tail=50
+```
+
+### Shell inside a pod (`exec`)
+
+```bash
+kubectl exec --stdin --tty <pod> -n jobber -- sh
+```
+
+**Pulsar broker** (to run `pulsar-admin`; from repo image, binaries are under `/pulsar`):
+
+```bash
+kubectl exec --stdin --tty jobber-pulsar-broker-0 -n jobber -- sh
+# inside the pod:
+cd /pulsar/bin
+./pulsar-admin topics stats persistent://public/default/fibonacci
+```
+
+### Port-forward (summary)
+
+See **Local testing (`kubectl port-forward`)** above for auth, jobs, and executor. **Products** HTTP is not exposed as a separate `Service` in this chart; forward the deployment:
+
+```bash
+kubectl port-forward -n jobber deployment/products 3003:3003
+```
+
+gRPC for products uses service `products` and port **5001** in `values.yaml` if you need it from your host.
+
+### Restart workloads (new image / pick up ConfigMap)
+
+Rollout restart is a safe way to recreate pods without editing Helm:
+
+```bash
+kubectl rollout restart deployment/auth -n jobber
+kubectl rollout restart deployment/jobs -n jobber
+kubectl rollout restart deployment/executor -n jobber
+kubectl rollout restart deployment/products -n jobber
+```
+
+Restart everything that is a Deployment in one go:
+
+```bash
+kubectl rollout restart deployment -n jobber
+```
+
+Watch status:
+
+```bash
+kubectl rollout status deployment/jobs -n jobber
+```
+
+### Scale replicas
+
+```bash
+kubectl scale deployment executor -n jobber --replicas=0
+kubectl scale deployment executor -n jobber --replicas=1
+```
+
+**Helm note:** If you later see upgrade errors about **conflicts on `.spec.replicas`**, something (often `kubectl scale`) last changed replicas and Helm’s server-side apply disagrees. Fix by aligning replicas in **`values.yaml`** + `helm upgrade`, or temporarily `kubectl delete deployment <name> -n jobber` and let Helm recreate it on the next upgrade.
+
+### Delete pods (force reschedule / pull image again)
+
+```bash
+kubectl delete pod -l app=executor -n jobber
+```
+
+Kubernetes will create new pods to match the Deployment (new pull if `imagePullPolicy: Always`).
+
+### PostgreSQL: connect from your shell (`psql`)
+
+The Bitnami PostgreSQL instance is reachable in-cluster as **`jobber-postgresql`** on port **5432**. Default credentials in `charts/jobber/values.yaml` are user **`postgres`** / password **`postgres`** (change these for anything beyond local dev).
+
+Apps use separate databases: **`jobber`**, **`products`**, and **`jobs`** (created by the chart init script). If you changed `postgresql.auth` or per-app users in `values.yaml`, use those instead.
+
+#### Already inside the pod? (`sh-5.2$` or similar)
+
+If you opened a shell with:
+
+```bash
+kubectl exec --stdin --tty jobber-postgresql-0 -n jobber -- sh
+```
+
+you are on the container’s **`sh`** prompt, not inside `psql` yet. Do this next:
+
+1. **Start `psql`** (password matches default `values.yaml`; change if you overrode it).
+
+   **Two separate lines** — press **Enter** after the first line, then type the second. Do **not** glue them together (`postgrespsql`); the shell will mis-parse `export` and `psql` will run **without** a password (`password authentication failed`).
+
+   ```sh
+   export PGPASSWORD=postgres
+   psql -U postgres -d postgres
+   ```
+
+   **Safer one-liner** (no `export`; copy as a single line):
+
+   ```sh
+   PGPASSWORD=postgres psql -U postgres -d postgres
+   ```
+
+   You should see `postgres=#` (or similar). That is the **PostgreSQL** prompt.
+
+   **If you still get `password authentication failed`:** the running database may use a different password than your current `values.yaml`. Inside the same `sh` session, Bitnami usually exposes it — use that value for `PGPASSWORD`:
+
+   ```sh
+   printenv POSTGRES_PASSWORD
+   PGPASSWORD="$POSTGRES_PASSWORD" psql -U postgres -d postgres
+   ```
+
+2. **Useful `psql` commands** (meta-commands start with `\`):
+
+   ```text
+   \l              -- list databases
+   \c jobs         -- connect to the jobs database (or jobber / products)
+   \dt             -- list tables in current database
+   \d table_name   -- describe a table
+   \q              -- quit psql (back to sh)
+   ```
+
+3. **Leave the container** after `\q`: type `exit` (or press **Ctrl+D**) at the `sh` prompt.
+
+If `psql` is not found (rare on Bitnami images), try the full path:
+
+```sh
+/opt/bitnami/postgresql/bin/psql -U postgres -d postgres
+```
+
+(and set `PGPASSWORD` the same way as above).
+
+#### Option A — `psql` inside the database pod (no local Postgres client needed)
+
+```bash
+kubectl exec -it jobber-postgresql-0 -n jobber -- bash -lc 'PGPASSWORD=postgres psql -U postgres -d postgres'
+```
+
+Then run SQL, for example:
+
+```sql
+\l
+\c jobs
+\dt
+\q
+```
+
+One-off query without an interactive session:
+
+```bash
+kubectl exec -it jobber-postgresql-0 -n jobber -- bash -lc 'PGPASSWORD=postgres psql -U postgres -d jobs -c "SELECT 1;"'
+```
+
+#### Option B — port-forward and use `psql` on your machine
+
+In one terminal:
+
+```bash
+kubectl port-forward -n jobber svc/jobber-postgresql 5432:5432
+```
+
+In another terminal (bash):
+
+```bash
+export PGPASSWORD=postgres
+psql -h 127.0.0.1 -p 5432 -U postgres -d jobs
+```
+
+On **PowerShell**:
+
+```powershell
+$env:PGPASSWORD = "postgres"
+psql -h 127.0.0.1 -p 5432 -U postgres -d jobs
+```
+
+If `psql` is not installed locally, use **Option A** or install the [PostgreSQL client](https://www.postgresql.org/download/) for your OS.
+
+#### Connection string (for tools like DBeaver, TablePlus, …)
+
+While port-forward is running:
+
+`postgresql://postgres:postgres@127.0.0.1:5432/jobs`
+
+Replace database name (`jobs`, `products`, or `jobber`) and password as needed.
+
+### PostgreSQL: wipe persistent data and start fresh
+
+Data lives in **PersistentVolumeClaims (PVCs)**, not in the pod. Deleting only the pod does **not** wipe the database. You must scale the **StatefulSet** to **0**, delete the data PVC(s), then scale back to **1**. Use the **StatefulSet** name (`jobber-postgresql`), not the pod name (`jobber-postgresql-0`).
+
+1. **List Postgres PVCs** (names may vary slightly with Helm release name):
+
+   ```bash
+   kubectl get pvc -n jobber
+   ```
+
+   For a single-instance release **`jobber`**, the data volume is usually **`data-jobber-postgresql-0`**. On PowerShell you can filter:
+
+   ```powershell
+   kubectl get pvc -n jobber | Select-String postgresql
+   ```
+
+2. **Stop PostgreSQL** (wait until the pod terminates, or PVC delete will fail as “in use”):
+
+   ```bash
+   kubectl get statefulset -n jobber
+   kubectl scale statefulset jobber-postgresql -n jobber --replicas=0
+   kubectl get pods -n jobber -w
+   ```
+
+   Stop watching with **Ctrl+C** once **`jobber-postgresql-0`** is no longer listed.
+
+3. **Delete the data PVC(s)**:
+
+   ```bash
+   kubectl delete pvc data-jobber-postgresql-0 -n jobber
+   ```
+
+   If your chart created **extra** PostgreSQL PVCs (uncommon for default Bitnami primary), delete those too—only for this instance.
+
+4. **Start PostgreSQL again**:
+
+   ```bash
+   kubectl scale statefulset jobber-postgresql -n jobber --replicas=1
+   kubectl get pods -n jobber -w
+   kubectl logs jobber-postgresql-0 -n jobber --tail=80
+   ```
+
+5. **Confirm new empty volumes**: new PVCs should show a **recent** age:
+
+   ```bash
+   kubectl get pvc -n jobber
+   ```
+
+**After a wipe:** app **init containers** (Prisma / Drizzle migrate) will recreate **schema** on the next deploy or rollout. Some migrations **seed** reference data (for example **categories** in the products app). Rows in **`products`** or other tables can also reappear if something **writes** to the API again—it does not always mean the old PVC survived.
+
+If a **PV** is stuck in **`Released`** with reclaim policy **Retain**, delete it after the PVC is gone: `kubectl delete pv <name>` (names from `kubectl get pv`).
+
+### Pulsar: clear backlog / pause consumers (example workflow)
+
+Useful when debugging stuck messages; adjust topic and subscription names to match your app.
+
+1. In application code, use an appropriate **subscription type** (e.g. **Shared**) on the Pulsar consumer if multiple instances should share work.
+2. Scale consumers down so nothing is reading the subscription:
+
+   ```bash
+   kubectl scale deployment executor -n jobber --replicas=0
+   ```
+
+3. From the broker pod (`exec` as above), under `/pulsar/bin`:
+
+   ```bash
+   ./pulsar-admin namespaces clear-backlog public/default
+   ```
+
+4. Scale consumers back up:
+
+   ```bash
+   kubectl scale deployment executor -n jobber --replicas=1
+   ```
+
+To inspect or remove a subscription on a topic, use `./pulsar-admin topics subscriptions …` and the matching unsubscribe/delete subcommand (see [Pulsar admin CLI](https://pulsar.apache.org/docs/next/admin-api-tools/)).
+
+### Validate Helm manifests (no cluster changes)
+
+From repo root:
+
+```bash
+helm template jobber ./charts/jobber -n jobber
+```
+
 ## Set up CI!
 
 ### Step 1
@@ -244,18 +584,3 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-- Enter Pulsar shell: `c`
-- enter bin folder: `cd bin`
-- enter sh pulsar: `kubectl exec --stdin --tty jobber-pulsar-broker-0 -n jobber -- sh`
-- get statistics: `./pulsar-admin topics stats persistent://public/default/fibonacci`
-- get kubernetes pods: `kubectl get pods -n jobber`
-- check pod logs: `kubectl logs executor-7fb6466965-2cfzn -n jobber --tail=100`
-- describe: `kubectl describe pod executor-7fb6466965-2cfzn -n jobber`
-- delete and repull iamge from aws ecr: `kubectl delete pod -l app=executor -n jobber`
-
-1. And subscriptionType: "Shared" to the ts file in the pulsar client
-2. Scale down executor service to 0 replicas: `kubectl scale deployment executor --replicas 0 -n jobber`
-3. Clear backlog: `./pulsar-admin namespaces clear-backlog public/default`
-4. Remove jobber subscription name from pulsar: `kubectl scale deployment executor --replicas=5 -n jobber`
-5. Set executor replicas 5: 

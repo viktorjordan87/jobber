@@ -33,6 +33,18 @@ export class JobsService implements OnModuleInit {
   }
 
   getJobs() {
+    return this.prisma.job.findMany();
+  }
+
+  getJob(jobId: number) {
+    return this.prisma.job.findUnique({
+      where: {
+        id: jobId,
+      },
+    });
+  }
+
+  getJobMetadata() {
     return this.jobs.map((job) => job.meta);
   }
 
@@ -52,6 +64,23 @@ export class JobsService implements OnModuleInit {
       job.meta.name,
     );
     return job.meta;
+  }
+
+  //eslint-disable-next-line @typescript-eslint/no-explicit-any
+  async executeJobMetadata(jobName: string, data: object | any) {
+    const job = this.jobs.find((job) => job.meta.name === jobName);
+    if (!job) {
+      throw new NotFoundException(`Job name: ${jobName} not found`);
+    }
+    if (!(job.discoveredClass.instance instanceof AbstractJob)) {
+      throw new InternalServerErrorException(
+        'Job is not an instance of AbstractJob',
+      );
+    }
+    return await job.discoveredClass.instance.execute(
+      data.fileName ? this.getFile(data.fileName) : data,
+      job.meta.name,
+    );
   }
 
   private getFile(fileName?: string) {

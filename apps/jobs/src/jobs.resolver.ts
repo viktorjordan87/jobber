@@ -4,6 +4,7 @@ import { JobsService } from './jobs.service';
 import { ExecuteJobDto } from './dto/execute-job.dto';
 import { GrpcGqlAuthGuard } from '@jobber/graphql';
 import { UseGuards } from '@nestjs/common';
+import { JobMetadata } from './models/job-metadata.model';
 
 @Resolver()
 export class JobsResolver {
@@ -15,10 +16,22 @@ export class JobsResolver {
     return this.jobService.getJobs();
   }
 
-  @Mutation(() => Job)
+  @Query(() => [Job], { name: 'job' })
+  @UseGuards(GrpcGqlAuthGuard)
+  async getJob(@Args('id') id: number) {
+    return this.jobService.getJob(id);
+  }
+
+  @Query(() => [JobMetadata], { name: 'jobsMetadata' })
+  @UseGuards(GrpcGqlAuthGuard)
+  async getJobMetadata() {
+    return this.jobService.getJobMetadata();
+  }
+
+  @Mutation(() => JobMetadata)
   @UseGuards(GrpcGqlAuthGuard)
   async executeJob(@Args('executeJobData') executeJobData: ExecuteJobDto) {
-    return this.jobService.executeJob(
+    return this.jobService.executeJobMetadata(
       executeJobData.jobName,
       executeJobData.data,
     );
