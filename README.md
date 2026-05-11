@@ -136,7 +136,7 @@ So: **Ingress = HTTP routing rules** at the edge of the cluster. It does **not**
 
 #### What this repo’s Ingress does
 
-The chart defines a single Ingress (`charts/jobber/templates/ingress.yaml`):
+The chart defines two Ingresses: **`ingress`** (`charts/jobber/templates/ingress.yaml`) for `/jobs` and `/auth`, and **`ingress-graphiql`** (`charts/jobber/templates/ingress-graphiql.yaml`) so **`/jobs/graphiql`** and **`/auth/graphiql`** rewrite to Mercurius’s real IDE path **`/graphiql`** (GraphQL POST stays **`/jobs/graphql`** and **`/auth/graphql`**).
 
 - **Host:** `jobber.local` — the controller only matches traffic that declares this host (browser/`curl` do that automatically when you open `http://jobber.local/...`).
 - **Ingress class:** `nginx` — handled by the **ingress-nginx** controller (installed separately, often in namespace `ingress-nginx`).
@@ -201,7 +201,7 @@ Workloads use **ClusterIP** Services, so nothing listens on your machine until y
 
 | App          | Command                                                        | Then open (examples)                                                                                     |
 | --------------| ----------------------------------------------------------------| ----------------------------------------------------------------------------------------------------------|
-| **jobs**     | `kubectl port-forward -n jobber svc/jobs-http 3001:3001`        | GraphiQL: `http://127.0.0.1:3001/graphiql` · GraphQL HTTP: `POST http://127.0.0.1:3001/graphql`          |
+| **jobs**     | `kubectl port-forward -n jobber svc/jobs-http 3001:3001`       | GraphiQL: `http://127.0.0.1:3001/graphiql` · GraphQL HTTP: `POST http://127.0.0.1:3001/graphql`          |
 | **auth**     | `kubectl port-forward -n jobber svc/auth-http 3000:3000`       | Same paths on port **3000** (`/graphiql`, `/graphql`). The Service is named **`auth-http`**, not `auth`. |
 | **executor** | `kubectl port-forward -n jobber deployment/executor 3002:3002` | HTTP on **3002** (this chart has no `Service` for executor; forward the **Deployment** instead).         |
 
@@ -658,3 +658,69 @@ And join the Nx community:
 - [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
 - [Our Youtube channel](https://www.youtube.com/@nxdevtools)
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+
+
+AWS CLI
+aws configure
+aws sts get-caller-identity
+
+eksctl utils associate-iam-oidc-provider --region eu-north-1 --cluster jobber-2 --approve
+
+aws iam create-policy --policy-name AWSLoadBalancerControllerIAMPolicy --policy-document file://C:/Projects/jobber/jobber/charts/docs/iam-policy.json
+
+https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/deploy/installation/
+
+eksctl create iamserviceaccount --cluster=jobber-2 --namespace=kube-system --name=aws-load-balancer-controller --attach-policy-arn=arn:aws:iam::677673473760:policy/AWSLoadBalancerControllerIAMPolicy --override-existing-serviceaccounts --region eu-north-1 --approve
+
+helm repo add eks https://aws.github.io/eks-charts
+
+IRSA
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n kube-system --set clusterName=jobber-2 --set serviceAccount.create=false --set serviceAccount.name=aws-load-balancer-controller
+
+kubectl get po -n kube-system
+
+https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html
+
+Amazon EBS CSI driver IAM role (IRSA)
+
+What this does: create the IAM role that the Kubernetes service account (`ebs-csi-controller-sa`) will use via IRSA.
+
+Why the managed policy ARN matters:
+If you use the wrong ARN, the EKS/CloudFormation step fails with an IAM error like:
+`Policy ... does not exist or is not attachable (404)`.
+
+In your AWS account, `AmazonEBSCSIDriverPolicyV2` is at:
+`arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicyV2` (not `/service-role/`).
+
+If you get a 404 again, confirm the correct ARN with:
+`aws iam get-policy --policy-arn arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicyV2`
+
+eksctl create iamserviceaccount \
+        --name ebs-csi-controller-sa \
+        --namespace kube-system \
+        --cluster jobber-2 \
+        --region eu-north-1 \
+        --role-name AmazonEKS_EBS_CSI_DriverRole \
+        --role-only \
+        --attach-policy-arn arn:aws:iam::aws:policy/AmazonEBSCSIDriverPolicyV2 \
+        --approve
+
+AmazonEKS_EBS_CSI_DriverRole
+ARN:
+
+arn:aws:iam::677673473760:role/AmazonEKS_EBS_CSI_DriverRole
+
+# Install the driver add-on (creates the `ebs-csi-controller-sa` service account)
+aws eks create-addon \
+        --cluster-name jobber-2 \
+        --addon-name aws-ebs-csi-driver \
+        --region eu-north-1 \
+        --service-account-role-arn arn:aws:iam::677673473760:role/AmazonEKS_EBS_CSI_DriverRole \
+        --resolve-conflicts OVERWRITE
+
+# Quick verification
+aws eks describe-addon --cluster-name jobber-2 --addon-name aws-ebs-csi-driver --region eu-north-1
+kubectl get pods -n kube-system | rg ebs-csi
+kubectl get sa ebs-csi-controller-sa -n kube-system
+

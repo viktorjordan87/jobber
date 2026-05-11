@@ -1,0 +1,29 @@
+# Mercurius serves GraphiQL at /graphiql while GraphQL HTTP stays under the Nest global
+# prefix (/jobs/graphql, /auth/graphql). Without a rewrite, /jobs/graphiql via ingress 404s.
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-graphiql
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /graphiql$1
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: jobber.local
+      http:
+        paths:
+          - path: /jobs/graphiql(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: jobs-http
+                port:
+                  number: {{ .Values.jobs.port.http }}
+          - path: /auth/graphiql(.*)
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: auth-http
+                port:
+                  number: {{ .Values.auth.port.http }}
